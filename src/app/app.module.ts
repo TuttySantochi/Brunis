@@ -6,13 +6,25 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CardComponent } from './components/card/card.component';
+import { NotasComponent } from './components/notas/notas.component';
+import { HomeComponent } from './views/home/home.component';
+import { ClientComponent } from './views/client/client.component';
+import { AdminComponent } from './views/admin/admin.component';
+import { ContactComponent } from './views/contact/contact.component';
+import { StockComponent } from './views/stock/stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    CardComponent
+    CardComponent,
+    NotasComponent,
+    HomeComponent,
+    ClientComponent,
+    AdminComponent,
+    ContactComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
