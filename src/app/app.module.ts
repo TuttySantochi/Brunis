@@ -12,6 +12,7 @@ import { ClientComponent } from './views/client/client.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { StockComponent } from './views/stock/stock.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StockComponent } from './views/stock/stock.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

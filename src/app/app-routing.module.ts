@@ -8,10 +8,10 @@ import { StockComponent } from './views/stock/stock.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  {path: "/admin", component: AdminComponent},
-  {path: "/clientId", component: ClientComponent},
-  {path: "/contact", component: ContactComponent },
-  {path: "/stock", component: StockComponent}
+  {path: "admin", component: AdminComponent},
+  {path: "client", component: ClientComponent},
+  {path: "contact", component: ContactComponent },
+  {path: "stock", component: StockComponent}
 ];
 
 @NgModule({
