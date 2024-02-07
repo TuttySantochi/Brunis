@@ -1,0 +1,33 @@
+.card{
+    width: 20rem;
+    height: 24rem;
+    margin: 0 0 50px 0;
+    &__img{
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 85%;
+        height: 55%;
+        &-picture{
+            border-radius: 5px;
+        }
+    }
+    &__list{
+        list-style: none;
+        &-item{
+            font-size: large;
+        }
+    }
+    &__footer{
+        // width: 50%;
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        &-button{
+            width: 40%;
+            &-link{
+                text-decoration: none;
+                color: rgba(106, 169, 241, 0.74);
+            }
+        }
+    }
+}
