@@ -1,13 +1,18 @@
 <div class="navbar">
-    <a class="navbar__links" href="">
-        <img class="navbar__links-img" src="assets/brunis.jpg" alt="">
-    </a>
     <div class="navbar__links">
-        <a class="navbar__links-item" href="admin">Admin</a>
-        <a class="navbar__links-item" href="contact">Contacto</a>
-        <a class="navbar__links-item" href="stock">Stock</a>
+        <a class="navbar__links-img" href="">
+            <img class="navbar__links-img-picture" src="assets/brunis.jpg" alt="">
+        </a>
+        <div class="navbar__links-acces">
+            <a class="navbar__links-acces-item" href="admin">Admin</a>
+            <a class="navbar__links-acces-item" href="contact">Contacto</a>
+            <a class="navbar__links-acces-item" href="stock">Stock</a>
+        </div>
     </div>
-    <div class="navbar__links">
-        <input class="navbar__links-search" type="text" placeholder="Buscar">
+    <div class="navbar__search">
+        <input class="navbar__search-input" type="text" placeholder="Buscar">
+        <button class="navbar__search-button">
+            <img class="navbar__search-button-img" src="data:image/png;base64,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" alt="Buscar">
+        </button>
     </div>
 </div>
