@@ -1,0 +1,7 @@
+.contact-section{
+    min-height: 70vh;
+    &__row{
+        display: flex;
+        justify-content: space-around;
+    }
+}

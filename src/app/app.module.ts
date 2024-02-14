@@ -13,6 +13,7 @@ import { AdminComponent } from './views/admin/admin.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { StockComponent } from './views/stock/stock.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ClientComponent,
     AdminComponent,
     ContactComponent,
-    StockComponent
+    StockComponent,
+    ContactSectionComponent
   ],
   imports: [
     BrowserModule,
