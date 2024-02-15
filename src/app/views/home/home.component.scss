@@ -4,3 +4,21 @@
         margin: 0 auto;
     }
 }
+
+.modal-button{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 110px;
+    left: 20px;
+    font-size: x-large;
+    border-radius: 100px;
+}
+
+.modal-body{
+    &__form{
+        &-input{
+            margin-bottom: 5px;
+        }
+    }
+}
