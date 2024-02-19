@@ -7,4 +7,49 @@
         </div>
     </div>
 </div>
+<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Contacto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" class="modal-body__form">
+                    <div class="modal-body__form-input">
+                        <label for="inputName" class="form-label">Nombre</label>
+                        <input class="modal-body__form-input form-control" id="inputName" type="text" placeholder="Nombre completo">
+                    </div>
+                    <div class="modal-body__form-input">
+                        <label for="inputLocation" class="form-label">Dirección</label>
+                        <input class="modal-body__form-input form-control" id="inputLocation" type="text" placeholder="Dirección">
+                    </div>
+                    <div class="modal-body__form-input">
+                        <label for="inputPhone" class="form-label">Teléfono</label>
+                        <input class="modal-body__form-input form-control" id="inputLocation" type="number" placeholder="Tel">
+                    </div>
+                    <div class="modal-body__form-select">
+                        <label for="SelectType">Tipo:</label>
+                        <select name="tipo" id="SelectType">
+                          <option value="cliente">Cliente</option>
+                          <option value="proveedor">Proveedor</option>
+                        </select>
+                    </div>
+                    <div class="modal-body__form-input">
+                        <label for="inputNotes" class="form-label">Notas</label>
+                        <textarea class="modal-body__form-input form-control" id="inputNotes" placeholder="Notas" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <app-footer></app-footer>
