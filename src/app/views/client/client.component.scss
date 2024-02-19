@@ -1,0 +1,28 @@
+*{
+    margin: 0 auto;
+}
+
+.work{
+    width: 85vw;
+    min-height: 70vh;
+    margin: 0 auto;
+    &__carousel{
+        width: 70%;
+        height: 400px;
+        overflow-y: hidden;
+        &-content{
+            &-pics{
+                // overflow-y: hidden;
+                &-item{
+                    &-photo{
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+    &__detail{
+        width: 70%;
+        margin: 0 auto;
+    }
+}

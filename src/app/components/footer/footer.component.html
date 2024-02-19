@@ -1,7 +1,45 @@
 <div class="footer container-fluid">
-    <div class="footer__row row">
-        <div class="footer__row-info"></div>
-        <div class="footer__row-redes"></div>
-        <div class="footer__row-utilidad"></div>
+    <div class="footer__content row">
+        <div class="footer__content-redes col-lg-4 col-md-4 col-sm-12"></div>
+        <div class="footer__content-logo col-lg-4 col-md-4 col-sm-12">
+            <a class="footer__content-logo-image" href="">
+                <img class="footer__content-logo-image-photo" src="../../../assets/brunis.jpg" alt="">
+            </a>
+            <div>
+                <h1 class="footer__content-logo-tittle">Brunis</h1>
+            </div>
+            <div>
+                <p class="footer__content-logo-text">Muebles a Medida</p>
+            </div>
+        </div>
+        <div class="footer__content-utilidad col-lg-4 col-md-4 col-sm-12">
+            <button type="button" class="footer__content-utilidad-button" data-bs-toggle="modal"
+                data-bs-target="#modalNotes">
+                <img src="../../../assets/notas.png" class="footer__content-utilidad-button-image" alt="">
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalNotes" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Tareas Pendientes</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <label class="form-label" for="randomeNotes">Nueva Tarea</label>
+                    <textarea class="form-control" id="randomeNotes" cols="10" rows="4"
+                        placeholder="Agregar tarea..."></textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>

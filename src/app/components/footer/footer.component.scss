@@ -1,8 +1,45 @@
 .footer{
-    // position: fixed;
-    bottom: 0;
-    left: 0;
+    // bottom: 0;
+    // left: 0;
     height: 120px;
     width: 100vw;
     background-color: brown;
+    &__content{
+        height: 100%;
+        &-logo{
+            display: block;
+            &-image{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 10px;
+                &-photo{
+                    width: 50px;
+                    border-radius: 100px;
+                }
+            }
+            &-tittle{
+                text-align: center;
+                font-size: medium;
+                margin: 5px 0px 0px 0px;
+            }
+            &-text{
+                text-align: center;
+                font-size: small;
+            }
+        }
+        &-utilidad{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &-button{
+                border: none;
+                border-radius: 10px;
+                &-image{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
 }
