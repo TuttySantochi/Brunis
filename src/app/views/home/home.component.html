@@ -1,87 +1,144 @@
 <div class="home container">
-    <div class="home__row row">
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-        <app-card class="home__row-card col-lg-4 col-md-4 col-sm-12" [entradaNombre]="nombre" [entradaColor]="color" [entradaTipo]="tipo"></app-card>
-    </div>
+  <div class="home__row row">
+    <app-card
+    *ngFor="let card of cards"
+      class="home__row-card col-lg-4 col-md-4 col-sm-12"
+      [entradaNombre]="card.nombre"
+      [entradaColor]="card.color"
+      [entradaTipo]="card.tipo"
+    ></app-card>
+    
+  </div>
 </div>
 
 <!-- Button trigger modal -->
-<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+<button
+  type="button"
+  class="modal-button btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  +
+</button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="" class="modal-body__form">
-                    <div class="modal-body__form-input">
-                        <label for="inputLocation" class="form-label">Dirección</label>
-                        <input class="modal-body__form-input form-control" id="inputLocation" type="text" placeholder="Ubi">
-                    </div>
-                    <div class="modal-body__form-select">
-                        <label for="SelectType">Tipo:</label>
-                        <select name="tipo" id="SelectType">
-                          <option value="casa">Casa</option>
-                          <option value="depto">Depto</option>
-                          <option value="comercio">Comercio</option>
-                          <option value="otro">Otro</option>
-                        </select>
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputElevator" class="form-label">Ascensor</label>
-                        <input class="modal-body__form-input form-control" id="inputElevator" type="text" placeholder="Ancho - Alto - Profundidad">
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputDoor" class="form-label">Puertas</label>
-                        <input class="modal-body__form-input form-control" id="inputDoor" type="text" placeholder="Ancho - Alto">
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputWall" class="form-label">Paredes</label>
-                        <input class="modal-body__form-input form-control" id="inputWall" type="text" placeholder="Tipo">
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputPipes" class="form-label">Cañerias</label>
-                        <input class="modal-body__form-input form-control" id="inputPipes" type="text" placeholder="Altura">
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputWiring" class="form-label">Cableado</label>
-                        <input class="modal-body__form-input form-control" id="inputWiring" type="text" placeholder="Altura">
-                    </div>
-                    <div class="modal-body__form-checkbox">
-                        <label for="inputPlinth"> Zócalo </label>
-                        <input type="checkbox" id="inputPlinth" name="plinth" value="Yes">
-                    </div>
-                    <div class="modal-body__form-checkbox">
-                        <label for="inputBench"> Banquina </label>
-                        <input type="checkbox" id="inputBench" name="bench" value="Yes">
-                    </div>
-                    <div class="modal-body__form-checkbox">
-                        <label for="inputPlugs"> Tomacorrientes </label>
-                        <input type="checkbox" id="inputPlugs" name="plugs" value="Yes">
-                    </div>
-                    <div class="modal-body__form-checkbox">
-                        <label for="inputCorbel"> Ménsulas </label>
-                        <input type="checkbox" id="inputCorbel" name="corbel" value="Yes">
-                    </div>
-                    <div class="modal-body__form-input">
-                        <label for="inputNotes" class="form-label">Notas</label>
-                        <textarea class="modal-body__form-input form-control" id="inputNotes" placeholder="Notas" rows="3"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
-            </div>
-        </div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="modal-body__form">
+          <div class="modal-body__form-input">
+            <label for="inputLocation" class="form-label">Dirección</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputLocation"
+              type="text"
+              placeholder="Ubi"
+            />
+          </div>
+          <div class="modal-body__form-select">
+            <label for="SelectType">Tipo:</label>
+            <select name="tipo" id="SelectType">
+              <option value="casa">Casa</option>
+              <option value="depto">Depto</option>
+              <option value="comercio">Comercio</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputElevator" class="form-label">Ascensor</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputElevator"
+              type="text"
+              placeholder="Ancho - Alto - Profundidad"
+            />
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputDoor" class="form-label">Puertas</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputDoor"
+              type="text"
+              placeholder="Ancho - Alto"
+            />
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputWall" class="form-label">Paredes</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputWall"
+              type="text"
+              placeholder="Tipo"
+            />
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputPipes" class="form-label">Cañerias</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputPipes"
+              type="text"
+              placeholder="Altura"
+            />
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputWiring" class="form-label">Cableado</label>
+            <input
+              class="modal-body__form-input form-control"
+              id="inputWiring"
+              type="text"
+              placeholder="Altura"
+            />
+          </div>
+          <div class="modal-body__form-checkbox">
+            <label for="inputPlinth"> Zócalo </label>
+            <input type="checkbox" id="inputPlinth" name="plinth" value="Yes" />
+          </div>
+          <div class="modal-body__form-checkbox">
+            <label for="inputBench"> Banquina </label>
+            <input type="checkbox" id="inputBench" name="bench" value="Yes" />
+          </div>
+          <div class="modal-body__form-checkbox">
+            <label for="inputPlugs"> Tomacorrientes </label>
+            <input type="checkbox" id="inputPlugs" name="plugs" value="Yes" />
+          </div>
+          <div class="modal-body__form-checkbox">
+            <label for="inputCorbel"> Ménsulas </label>
+            <input type="checkbox" id="inputCorbel" name="corbel" value="Yes" />
+          </div>
+          <div class="modal-body__form-input">
+            <label for="inputNotes" class="form-label">Notas</label>
+            <textarea
+              class="modal-body__form-input form-control"
+              id="inputNotes"
+              placeholder="Notas"
+              rows="3"
+            ></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary">Agregar</button>
+      </div>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -7,7 +7,22 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  nombre: string = 'Juan Perez';
-  tipo: string = 'Bajo Mesada';
-  color: string = 'Camelia';
+  cards = [
+    {nombre: 'May Toscano',
+    tipo: 'Cocina',
+    color: 'Grafito, Helsinki'},
+    {nombre: 'Rosa Silberstein',
+    tipo: 'Escritorio',
+    color: 'Camelia, Grafito'},
+    {nombre: 'Mariano Torres',
+    tipo: 'Vinoteca',
+    color: 'Lino Negro'},
+    {nombre: 'Nadia Atenor',
+    tipo: 'Rack TV',
+    color: 'Blanco, Concreto'},
+    {nombre: 'Nacho Arbeloa',
+    tipo: 'Cama Montessori',
+    color: 'Seda Giorno'}
+  ]
+ 
 }
