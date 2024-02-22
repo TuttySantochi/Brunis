@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 import { PhotosComponent } from './views/photos/photos.component';
 import { NotesComponent } from './views/notes/notes.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { NotesComponent } from './views/notes/notes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

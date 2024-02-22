@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class NotesComponent {
 
+  notitaNueva: string = '';
+
+  recibirNotita (notita: string){
+    this.notitaNueva = notita
+  }
 }

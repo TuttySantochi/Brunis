@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  nombre: string = 'Juan Perez';
+  tipo: string = 'Bajo Mesada';
+  color: string = 'Camelia';
 }
