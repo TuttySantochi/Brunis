@@ -14,5 +14,6 @@ export class CardComponent {
   @Input() entradaNombre: string = '';
   @Input() entradaTipo: string = '';
   @Input() entradaColor: string = '';
+  @Input() entradaImagen: string = '';
 
 }
