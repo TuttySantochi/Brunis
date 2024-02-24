@@ -6,4 +6,9 @@ import { Injectable } from '@angular/core';
 export class WorksService {
 
   constructor() { }
+
+  wroks: object[] = [
+    {ubicacion: "Hipolito Yrigoyen 207"
+  }
+  ]
 }

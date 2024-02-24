@@ -1,0 +1,50 @@
+{
+    "clients":[
+        {
+            "id": 1,
+            "name": "Juan Perez",
+            "Tipo": "Bahiud"
+        },
+        {
+            "id": 2,
+            "name": "Natalia Santochi",
+            "Tipo": "Mesa"
+        },
+        {
+            "id": 3,
+            "name": "Patricio Sirena",
+            "Tipo": "Ante baño"
+        }
+    ],
+    "contacts":[
+        {
+            "id": 1,
+            "name": "Juan Perez",
+            "phone": 1234123454123
+        },
+        {
+            "id": 2,
+            "name": "Natalia Santochi",
+            "phone": 53242346245
+        },
+        {
+            "id": 3,
+            "name": "Patricio Sirena",
+            "phone": 1234123454123
+        }
+    ],
+    "notes":[
+        {
+            "id": 1,
+            "text": "Llamar a Pepito"
+        },
+        {
+            "id": 2,
+            "text": "Comprar maderas"
+        },
+        {
+            "id": 3,
+            "text": "Hablar con flete"
+        }
+    ]
+}
