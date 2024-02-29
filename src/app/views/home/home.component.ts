@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NotesService } from 'src/app/services/notes.service';
+
 
 @Component({
   selector: 'app-home',
@@ -6,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(public notesService: NotesService) {}
+
 
   cards = [
     {nombre: 'May Toscano',

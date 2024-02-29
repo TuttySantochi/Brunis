@@ -15,6 +15,7 @@ import { ContactSectionComponent } from './components/contact-section/contact-se
 import { PhotosComponent } from './views/photos/photos.component';
 import { NotesComponent } from './views/notes/notes.component';
 import { FormsModule } from '@angular/forms';
+import { AddNotesComponent } from './components/add-notes/add-notes.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     StockComponent,
     ContactSectionComponent,
     PhotosComponent,
-    NotesComponent
+    NotesComponent,
+    AddNotesComponent
   ],
   imports: [
     BrowserModule,

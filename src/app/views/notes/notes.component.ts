@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NotesService } from 'src/app/services/notes.service';
 
 @Component({
   selector: 'app-notes',
@@ -7,9 +8,6 @@ import { Component } from '@angular/core';
 })
 export class NotesComponent {
 
-  notitaNueva: string = '';
+  constructor(public notesService: NotesService) {}
 
-  recibirNotita (notita: string){
-    this.notitaNueva = notita
-  }
-}
+ }

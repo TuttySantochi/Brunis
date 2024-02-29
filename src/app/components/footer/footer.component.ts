@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -7,12 +9,6 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class FooterComponent {
 
-  @Output() notitaDesdeFooter = new EventEmitter<string>();
   
-  notita: string = '';
-
-  enviarNotita () {
-    this.notitaDesdeFooter.emit(this.notita)
-  }
-
+ 
 }

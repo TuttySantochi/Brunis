@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NotesService } from 'src/app/services/notes.service';
+
 
 @Component({
   selector: 'app-contact',

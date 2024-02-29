@@ -1,7 +1,8 @@
-<div class="notes">
+<div>
     <ul>
-        <li>{{notitaNueva}}</li>
+        <li *ngFor="let note of notesService.notes"> {{note}} </li>
     </ul>
 </div>
 
-<app-footer (notitaDesdeFooter)="recibirNotita($event)" />
+
+<app-footer></app-footer>
