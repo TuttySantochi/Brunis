@@ -1,22 +1,37 @@
 {
-    "clients":[
+    "works": [
         {
-            "id": 1,
-            "name": "Juan Perez",
-            "Tipo": "Bahiud"
+            "nombre": "May Toscano",
+            "tipo": "Cocina",
+            "color": "Grafito, Helsinki",
+            "imagen": "assets/MayToscano.jpeg"
         },
         {
-            "id": 2,
-            "name": "Natalia Santochi",
-            "Tipo": "Mesa"
+            "nombre": "Rosa Silberstein",
+            "tipo": "Escritorio",
+            "color": "Camelia, Grafito",
+            "imagen": "assets/RositaSilberstein.jpeg"
         },
         {
-            "id": 3,
-            "name": "Patricio Sirena",
-            "Tipo": "Ante baño"
+            "nombre": "Mariano Torres",
+            "tipo": "Vinoteca",
+            "color": "Lino Negro",
+            "imagen": "assets/MarianoTorres.jpg"
+        },
+        {
+            "nombre": "Nadia Atenor",
+            "tipo": "Rack TV",
+            "color": "Blanco, Concreto",
+            "imagen": "assets/NadiaAtenor.jpeg"
+        },
+        {
+            "nombre": "Nacho Arbeloa",
+            "tipo": "Cama Montessori",
+            "color": "Seda Giorno",
+            "imagen": "assets/NachoArbeloa.jpeg"
         }
     ],
-    "contacts":[
+    "contacts": [
         {
             "id": 1,
             "name": "Juan Perez",
@@ -33,7 +48,7 @@
             "phone": 1234123454123
         }
     ],
-    "notes":[
+    "notes": [
         {
             "id": 1,
             "text": "Llamar a Pepito"
