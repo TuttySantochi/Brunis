@@ -7,10 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   
-  // nombre = '';
-  // tipo = '';
-  // color = '';
-
   @Input() entradaNombre: string = '';
   @Input() entradaTipo: string = '';
   @Input() entradaColor: string = '';

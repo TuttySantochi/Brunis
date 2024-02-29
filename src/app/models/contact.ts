@@ -1,5 +1,8 @@
 export interface Contact {
     id: number;
     name: string;
-    tipe: string;
+    location: string;
+    phone: number;
+    type: string;
+    notes: string;
 }
