@@ -1,5 +1,5 @@
 .home{
-    margin-top: 80px;
+    margin-top: 50px;
     &__row{
         margin: 0 auto;
     }
@@ -19,6 +19,9 @@
     &__form{
         &-input{
             margin-bottom: 5px;
+            &-checkbox{
+                margin-left: 5px;
+            }
         }
     }
 }

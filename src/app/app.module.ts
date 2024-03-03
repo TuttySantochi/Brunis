@@ -16,6 +16,8 @@ import { PhotosComponent } from './views/photos/photos.component';
 import { NotesComponent } from './views/notes/notes.component';
 import { FormsModule } from '@angular/forms';
 import { AddNotesComponent } from './components/add-notes/add-notes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { AddNotesComponent } from './components/add-notes/add-notes.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
