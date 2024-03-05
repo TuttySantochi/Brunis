@@ -34,13 +34,18 @@
                             placeholder="Dirección" formControlName="location" />
                     </div>
                     <div class="modal-body__form-input">
-                        <label for="SelectType" class="form-label">Tipo:</label>
-                        <select class="form-control" name="tipo" id="SelectType" formControlName="furnitureType">
-                            <option value="casa">Casa</option>
-                            <option value="depto">Depto</option>
-                            <option value="comercio">Comercio</option>
-                            <option value="otro">Otro</option>
+                        <label for="SelectType" class="form-label">Tipo de vivienda:</label>
+                        <select class="form-control" id="SelectType" formControlName="type">
+                            <option value="Casa">Casa</option>
+                            <option value="Depto">Depto</option>
+                            <option value="Comercio">Comercio</option>
+                            <option value="Otro">Otro</option>
                         </select>
+                    </div>
+                    <div class="modal-body__form-input">
+                        <label for="inputFurnitureType" class="form-label">Tipo de mueble</label>
+                        <input class="modal-body__form-input form-control" id="inputFurnitureType" type="text"
+                            placeholder="Tipo de mueble" formControlName="furnitureType" />
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputFurnitureColor" class="form-label">Color del mueble</label>
@@ -93,7 +98,7 @@
                             id="inputCorbel" name="corbel" value="Yes" />
                     </div>
                     <div class="modal-body__form-input">
-                        <label for="inputPicture" class="form-label">Ascensor</label>
+                        <label for="inputPicture" class="form-label">Fotos</label>
                         <input formControlName="picture" class="modal-body__form-input form-control" id="inputPicture"
                             type="text" placeholder="Fotos" />
                     </div>
@@ -102,11 +107,11 @@
                         <textarea formControlName="notes" class="modal-body__form-input form-control" id="inputNotes"
                             placeholder="Notas" rows="3"></textarea>
                     </div>
-                    <div class="modal-buttons">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <div class="modal-buttons mt-2 text-center">
+                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal" (click)="clear()">
                             Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary">Agregar</button>
+                        <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Agregar</button>
                     </div>
                 </form>
             </div>

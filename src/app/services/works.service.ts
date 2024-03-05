@@ -9,30 +9,16 @@ import {Observable} from 'rxjs'
 })
 export class WorksService {
   
-  url: string = "http://localhost:3000/works"
-
-  // constructor(){}
-
-  // async getWorks (): Promise<Work[] | undefined>{
-  //   try {
-  //     const result = await fetch(this.url)
-  //     const works = result.json()
-  //     console.log(works);
-      
-  //     return works
-  //   } catch (error) {
-  //     console.log(error);   
-  //   }
-  //   return undefined
-  // }
+  private url: string = "http://localhost:5000/works"
 
   constructor(private http: HttpClient) {}
+
 
   getWorks () : Observable<Work[]>{
     return this.http.get<Work[]>(this.url)
   }
 
-  getWork(id: number): Observable<Work> {
+  getWork(id: string): Observable<Work> {
     return this.http.get<Work>(`${this.url}/${id}`);
   }
 
@@ -40,11 +26,11 @@ export class WorksService {
     return this.http.post(this.url, work);
   }
 
-  updateWork(id: number, work: Work) {
+  updateWork(id: string, work: Work) {
     return this.http.put(`${this.url}/${id}`, work);
   }
 
-  deleteWork(id: number) {
+  deleteWork(id: string) {
     return this.http.delete(`${this.url}/${id}`);
   }
 

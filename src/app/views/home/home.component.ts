@@ -33,6 +33,16 @@ export class HomeComponent implements OnInit {
       notes: new FormControl(''),
     });
   }
+
+  ngOnInit(): void {
+    this.getWorks();
+  }
+
+  clear(){
+    this.form.reset()
+    this.ngOnInit()
+  }
+
   getWorks(): void {
     this.WorksServices.getWorks().subscribe({
       next: (data: Work[]) =>{
@@ -41,48 +51,28 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  // getWork(): void {
+  //   this.WorksServices.getWork(this.id).subscribe({
+  //     next: (data: Work) =>{
+
+  //     }
+  //   })
+  // }
+
+  deleteWork(id: string): void{
+    this.WorksServices.deleteWork(id).subscribe({
+      next: ()=>{
+        this.getWorks()
+      }
+    })
+  }
   
   onSubmit (){
     const work = this.form.value;
     console.log(work);
     
     this.WorksServices.addWork(work).subscribe()
-  }
-  
-  ngOnInit(): void {
-    this.getWorks();
+    this.clear()
   }
 
-  // cards = [
-  //   {
-  //     nombre: 'May Toscano',
-  //     tipo: 'Cocina',
-  //     color: 'Grafito, Helsinki',
-  //     imagen: 'assets/MayToscano.jpeg',
-  //   },
-  //   {
-  //     nombre: 'Rosa Silberstein',
-  //     tipo: 'Escritorio',
-  //     color: 'Camelia, Grafito',
-  //     imagen: 'assets/RositaSilberstein.jpeg',
-  //   },
-  //   {
-  //     nombre: 'Mariano Torres',
-  //     tipo: 'Vinoteca',
-  //     color: 'Lino Negro',
-  //     imagen: 'assets/MarianoTorres.jpg',
-  //   },
-  //   {
-  //     nombre: 'Nadia Atenor',
-  //     tipo: 'Rack TV',
-  //     color: 'Blanco, Concreto',
-  //     imagen: 'assets/NadiaAtenor.jpeg',
-  //   },
-  //   {
-  //     nombre: 'Nacho Arbeloa',
-  //     tipo: 'Cama Montessori',
-  //     color: 'Seda Giorno',
-  //     imagen: 'assets/NachoArbeloa.jpeg',
-  //   },
-  // ];
 }
