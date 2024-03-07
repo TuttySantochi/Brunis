@@ -25,10 +25,10 @@ export class HomeComponent implements OnInit {
       walls: new FormControl(''),
       pipes: new FormControl(''),
       wiring: new FormControl(''),
-      plinth: new FormControl(''),
-      bench: new FormControl(''),
-      plugs: new FormControl(''),
-      corbel: new FormControl(''),
+      plinth: new FormControl(false),
+      bench: new FormControl(false),
+      plugs: new FormControl(false),
+      corbel: new FormControl(false),
       picture: new FormControl(''),
       notes: new FormControl(''),
     });
@@ -59,13 +59,13 @@ export class HomeComponent implements OnInit {
   //   })
   // }
 
-  deleteWork(id: string): void{
-    this.WorksServices.deleteWork(id).subscribe({
-      next: ()=>{
-        this.getWorks()
-      }
-    })
-  }
+  // deleteWork(id: string): void{
+  //   this.WorksServices.deleteWork(id).subscribe({
+  //     next: ()=>{
+  //       this.getWorks()
+  //     }
+  //   })
+  // }
   
   onSubmit (){
     const work = this.form.value;

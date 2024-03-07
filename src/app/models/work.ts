@@ -1,5 +1,5 @@
 export interface Work {
-    id: number;
+    id: string;
     clientName: string;
     furnitureType: string;
     furnitureColor: string;

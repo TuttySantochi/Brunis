@@ -12,7 +12,7 @@ export class WorksService {
   private url: string = "http://localhost:5000/works"
 
   constructor(private http: HttpClient) {}
-
+  
 
   getWorks () : Observable<Work[]>{
     return this.http.get<Work[]>(this.url)

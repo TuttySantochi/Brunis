@@ -1,6 +1,6 @@
 <div class="card mb-5">
     <div class="card__img mb-2">
-        <img src= "{{entradaImagen}}" class="card__img-picture" alt="Imagen de trabajos">
+        <img src="{{entradaImagen}}" class="card__img-picture" alt="Imagen de trabajos">
     </div>
     <ul class="card__list">
         <li class="card__list-item">{{entradaNombre}}</li>
@@ -11,8 +11,126 @@
         <button class="card__footer-button btn btn-dark">
             <a href="client" class="card__footer-button-link">Ver</a>
         </button>
-        <button class="card__footer-button btn btn-dark">
-            <a href="" class="card__footer-button-link">Eliminar</a>
+        <button class="card__footer-button btn btn-dark" (click)="selectWork(entradaId)" data-bs-toggle="modal" data-bs-target="#deleteModal">
+            Eliminar
         </button>
     </div>
 </div>
+
+<div class="modal" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <span>Estas segura de eliminar este trabajo?</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteWork()">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- {
+    "clientName": "May Toscano",
+    "furnitureType": "Cocina",
+    "furnitureColor": "Grafito, Helsinki",
+    "picture": "assets/MayToscano.jpeg",
+    "id": "5bed"
+  },
+  {
+    "clientName": "Rosa Silberstein",
+    "furnitureType": "Escritorio",
+    "furnitureColor": "Camelia, Grafito",
+    "picture": "assets/RositaSilberstein.jpeg",
+    "id": "760c"
+  },
+  {
+    "clientName": "Mariano Torres",
+    "furnitureType": "Vinoteca",
+    "furnitureColor": "Lino Negro",
+    "picture": "assets/MarianoTorres.jpg",
+    "id": "8157"
+  },
+  {
+    "clientName": "Nadia Atenor",
+    "furnitureType": "Rack TV",
+    "furnitureColor": "Blanco, Concreto",
+    "picture": "assets/NadiaAtenor.jpeg",
+    "id": "e713"
+  },
+  {
+    "clientName": "Nacho Arbeloa",
+    "furnitureType": "Cama Montessori",
+    "furnitureColor": "Seda Giorno",
+    "picture": "assets/NachoArbeloa.jpeg",
+    "id": "e2d8"
+  },
+  {
+    "clientName": "Nacho Arbeloa",
+    "furnitureType": "Cama Montessori",
+    "furnitureColor": "Seda Giorno",
+    "picture": "assets/NachoArbeloa.jpeg",
+    "id": "5ebb"
+  },
+  {
+    "id": "f850",
+    "clientName": "klasjdbil",
+    "furnitureType": "añsdjnf",
+    "furnitureColor": "ñlkasndfn",
+    "location": "ñasjdnasñn",
+    "type": "Casa",
+    "elevator": "ñasdkfnsñdofnk",
+    "doors": "ñsdjfnasdofn",
+    "walls": "",
+    "pipes": "",
+    "wiring": "",
+    "plinth": "",
+    "bench": "",
+    "plugs": "",
+    "corbel": "",
+    "picture": "",
+    "notes": ""
+  },
+  {
+    "id": "aa8c",
+    "clientName": "askjdcnaskldcn",
+    "furnitureType": "ñaskdjn",
+    "furnitureColor": "ÑWLNASDÑN",
+    "location": "ñkwjnasñdkfn",
+    "type": "Casa",
+    "elevator": "ASDN",
+    "doors": "ñsdnvñkln",
+    "walls": "ñskldjfvn",
+    "pipes": "",
+    "wiring": "",
+    "plinth": "",
+    "bench": "",
+    "plugs": "",
+    "corbel": "",
+    "picture": "",
+    "notes": ""
+  },
+  {
+    "id": "efa9",
+    "clientName": "sndcvkn",
+    "furnitureType": "asjdfpin",
+    "furnitureColor": "pjasndpfasjndf",
+    "location": "ñksdcnaskdc",
+    "type": "Casa",
+    "elevator": "",
+    "doors": "",
+    "walls": "",
+    "pipes": "",
+    "wiring": "",
+    "plinth": "",
+    "bench": "",
+    "plugs": "",
+    "corbel": "",
+    "picture": "",
+    "notes": ""
+  } -->

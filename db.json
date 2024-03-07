@@ -1,46 +1,61 @@
 {
   "works": [
     {
-      "clientName": "May Toscano",
-      "furnitureType": "Cocina",
-      "furnitureColor": "Grafito, Helsinki",
-      "picture": "assets/MayToscano.jpeg",
-      "id": "5bed"
+      "id": "e949",
+      "clientName": "askdjfasldfj",
+      "furnitureType": "laskdnfsdñklfn",
+      "furnitureColor": "ñasldkfnasñdn",
+      "location": "kasjdfbasjkld",
+      "type": "Casa",
+      "elevator": "ñasjkldnfasdñkfn",
+      "doors": "añsldfnasdñlfn",
+      "walls": "ñalsdfnasdlfn",
+      "pipes": "ñasldjnfasdñkl",
+      "wiring": "asñkdjfn",
+      "plinth": false,
+      "bench": true,
+      "plugs": true,
+      "corbel": false,
+      "picture": "kajsdfhasd",
+      "notes": "ñljasndñfkjnsdf"
     },
     {
-      "clientName": "Rosa Silberstein",
-      "furnitureType": "Escritorio",
-      "furnitureColor": "Camelia, Grafito",
-      "picture": "assets/RositaSilberstein.jpeg",
-      "id": "760c"
+      "id": "88a9",
+      "clientName": "Tutty",
+      "furnitureType": "lasdjfbasdiob",
+      "furnitureColor": "pasjdfnasdifn",
+      "location": "Villa Carmela",
+      "type": "Casa",
+      "elevator": "asjkdfbasidfj",
+      "doors": "pasdjfsdi",
+      "walls": "paksdjfnasdpf",
+      "pipes": "askdjfnasd",
+      "wiring": "aksjdfnasdf",
+      "plinth": false,
+      "bench": false,
+      "plugs": true,
+      "corbel": true,
+      "picture": "https://ciudad-muebles.com.ar/wp-content/uploads/2021/12/350-y-376-Madera-Natural-y-Blanco-EDITADO.jpg",
+      "notes": "asdklbjasdfl"
     },
     {
-      "clientName": "Mariano Torres",
-      "furnitureType": "Vinoteca",
-      "furnitureColor": "Lino Negro",
-      "picture": "assets/MarianoTorres.jpg",
-      "id": "8157"
-    },
-    {
-      "clientName": "Nadia Atenor",
-      "furnitureType": "Rack TV",
-      "furnitureColor": "Blanco, Concreto",
-      "picture": "assets/NadiaAtenor.jpeg",
-      "id": "e713"
-    },
-    {
-      "clientName": "Nacho Arbeloa",
-      "furnitureType": "Cama Montessori",
-      "furnitureColor": "Seda Giorno",
-      "picture": "assets/NachoArbeloa.jpeg",
-      "id": "e2d8"
-    },
-    {
-      "clientName": "Nacho Arbeloa",
-      "furnitureType": "Cama Montessori",
-      "furnitureColor": "Seda Giorno",
-      "picture": "assets/NachoArbeloa.jpeg",
-      "id": "5ebb"
+      "id": "ffd6",
+      "clientName": "Pato",
+      "furnitureType": "askdjfbsd",
+      "furnitureColor": "kajsdnflskdn",
+      "location": "Hirigoyen 207",
+      "type": "Depto",
+      "elevator": "askdjfnsdkf",
+      "doors": "aslkdjfbsdklf",
+      "walls": "alskdjfasdkfaskjdfns",
+      "pipes": "aslknd faskld ",
+      "wiring": "laskdfn ",
+      "plinth": false,
+      "bench": false,
+      "plugs": true,
+      "corbel": false,
+      "picture": "https://acdn.mitiendanube.com/stores/243/765/products/e84d1eac-ad79-4e92-b818-e7575ccdf87e1-3611d44a0ef6847e8216765986959975-1024-1024.jpeg",
+      "notes": "baskdjb"
     }
   ],
   "contacts": [

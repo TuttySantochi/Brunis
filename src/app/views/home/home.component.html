@@ -2,7 +2,7 @@
     <div class="home__row row">
         <app-card *ngFor="let work of worksList" class="home__row-card col-lg-4 col-md-4 col-sm-12"
             [entradaNombre]="work.clientName" [entradaColor]="work.furnitureColor" [entradaTipo]="work.furnitureType"
-            [entradaImagen]="work.picture">
+            [entradaImagen]="work.picture" [entradaId]="work.id">
         </app-card>
 
     </div>
