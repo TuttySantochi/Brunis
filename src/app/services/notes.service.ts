@@ -1,18 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Note } from '../models/note';
 
-const urlNotes= "http://localhost:3000/notes"
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
 
-  constructor() { }
+ private urlNotes= "http://localhost:5000/notes"
 
-  notes: string[] = ['hola tutty'];
+  constructor(private http:HttpClient) { }
 
-  addNote(note: string) {
-    this.notes.push(note);
+
+  notes: Note[] = [];
+
+  addNote(note: Note) {
+    return this.http.post(this.urlNotes, note);
   }
+  
   
 }

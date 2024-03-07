@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NotesService } from  'src/app/services/notes.service';
+import { Note } from '../../models/note';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -9,12 +11,16 @@ import { NotesService } from  'src/app/services/notes.service';
 })
 export class AddNotesComponent {
 
-  constructor(public notesService : NotesService) {}
-
-  note: string = '';
-
-  addNote(){
-    this.notesService.addNote(this.note);
-    this.note = '';
+  form: FormGroup;
+  constructor(private notesService : NotesService) {
+    this.form = new FormGroup ({
+      text: new  FormControl('')
+    })
+    }
+    addNote(){      
+      const note = this.form.value;
+      this.notesService.addNote(note).subscribe();
+      console.log(note)
+      }
+  
   }
-}
