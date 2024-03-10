@@ -14,10 +14,13 @@ const routes: Routes = [
   { path: 'client', component: ClientComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'stock', component: StockComponent },
+  { path: '**', component: HomeComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{
+    bindToComponentInputs: true
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
