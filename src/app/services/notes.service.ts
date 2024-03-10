@@ -20,6 +20,22 @@ export class NotesService {
   addNote(note: Note) {
     return this.http.post(this.urlNotes, note);
   }
+
+  getNotes () : Observable<Note[]>{
+    return this.http.get<Note[]>(this.urlNotes)
+  }
+
+  getNote (id: string) : Observable<Note>{
+    return this.http.get<Note>(`${this.urlNotes}/${id}`)
+  }
+
+  deleteNotes(id: string) {
+    return this.http.delete(`${this.urlNotes}/${id}`);
+  }
+
+  updateNote(id: string, note: Note) {
+    return this.http.put(`${this.urlNotes}/${id}`, note);
+  }
   
   
 }

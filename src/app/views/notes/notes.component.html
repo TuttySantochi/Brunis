@@ -1,8 +1,10 @@
-<div>
-    <ul>
-        <li *ngFor="let note of notesService.notes"> {{note}} </li>
+<h1>Notas Sueltas</h1>
+
+
+<div  class="noteBox">
+    <ul class="noteBox__list">
+        <li *ngFor="let note of noteList" class="{{(note.completed)?'':'isDone'}}"> {{note.text}} - <button (click)="isDone(note.id)">✔</button><button (click)="selectWork(note.id)" >❌</button></li>
     </ul>
 </div>
-
 
 <app-footer></app-footer>
