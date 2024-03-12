@@ -14,6 +14,9 @@ export class CardComponent {
     clientName: '',
     furnitureType: '',
     furnitureColor: '',
+    woodType:'',
+    price: 0,
+    deadline: '',
     location: '',
     type: '',
     elevator: '',
@@ -37,7 +40,7 @@ export class CardComponent {
   @Input() entradaImagen: string = '';
   @Input() entradaId: string = '';
 
-  selectWork(id: string): void {
+  selectWork(id: string){
     Swal.fire({
       icon: 'warning',
       title: 'Desea eliminar este trabajo?',

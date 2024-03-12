@@ -3,6 +3,9 @@ export interface Work {
     clientName: string;
     furnitureType: string;
     furnitureColor: string;
+    woodType: string;
+    price: number;
+    deadline: string;
     location: string;
     type: string;
     elevator: string;
