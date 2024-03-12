@@ -14,13 +14,14 @@ export class AddNotesComponent {
   form: FormGroup;
   constructor(private notesService : NotesService) {
     this.form = new FormGroup ({
-      text: new  FormControl('')
+      text: new  FormControl(''), 
+      completed: new FormControl (false),
     })
     }
     addNote(){      
       const note = this.form.value;
       this.notesService.addNote(note).subscribe();
-      console.log(note)
+      window.location.reload();
       }
   
   }
