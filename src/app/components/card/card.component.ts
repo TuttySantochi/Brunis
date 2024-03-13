@@ -54,7 +54,7 @@ export class CardComponent {
         Swal.fire({
           title: 'No se elimino el trabajo',
           icon: 'error',
-          timer: 3000,
+          timer: 2000,
           showConfirmButton: false
         });
       }
@@ -67,12 +67,12 @@ export class CardComponent {
         Swal.fire({
           title:'Eliminado con exito', 
           icon: 'success',
-          timer: 3000,
+          timer: 2000,
           showConfirmButton: false
         });
         setTimeout(() => {
           window.location.reload();
-        }, 3000);
+        }, 2000);
       }
     });
   }

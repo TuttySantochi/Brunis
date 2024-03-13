@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { AddNotesComponent } from './components/add-notes/add-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ClientCardComponent } from './components/client-card/client-card.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactSectionComponent,
     PhotosComponent,
     NotesComponent,
-    AddNotesComponent
+    AddNotesComponent,
+    ClientCardComponent
   ],
   imports: [
     BrowserModule,

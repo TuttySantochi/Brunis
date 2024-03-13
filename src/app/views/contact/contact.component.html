@@ -1,13 +1,10 @@
-<div class="contact text-center mb-5">
+<div class="contact text-center mb-5 container-fluid">
     <h1 class="contact__title m-5">Contactos</h1>
-    <div class="contact__sections container-fluid">
-        <div class="row">
-            <app-contact-section class="contact__sections-clients col-lg-6 col-md-6 col-sm-12"></app-contact-section>
-            <app-contact-section class="contact__sections-providers col-lg-6 col-md-6 col-sm-12"></app-contact-section>
-        </div>
-    </div>
+    <app-contact-section/>
 </div>
-<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+
+<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -18,35 +15,37 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="modal-body__form">
+                <form action="" class="modal-body__form" (ngSubmit)="onSubmit()" [formGroup]="form">
                     <div class="modal-body__form-input">
                         <label for="inputName" class="form-label">Nombre</label>
-                        <input class="modal-body__form-input form-control" id="inputName" type="text" placeholder="Nombre completo">
+                        <input class="modal-body__form-input form-control" id="inputName" type="text"
+                            placeholder="Nombre completo" formControlName='name'>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputLocation" class="form-label">Dirección</label>
-                        <input class="modal-body__form-input form-control" id="inputLocation" type="text" placeholder="Dirección">
+                        <input class="modal-body__form-input form-control" id="inputLocation" type="text"
+                            placeholder="Dirección" formControlName='location'>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputPhone" class="form-label">Teléfono</label>
-                        <input class="modal-body__form-input form-control" id="inputLocation" type="number" placeholder="Tel">
+                        <input class="modal-body__form-input form-control" id="inputLocation" type="number"
+                            placeholder="Tel" formControlName='phone'>
                     </div>
                     <div class="modal-body__form-select">
-                        <label for="SelectType">Tipo:</label>
-                        <select name="tipo" id="SelectType">
-                          <option value="cliente">Cliente</option>
-                          <option value="proveedor">Proveedor</option>
+                        <label for="SelectType" class="form-label">Tipo:</label>
+                        <select name="type" id="SelectType" class="form-control" formControlName='type'>
+                            <option value="client">Cliente</option>
+                            <option value="provider">Proveedor</option>
                         </select>
                     </div>
                     <div class="modal-body__form-input">
-                        <label for="inputNotes" class="form-label">Notas</label>
-                        <textarea class="modal-body__form-input form-control" id="inputNotes" placeholder="Notas" rows="3"></textarea>
+                        <label for="inputCalification" class="form-label">calification</label>
+                        <input class="modal-body__form-input form-control" id="inputCalification" placeholder="Castores"
+                            type="number" formControlName='calification'>
                     </div>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Agregar</button>
             </div>
         </div>
     </div>

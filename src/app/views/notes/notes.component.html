@@ -1,10 +1,10 @@
-<h1>Notas Sueltas</h1>
-
-
-<div  class="noteBox">
-    <ul class="noteBox__list">
-        <li *ngFor="let note of noteList" class="{{(note.completed)?'':'isDone'}}"> {{note.text}} - <button (click)="isDone(note.id)">✔</button><button (click)="selectWork(note.id)" >❌</button></li>
-    </ul>
+<div class="notes">
+    <h1 class="notes__tittle">Notas Sueltas</h1>
+    <div class="notes__box">
+        <ul class="notes__box-list">
+            <li *ngFor="let note of noteList" class="{{(note.completed)?'notes__box-list-isDone':''}}"> {{note.text}} - <button (click)="isDone(note.id)">✔</button><button (click)="selectWork(note.id)" >❌</button></li>
+        </ul>
+    </div>
 </div>
 
 <app-footer></app-footer>

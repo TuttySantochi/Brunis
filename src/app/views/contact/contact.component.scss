@@ -7,3 +7,18 @@
     font-size: x-large;
     border-radius: 100px;
 }
+
+.contact{
+    min-height: 600px;
+}
+
+.section-tittle{
+    max-height: 50px;
+}
+
+.contact__section-providers{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    
+}

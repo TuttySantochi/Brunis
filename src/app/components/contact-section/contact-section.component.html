@@ -1,60 +1,35 @@
-<div class="contact-section container-fluid">
-    <h3 class="contact-section__title">Clientes/Proveedores</h3>
-    <div class="contact-section__row row">
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
+<div class="contact-section">
+    <div class="contact-section__body container-fluid mb-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 container">
+                <div class="contact-section__body-tittle mb-5">
+                    <h2>Clientes</h2>
+                </div>
+                <div class="contact-section__body-cards row d-flex justify-content-between">
+                    <app-client-card
+                    class="col-sm-12 col-md-6 col-lg-6"
+                    *ngFor="let contact of clientContact"
+                    [name]="contact.name"
+                    [location]="contact.location"
+                    [phone]="contact.phone"
+                    [calification]="contact.calification"
+                    />
+                </div>
             </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
-            </div>
-        </div>
-        <div class="contact-section__row-card card text-bg-dark mb-3 col-lg-4 col-md-4 col-sm-12 m-3">
-            <h3 class="contact-section__row-card-header card-header">Nombre</h3>
-            <div class="contact-section__row-card-body card-body">
-                <h5 class="contact-section__row-card-body-title card-title">Telefono</h5>
-                <p class="contact-section__row-card-body-text card-text">123456789.</p>
+            <div class="col-sm-12 col-md-6 col-lg-6 container">
+                <div class="contact-section__body-tittle mb-5">
+                    <h2>Proveedores</h2>
+                </div>
+                <div class="contact-section__body-cards row d-flex justify-content-between">
+                    <app-client-card
+                    class="col-sm-12 col-md-6 col-lg-6"
+                    *ngFor="let contact of providerContact"
+                    [name]="contact.name"
+                    [location]="contact.location"
+                    [phone]="contact.phone"
+                    [calification]="contact.calification"
+                    />
+                </div>
             </div>
         </div>
     </div>

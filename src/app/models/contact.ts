@@ -4,5 +4,5 @@ export interface Contact {
     location: string;
     phone: number;
     type: string;
-    notes: string;
+    calification: number;
 }

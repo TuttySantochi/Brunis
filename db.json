@@ -1,28 +1,6 @@
 {
   "works": [
     {
-      "id": "ce61",
-      "clientName": "Patricio Sirena",
-      "furnitureType": "Rack",
-      "furnitureColor": "Gris",
-      "woodType": "Roble",
-      "price": 600000,
-      "deadline": "12/08/2018",
-      "location": "Hipolito Yrigoyen 207",
-      "type": "Casa",
-      "elevator": "No",
-      "doors": "90cm - 220cm",
-      "walls": "Ladrillo",
-      "pipes": "120cm",
-      "wiring": "200cm",
-      "plinth": false,
-      "bench": false,
-      "plugs": true,
-      "corbel": false,
-      "picture": "https://acdn.mitiendanube.com/stores/865/441/products/mesa-rack-tv-paris-factorymuebles3-7466fc234ac3e3e27116039014829625-640-0.jpg",
-      "notes": "Alguna nota de prueba\nAlguna nota de prueba\nAlguna nota de prueba\nAlguna nota de prueba\nAlguna nota de prueba"
-    },
-    {
       "id": "cc46",
       "clientName": "Tutty",
       "furnitureType": "Bajomesada Cocina",
@@ -43,29 +21,127 @@
       "corbel": true,
       "picture": "https://acdn.mitiendanube.com/stores/499/234/products/clasico1-5a314f10a3eb76d8e516662796616729-640-0.png",
       "notes": "Algunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba"
+    },
+    {
+      "id": "2b53",
+      "clientName": "Vale",
+      "furnitureType": "Estanteria",
+      "furnitureColor": "Algun color",
+      "woodType": "Algun tipo de madera",
+      "price": 340000,
+      "deadline": "",
+      "location": "Nueva direccion",
+      "type": "Depto",
+      "elevator": "2mts - 2.5mts - 2mts",
+      "doors": "240 - 90",
+      "walls": "Durlock",
+      "pipes": "140cm",
+      "wiring": "180cm",
+      "plinth": false,
+      "bench": false,
+      "plugs": true,
+      "corbel": false,
+      "picture": "https://dcdn.mitiendanube.com/stores/801/511/products/malibu-21-20acb47cafda13d6d116401945303735-640-0.jpg",
+      "notes": "-Algunas notas de prueba \n-Algunas notas de prueba\n-Algunas notas de prueba\n-Algunas notas de prueba\n-Algunas notas de prueba"
+    },
+    {
+      "id": "a76d",
+      "clientName": "Patricio Sirena",
+      "furnitureType": "Rack",
+      "furnitureColor": "Gris",
+      "woodType": "Algun tipo de madera",
+      "price": 500000,
+      "deadline": "2022-06-08",
+      "location": "Hipolito Yrigoyen 207",
+      "type": "Casa",
+      "elevator": "n",
+      "doors": "240 - 90",
+      "walls": "Ladrillo",
+      "pipes": "120",
+      "wiring": "200",
+      "plinth": false,
+      "bench": false,
+      "plugs": false,
+      "corbel": true,
+      "picture": "https://acdn.mitiendanube.com/stores/865/441/products/mesa-rack-tv-paris-factorymuebles3-7466fc234ac3e3e27116039014829625-640-0.jpg",
+      "notes": "Notas de prueba"
     }
   ],
   "contacts": [
     {
-      "id": "1",
-      "name": "Juan Perez",
-      "phone": 1234123454123
+      "id": "da3e",
+      "name": "Tutty",
+      "location": "askdjfb",
+      "phone": 123123,
+      "type": "client",
+      "calification": 2
     },
     {
-      "id": "2",
-      "name": "Natalia Santochi",
-      "phone": 53242346245
+      "id": "5601",
+      "name": "aoskdfmq",
+      "location": "",
+      "phone": 0,
+      "type": "",
+      "calification": 0
     },
     {
-      "id": "3",
-      "name": "Patricio Sirena",
-      "phone": 1234123454123
+      "id": "fdfb",
+      "name": "skdf n",
+      "location": "asdfn",
+      "phone": 21312,
+      "type": "client",
+      "calification": 0
+    },
+    {
+      "id": "695e",
+      "name": "sldfkaskjfnaskdfnasdklfnkasdfn",
+      "location": "asdlkfn",
+      "phone": 123123,
+      "type": "provider",
+      "calification": 0
+    },
+    {
+      "id": "37f7",
+      "name": "lasdknf",
+      "location": "klsjdnfsd",
+      "phone": 234234,
+      "type": "client",
+      "calification": 2
+    },
+    {
+      "id": "69e6",
+      "name": "Proveedor Pato",
+      "location": "asdasd",
+      "phone": 123123123123,
+      "type": "provider",
+      "calification": 2
+    },
+    {
+      "id": "2ffb",
+      "name": "Patricio Benjamin Sirena",
+      "location": "lkasjbdfkasjdbfasdjbfaslfbaskdfbasldjbf",
+      "phone": 1.2312323423412412e+22,
+      "type": "provider",
+      "calification": 3
+    },
+    {
+      "id": "dfc7",
+      "name": "Natalia Tutty Santochi",
+      "location": "Alguna dirección que sea muy larga para probar las propiedades del texto",
+      "phone": 12312312312312312000,
+      "type": "client",
+      "calification": 3
     }
   ],
   "notes": [
     {
-      "id": "ef24",
-      "text": "hlasd",
+      "id": "0cee",
+      "text": "Una nota desde home",
+      "completed": false
+    },
+    {
+      "id": "53dc",
+      "text": "Otra nota desde contactos",
       "completed": false
     }
   ]

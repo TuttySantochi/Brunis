@@ -53,22 +53,6 @@ export class HomeComponent implements OnInit {
       }
     })
   }
-
-  // getWork(): void {
-  //   this.WorksServices.getWork(this.id).subscribe({
-  //     next: (data: Work) =>{
-
-  //     }
-  //   })
-  // }
-
-  // deleteWork(id: string): void{
-  //   this.WorksServices.deleteWork(id).subscribe({
-  //     next: ()=>{
-  //       this.getWorks()
-  //     }
-  //   })
-  // }
   
   onSubmit (){
     const work = this.form.value;
