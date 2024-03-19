@@ -166,5 +166,21 @@
       "text": "Otra nota desde contactos",
       "completed": false
     }
+  ],
+  "stock": [
+    {
+      "id": "0cee",
+    "category": "wood",
+    "name": "grafito",
+    "quantity": 2,
+    "dimensions": "120x100"
+    },
+    {
+      "id": "0cve",
+    "category": "ironWork",
+    "name": "bisagra",
+    "quantity": 5,
+    "dimensions": ""
+    }
   ]
 }

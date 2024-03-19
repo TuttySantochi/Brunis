@@ -19,6 +19,7 @@ import { AddNotesComponent } from './components/add-notes/add-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientCardComponent } from './components/client-card/client-card.component';
+import { StockTableComponent } from './components/stock-table/stock-table.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClientCardComponent } from './components/client-card/client-card.compon
     PhotosComponent,
     NotesComponent,
     AddNotesComponent,
-    ClientCardComponent
+    ClientCardComponent,
+    StockTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,10 @@
-<p>stock works!</p>
+<app-stock-table *ngFor="let item of woodList" 
+[name]="item.name" 
+[quantity]="item.quantity" 
+[dimensions]="item.dimensions"
+></app-stock-table>
+<app-stock-table *ngFor="let item of ironWorkList" 
+[name]="item.name" 
+[quantity]="item.quantity"
+[dimensions]="item.dimensions"
+></app-stock-table>
