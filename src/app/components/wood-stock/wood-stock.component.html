@@ -5,10 +5,10 @@
             <th>Cantidad</th>
             <th>Dimensiones</th>
         </tr>
-        <tr class="stockTable__table-items">
-            <td>{{name}}</td>
-            <td>{{quantity}}</td>
-            <td>{{dimensions}}</td>
+        <tr class="stockTable__table-items" *ngFor="let item of woodList">
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.dimensions}}</td>
         </tr>
     </table>
 </div>

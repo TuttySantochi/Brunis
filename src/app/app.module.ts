@@ -19,7 +19,8 @@ import { AddNotesComponent } from './components/add-notes/add-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ClientCardComponent } from './components/client-card/client-card.component';
-import { StockTableComponent } from './components/stock-table/stock-table.component';
+import { WoodStockComponent } from './components/wood-stock/wood-stock.component';
+import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-stock.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { StockTableComponent } from './components/stock-table/stock-table.compon
     NotesComponent,
     AddNotesComponent,
     ClientCardComponent,
-    StockTableComponent
+    WoodStockComponent,
+    IronWorkStockComponent
   ],
   imports: [
     BrowserModule,

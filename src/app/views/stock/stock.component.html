@@ -1,10 +1,58 @@
-<app-stock-table *ngFor="let item of woodList" 
-[name]="item.name" 
-[quantity]="item.quantity" 
-[dimensions]="item.dimensions"
-></app-stock-table>
-<app-stock-table *ngFor="let item of ironWorkList" 
-[name]="item.name" 
-[quantity]="item.quantity"
-[dimensions]="item.dimensions"
-></app-stock-table>
+<button type="button" class="modal-button btn btn-primary m-5" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">+</button>
+
+<div class="tableContainer container">
+    <app-iron-work-stock />
+    <app-wood-stock />
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="form" class="modal-body__form" (ngSubmit)="onSubmit()">
+                    <div class="modal-body__form-input">
+                        <div class="selectType">
+                            <label for="SelectType" class="form-label">Tipo de Item:</label>
+                            <select id="SelectType" class="form-control mb-3" (change)="resetSelect()"
+                                (change)="onSelect($event.target)" formControlName="category">
+                                <option value="0" disabled selected>-- Seleciona una categoria --</option>
+                                <option *ngFor="let item of stockType" [value]="item.name">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div id="itemType" style="display: none;">
+                            <label for="itemType" class="form-label">Nombre del item:</label>
+                            <select id="itemType" class="form-control mb-3" formControlName="name"
+                                (change)="showDisplay()">
+                                <option value="0" disabled selected>-- Seleciona un item --</option>
+                                <option *ngFor="let item of selectedOptions" [value]="item.name">{{item.name}}</option>
+                            </select>
+                        </div>
+                        <div id="itemQuantity" style="display: none;">
+                            <label for="quantityInput" class="form-label">Cantidad</label>
+                            <input class="form-control mb-3" type="number" id="quantityInput"
+                                placeholder="Ingrese la cantidad" formControlName="quantity">
+                        </div>
+                        <div id="itemDimensions" style="display: none;">
+                            <label for="dimensionsInput" class="form-label">Dimensiones</label>
+                            <input class="form-control mb-3" type="text" id="dimensionsInput"
+                                placeholder="Ingrese las dimensiones" formControlName="dimensions">
+                        </div>
+                    </div>
+                    <div class="modal-buttons mt-2 text-center">
+                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal"
+                            (click)="clearForm()">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Agregar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,14 @@
+<div class="stockTable">
+    <table class="stockTable__table table">
+        <tr class="stockTable__table-tittles">
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Dimensiones</th>
+        </tr>
+        <tr class="stockTable__table-items" *ngFor="let item of ironWorkList">
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.dimensions}}</td>
+        </tr>
+    </table>
+</div>

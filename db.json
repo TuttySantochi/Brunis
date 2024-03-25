@@ -170,17 +170,45 @@
   "stock": [
     {
       "id": "0cee",
-    "category": "wood",
-    "name": "grafito",
-    "quantity": 2,
-    "dimensions": "120x100"
+      "category": "wood",
+      "name": "grafito",
+      "quantity": 2,
+      "dimensions": "120x100"
     },
     {
       "id": "0cve",
-    "category": "ironWork",
-    "name": "bisagra",
-    "quantity": 5,
-    "dimensions": ""
+      "category": "ironWork",
+      "name": "bisagra",
+      "quantity": 5,
+      "dimensions": ""
+    },
+    {
+      "id": "9bc4",
+      "category": "wood",
+      "name": "prueba 2",
+      "quantity": 23,
+      "dimensions": "asñldfknasdlfk"
+    },
+    {
+      "id": "1502",
+      "category": "wood",
+      "name": "prueba 2",
+      "quantity": 1341234,
+      "dimensions": "asdfasdfasdf"
+    },
+    {
+      "id": "bc30",
+      "category": "ironWork",
+      "name": "mensula",
+      "quantity": 25,
+      "dimensions": "Dimensiones de prueba"
+    },
+    {
+      "id": "9377",
+      "category": "ironWork",
+      "name": "manija",
+      "quantity": 34,
+      "dimensions": "Dimension de prueba 2"
     }
   ]
 }
