@@ -22,7 +22,7 @@ export class IronWorkStockComponent implements OnInit {
     this.stockServices.getStocks().subscribe({
       next: response => {
         for (let i = 0; i < response.length; i++) {
-          if (response[i].category === "ironWork") {
+          if (response[i].category === "Herraje") {
             this.ironWorkList?.push(response[i])
           }
         }

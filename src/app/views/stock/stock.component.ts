@@ -15,8 +15,8 @@ export class StockComponent implements OnInit {
   ironWorkList: Stock[] | undefined = [];
 
   stockType: any = [
-    { id: 1, name: "wood" },
-    { id: 2, name: "ironWork" }]
+    { id: 1, name: "Madera" },
+    { id: 2, name: "Herraje" }]
 
   ironWorkType: any = [
     { id: 1, name: "bisagra" },
@@ -37,9 +37,9 @@ export class StockComponent implements OnInit {
 
   constructor(private stockServices: StockService) {
     this.form = new FormGroup({
-      category: new FormControl(''),
-      name: new FormControl(''),
-      quantity: new FormControl(),
+      category: new FormControl("0"),
+      name: new FormControl("0"),
+      quantity: new FormControl(0),
       dimensions: new FormControl(''),
     })
   }
@@ -50,12 +50,12 @@ export class StockComponent implements OnInit {
 
   onSelect(type: any) {
     (<HTMLDivElement>document.getElementById("itemType")).style.display = "block"
-    if (type.value === 'wood') {
+    if (type.value === 'Madera') {
       for (let i = 0; i < this.woodType.length; i++) {
         this.selectedOptions.push(this.woodType[i]);
       }
       return this.selectedOptions
-    } else if (type.value === 'ironWork') {
+    } else if (type.value === 'Herraje') {
       for (let i = 0; i < this.ironWorkType.length; i++) {
         this.selectedOptions.push(this.ironWorkType[i]);
       }
@@ -73,7 +73,6 @@ export class StockComponent implements OnInit {
     console.log(item);
 
     this.stockServices.addStock(item).subscribe()
-    // this.clearForm()
     window.location.reload()
   }
 
@@ -83,6 +82,7 @@ export class StockComponent implements OnInit {
 
   clearForm() {
     this.form.reset();
+    this.form.setValue({category: "0", name: "0", quantity: 0, dimensions: 0})
     this.resetSelect();
     (<HTMLDivElement>document.getElementById("itemType")).style.display = "none";
     (<HTMLDivElement>document.getElementById("itemQuantity")).style.display = "none";

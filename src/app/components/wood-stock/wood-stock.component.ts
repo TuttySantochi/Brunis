@@ -21,7 +21,7 @@ export class WoodStockComponent implements OnInit {
     this.stockServices.getStocks().subscribe({
       next: response => {
         for (let i = 0; i < response.length; i++) {
-          if (response[i].category === "wood") {
+          if (response[i].category === "Madera") {
             this.woodList?.push(response[i])
           }
         }

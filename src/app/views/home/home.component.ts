@@ -55,9 +55,7 @@ export class HomeComponent implements OnInit {
   }
   
   onSubmit (){
-    const work = this.form.value;
-    console.log(work);
-    
+    const work = this.form.value;    
     this.WorksServices.addWork(work).subscribe()
     this.clear()
   }

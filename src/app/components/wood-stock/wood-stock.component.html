@@ -1,14 +1,14 @@
 <div class="stockTable">
     <table class="stockTable__table table">
-        <tr class="stockTable__table-tittles">
-            <th>Nombre</th>
-            <th>Cantidad</th>
-            <th>Dimensiones</th>
+        <tr class="stockTable__table-titles">
+            <th class="stockTable__table-titles-item">Nombre</th>
+            <th class="stockTable__table-titles-item">Cantidad</th>
+            <th class="stockTable__table-titles-item">Dimensiones</th>
         </tr>
-        <tr class="stockTable__table-items" *ngFor="let item of woodList">
-            <td>{{item.name}}</td>
-            <td>{{item.quantity}}</td>
-            <td>{{item.dimensions}}</td>
+        <tr class="stockTable__table-list" *ngFor="let item of woodList">
+            <td class="stockTable__table-list-item" title="{{item.name}}">{{item.name}}</td>
+            <td class="stockTable__table-list-item" title="{{item.quantity}}">{{item.quantity}}</td>
+            <td class="stockTable__table-list-item" title="{{item.dimensions}}">{{item.dimensions}}</td>        
         </tr>
     </table>
 </div>

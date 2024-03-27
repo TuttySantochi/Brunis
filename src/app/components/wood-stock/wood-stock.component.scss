@@ -1,0 +1,40 @@
+.stockTable{
+    width: 30rem;
+    &__table{
+        width: 100%;
+        text-align: left;
+        border: solid 1px rgba(0, 0, 0, 0.199);
+        border-collapse: collapse;
+        &-titles{
+            height: 2.5rem;
+            font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            background-color: rgba(255, 0, 0, 0.479);
+            border-bottom: solid 3px rgba(92, 0, 0, 0.747);
+            &-item{
+                width: 10rem;
+                padding-left: 0.3rem;
+            }
+        }
+        &-list{
+            height: 2rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            &-item{
+                max-width: 10rem;
+                padding-left: 0.3rem;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+tr:nth-child(even){
+    background-color: rgba(128, 128, 128, 0.521);
+}
+
+tr:hover td{
+    background-color:  rgba(255, 44, 44, 0.288);
+}

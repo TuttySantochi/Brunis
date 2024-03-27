@@ -1,9 +1,13 @@
-<button type="button" class="modal-button btn btn-primary m-5" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">+</button>
-
-<div class="tableContainer container">
-    <app-iron-work-stock />
-    <app-wood-stock />
+<div class="stockContainer">
+    <button type="button" class="modal-button btn btn-primary m-5" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">+</button>
+    
+    <div class="tableContainer container">
+        <div class="row">
+            <app-iron-work-stock class="col-lg-6 col-md-6 col-sm-12"/>
+            <app-wood-stock class="col-lg-6 col-md-6 col-sm-12"/>
+        </div>
+    </div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

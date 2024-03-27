@@ -162,53 +162,54 @@
       "completed": false
     },
     {
-      "id": "53dc",
-      "text": "Otra nota desde contactos",
+      "id": "cc3b",
+      "text": "Una nota desde notas",
+      "completed": false
+    },
+    {
+      "id": "8719",
+      "text": "Una nota desde un trabajo",
+      "completed": false
+    },
+    {
+      "id": "ba0f",
+      "text": "Otra desde contactos",
+      "completed": false
+    },
+    {
+      "id": "3d2e",
+      "text": "Y desde Stock",
       "completed": false
     }
   ],
   "stock": [
     {
-      "id": "0cee",
-      "category": "wood",
-      "name": "grafito",
-      "quantity": 2,
-      "dimensions": "120x100"
+      "id": "732e",
+      "category": "Madera",
+      "name": "prueba 2",
+      "quantity": 3,
+      "dimensions": "Algunas medidas con texto largo para probar propiedades"
     },
     {
-      "id": "0cve",
-      "category": "ironWork",
+      "id": "fe9e",
+      "category": "Herraje",
+      "name": "tornillo",
+      "quantity": 321,
+      "dimensions": "Nadie necesita dimensiones de tornillos pero la pongo para probar las propiedades del texto"
+    },
+    {
+      "id": "35b5",
+      "category": "Herraje",
       "name": "bisagra",
-      "quantity": 5,
-      "dimensions": ""
-    },
-    {
-      "id": "9bc4",
-      "category": "wood",
-      "name": "prueba 2",
-      "quantity": 23,
-      "dimensions": "asñldfknasdlfk"
-    },
-    {
-      "id": "1502",
-      "category": "wood",
-      "name": "prueba 2",
-      "quantity": 1341234,
-      "dimensions": "asdfasdfasdf"
-    },
-    {
-      "id": "bc30",
-      "category": "ironWork",
-      "name": "mensula",
-      "quantity": 25,
-      "dimensions": "Dimensiones de prueba"
-    },
-    {
-      "id": "9377",
-      "category": "ironWork",
-      "name": "manija",
-      "quantity": 34,
+      "quantity": 32,
       "dimensions": "Dimension de prueba 2"
+    },
+    {
+      "id": "24e2",
+      "category": "Herraje",
+      "name": "manija",
+      "quantity": 3,
+      "dimensions": "20cm"
     }
   ]
 }
