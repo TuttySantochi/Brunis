@@ -3,15 +3,15 @@
         <div id="carouselExample" class="carousel slide work__carousel-content">
             <div class="carousel-inner work__carousel-content-pics">
                 <div class="work__carousel-content-pics-item carousel-item active">
-                    <img src="{{workInfo?.picture}}"
+                    <img src="{{workInfo.picture}}"
                         class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
                 </div>
                 <div class="work__carousel-content-pics-item carousel-item">
-                    <img src="{{workInfo?.picture}}"
+                    <img src="{{workInfo.picture}}"
                         class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
                 </div>
                 <div class="work__carousel-content-pics-item carousel-item">
-                    <img src="{{workInfo?.picture}}"
+                    <img src="{{workInfo.picture}}"
                         class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
                 </div>
             </div>
@@ -27,38 +27,38 @@
     </div>
     <div class="work__detail mt-3">
         <div class="work__detail-client">
-            <h1 class="work__detail-client-name">Cliente: {{workInfo?.clientName}}</h1>
-            <p class="work__detail-client-direction">Dirección: {{workInfo?.location}}</p>
-            <p class="work__detail-client-cost">Precio: ${{workInfo?.price}}</p>
-            <p class="work__detail-client-deadline">Fecha de entrega: {{workInfo?.deadline}}</p>
+            <h1 class="work__detail-client-name">Cliente: {{workInfo.clientName}}</h1>
+            <p class="work__detail-client-direction">Dirección: {{workInfo.location}}</p>
+            <p class="work__detail-client-cost">Precio: ${{workInfo.price}}</p>
+            <p class="work__detail-client-deadline">Fecha de entrega: {{workInfo.deadline}}</p>
         </div>
         <div class="work__detail-info container mt-3">
             <div class="row">
                 <div class="work__detail-info-specifications col-lg-6 col-md-6 col-sm-12">
-                    <p class="work__detail-info-specifications-item">Tipo de mueble: {{workInfo?.furnitureType}}</p>
+                    <p class="work__detail-info-specifications-item">Tipo de mueble: {{workInfo.furnitureType}}</p>
                     <p class="work__detail-info-specifications-item">Medidias: ""</p>
-                    <p class="work__detail-info-specifications-item">Colores: {{workInfo?.furnitureColor}}</p>
+                    <p class="work__detail-info-specifications-item">Colores: {{workInfo.furnitureColor}}</p>
                     <p class="work__detail-info-specifications-item">Madera: ""</p>
                 </div>
                 <div class="work__detail-info-building col-lg-6 col-md-6 col-sm-12">
-                    <p class="work__detail-info-building-item">Tipo de edificio: {{workInfo?.type}}</p>
-                    <p class="work__detail-info-building-item">Ascensor: {{workInfo?.elevator}}</p>
-                    <p class="work__detail-info-building-item">Puertas: {{workInfo?.doors}}</p>
-                    <p class="work__detail-info-building-item">Paredes: {{workInfo?.walls}}</p>
-                    <p class="work__detail-info-building-item">Cañerias: {{workInfo?.pipes}}</p>
-                    <p class="work__detail-info-building-item">Cableado: {{workInfo?.wiring}}</p>
+                    <p class="work__detail-info-building-item">Tipo de edificio: {{workInfo.type}}</p>
+                    <p class="work__detail-info-building-item">Ascensor: {{workInfo.elevator}}</p>
+                    <p class="work__detail-info-building-item">Puertas: {{workInfo.doors}}</p>
+                    <p class="work__detail-info-building-item">Paredes: {{workInfo.walls}}</p>
+                    <p class="work__detail-info-building-item">Cañerias: {{workInfo.pipes}}</p>
+                    <p class="work__detail-info-building-item">Cableado: {{workInfo.wiring}}</p>
                 </div>
             </div>
         </div>
         <div class="work__detail-info-notes mt-3 mb-3 text-center">
-            <p>{{workInfo?.notes}}</p>
+            <p>{{workInfo.notes}}</p>
         </div>
     </div>
 </div>
 
 <app-footer class="footer"></app-footer>
 
-<!-- <button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+<button (click)="setValues()" type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -68,7 +68,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="form" class="modal-body__form" (ngSubmit)="onSubmit()">
+                <form [formGroup]="form" class="modal-body__form">
                     <div class="modal-body__form-input">
                         <label for="inputClientName" class="form-label">Nombre del cliente</label>
                         <input class="modal-body__form-input form-control" id="inputClientName" type="text"
@@ -169,13 +169,13 @@
                             placeholder="Notas" rows="3"></textarea>
                     </div>
                     <div class="modal-buttons mt-2 text-center">
-                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal" (click)="clear()">
+                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">
                             Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Agregar</button>
+                        <button (click)="updateWork()" type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Agregar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div> -->
+</div>

@@ -1,18 +1,14 @@
-*{
-    margin: 0 auto;
-}
-
 .work{
     width: 85vw;
     min-height: 70vh;
     margin: 0 auto;
     &__carousel{
+        margin: 0 auto;
         width: 70%;
         height: 400px;
         overflow-y: hidden;
         &-content{
             &-pics{
-                // overflow-y: hidden;
                 &-item{
                     &-photo{
                         object-fit: cover;
@@ -24,5 +20,25 @@
     &__detail{
         width: 70%;
         margin: 0 auto;
+    }
+}
+
+.modal-button{
+    width: 50px;
+    position: fixed;
+    bottom: 130px;
+    left: 20px;
+    font-size: x-large;
+    border-radius: 100px;
+}
+
+.modal-body{
+    &__form{
+        &-input{
+            margin-bottom: 5px;
+            &-checkbox{
+                margin-left: 5px;
+            }
+        }
     }
 }

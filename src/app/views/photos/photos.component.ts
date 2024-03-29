@@ -17,8 +17,6 @@ export class PhotosComponent implements OnInit {
       next: (data) => {
         for (let i = 0; i < data.length; i++) {
           this.galery.push(data[i].picture);
-          console.log(this.galery);
-          
         }
       }
     })

@@ -1,7 +1,6 @@
 {
   "works": [
     {
-      "id": "cc46",
       "clientName": "Tutty",
       "furnitureType": "Bajomesada Cocina",
       "furnitureColor": "Marron",
@@ -20,29 +19,8 @@
       "plugs": false,
       "corbel": true,
       "picture": "https://acdn.mitiendanube.com/stores/499/234/products/clasico1-5a314f10a3eb76d8e516662796616729-640-0.png",
-      "notes": "Algunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba"
-    },
-    {
-      "id": "2b53",
-      "clientName": "Vale",
-      "furnitureType": "Estanteria",
-      "furnitureColor": "Algun color",
-      "woodType": "Algun tipo de madera",
-      "price": 340000,
-      "deadline": "",
-      "location": "Nueva direccion",
-      "type": "Depto",
-      "elevator": "2mts - 2.5mts - 2mts",
-      "doors": "240 - 90",
-      "walls": "Durlock",
-      "pipes": "140cm",
-      "wiring": "180cm",
-      "plinth": false,
-      "bench": false,
-      "plugs": true,
-      "corbel": false,
-      "picture": "https://dcdn.mitiendanube.com/stores/801/511/products/malibu-21-20acb47cafda13d6d116401945303735-640-0.jpg",
-      "notes": "-Algunas notas de prueba \n-Algunas notas de prueba\n-Algunas notas de prueba\n-Algunas notas de prueba\n-Algunas notas de prueba"
+      "notes": "Algunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba",
+      "id": "cc46"
     },
     {
       "id": "a76d",
@@ -67,14 +45,13 @@
       "notes": "Notas de prueba"
     },
     {
-      "id": "a737",
-      "clientName": "ailsdhfio",
+      "clientName": "Benjamin Sirena",
       "furnitureType": "asdfjsdq",
       "furnitureColor": "asñldkfnasdñfq",
       "woodType": "ñlskdasñdfk",
       "price": 12312312312,
       "deadline": "2020-06-24",
-      "location": "ñasodfhasod",
+      "location": "Yrigoyen 207",
       "type": "Comercio",
       "elevator": "ñasjdfn",
       "doors": "ñasjdfsñoad",
@@ -86,7 +63,8 @@
       "plugs": true,
       "corbel": true,
       "picture": "https://www.dxxi.com.ar/wp-content/uploads/2016/09/Mueble-TV-Tetris-Web-02.jpg",
-      "notes": ""
+      "notes": "",
+      "id": "a737"
     }
   ],
   "contacts": [
@@ -175,11 +153,6 @@
       "id": "ba0f",
       "text": "Otra desde contactos",
       "completed": false
-    },
-    {
-      "id": "3d2e",
-      "text": "Y desde Stock",
-      "completed": false
     }
   ],
   "stock": [
@@ -210,6 +183,20 @@
       "name": "manija",
       "quantity": 3,
       "dimensions": "20cm"
+    },
+    {
+      "id": "30d5",
+      "category": "Madera",
+      "name": "prueba 2",
+      "quantity": 3,
+      "dimensions": "sldjfbaskldbfaisdfb"
+    },
+    {
+      "id": "7f9d",
+      "category": "Herraje",
+      "name": "tornillo",
+      "quantity": 230,
+      "dimensions": "ñkasjdnfasdf"
     }
   ]
 }
