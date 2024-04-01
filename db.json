@@ -6,7 +6,7 @@
       "furnitureColor": "Marron",
       "woodType": "Algun tipo de madera",
       "price": 850000,
-      "deadline": "",
+      "deadline": "2021-10-12",
       "location": "Alguna Dirección",
       "type": "Casa",
       "elevator": "No",
@@ -16,10 +16,10 @@
       "wiring": "200",
       "plinth": false,
       "bench": true,
-      "plugs": false,
+      "plugs": true,
       "corbel": true,
       "picture": "https://acdn.mitiendanube.com/stores/499/234/products/clasico1-5a314f10a3eb76d8e516662796616729-640-0.png",
-      "notes": "Algunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba",
+      "notes": "Algunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nAlgunas notas de prueba\nMas notas de prueba",
       "id": "cc46"
     },
     {

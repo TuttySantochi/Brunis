@@ -23,9 +23,6 @@ export class ContactSectionComponent implements  OnInit {
         }else if(response[i].type === "provider"){
           this.providerContact?.push(response[i])
       }
-      console.log(this.clientContact);
-      console.log(this.providerContact);
-      
     }}})
   }
 

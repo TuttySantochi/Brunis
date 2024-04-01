@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
 
   clear(){
     this.form.reset()
-    this.ngOnInit()
   }
 
   getWorks(): void {

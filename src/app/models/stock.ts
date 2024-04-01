@@ -3,5 +3,5 @@ export interface Stock{
     category: string,
     name: string,
     quantity: number,
-    dimensions: string,
+    dimensions: string
 }
