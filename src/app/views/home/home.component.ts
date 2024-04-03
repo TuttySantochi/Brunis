@@ -38,25 +38,29 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getWorks();
+    this.WorksServices.getWorks().subscribe({
+      next: (data: Work[]) =>{
+        this.worksList = data
+      }
+    })  
   }
 
   clear(){
     this.form.reset()
   }
 
-  getWorks(): void {
-    this.WorksServices.getWorks().subscribe({
-      next: (data: Work[]) =>{
-        this.worksList = data
-      }
-    })
-  }
+  // getWorks(): void {
+  //   this.WorksServices.getWorks().subscribe({
+  //     next: (data: Work[]) =>{
+  //       this.worksList = data
+  //     }
+  //   })
+  // }
   
   onSubmit (){
     const work = this.form.value;    
     this.WorksServices.addWork(work).subscribe()
-    this.clear()
+    window.location.reload()
   }
 
 }

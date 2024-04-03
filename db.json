@@ -23,7 +23,6 @@
       "id": "cc46"
     },
     {
-      "id": "a76d",
       "clientName": "Patricio Sirena",
       "furnitureType": "Rack",
       "furnitureColor": "Gris",
@@ -32,7 +31,7 @@
       "deadline": "2022-06-08",
       "location": "Hipolito Yrigoyen 207",
       "type": "Casa",
-      "elevator": "n",
+      "elevator": "No",
       "doors": "240 - 90",
       "walls": "Ladrillo",
       "pipes": "120",
@@ -42,7 +41,8 @@
       "plugs": false,
       "corbel": true,
       "picture": "https://acdn.mitiendanube.com/stores/865/441/products/mesa-rack-tv-paris-factorymuebles3-7466fc234ac3e3e27116039014829625-640-0.jpg",
-      "notes": "Notas de prueba"
+      "notes": "Notas de prueba",
+      "id": "a76d"
     },
     {
       "clientName": "Benjamin Sirena",
@@ -68,22 +68,6 @@
     }
   ],
   "contacts": [
-    {
-      "id": "da3e",
-      "name": "Tutty",
-      "location": "askdjfb",
-      "phone": 123123,
-      "type": "client",
-      "calification": 2
-    },
-    {
-      "id": "5601",
-      "name": "aoskdfmq",
-      "location": "",
-      "phone": 0,
-      "type": "",
-      "calification": 0
-    },
     {
       "id": "fdfb",
       "name": "skdf n",
@@ -117,18 +101,18 @@
       "calification": 2
     },
     {
-      "id": "2ffb",
-      "name": "Patricio Benjamin Sirena",
-      "location": "lkasjbdfkasjdbfasdjbfaslfbaskdfbasldjbf",
-      "phone": 1.2312323423412412e+22,
-      "type": "provider",
-      "calification": 3
-    },
-    {
       "id": "dfc7",
       "name": "Natalia Tutty Santochi",
       "location": "Alguna dirección que sea muy larga para probar las propiedades del texto",
       "phone": 12312312312312312000,
+      "type": "client",
+      "calification": 3
+    },
+    {
+      "id": "db83",
+      "name": "Pato prueba",
+      "location": "asdfasdf",
+      "phone": 12312321313,
       "type": "client",
       "calification": 3
     }

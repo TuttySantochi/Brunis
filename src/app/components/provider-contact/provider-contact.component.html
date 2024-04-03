@@ -1,15 +1,33 @@
-<div class="contact text-center mb-5 container-fluid">
-    <h1 class="contact__title m-5">Contactos</h1>
-
-    <app-clients-contact/>
-    <app-provider-contact/>
+<div class="container" *ngFor="let item of providerList">
+    <div class="container__card">
+        <div class="container__card-header">
+            <h2>{{item.name}}</h2>
+        </div>
+        <div class="container__card-body">
+            <div class="container__card-body-item">
+                <span>{{item.phone}}</span>
+            </div>
+            <div class="container__card-body-item">
+                <span>{{item.location}}</span>
+            </div>
+            <div class="container__card-body-item">
+                <span>{{item.calification}}</span>
+            </div>
+        </div>
+        <div class="container__card-footer">
+            <button 
+            class="container__card-footer-button btn btn-primary" 
+            (click)="setValue(item.id)"
+            data-bs-toggle="modal"
+            data-bs-target="#editModalProvider">Editar</button>
+            <button 
+            class="container__card-footer-button btn btn-danger"
+            (click)="selectWork(item.id)">Eliminar</button>
+        </div>
+    </div>
 </div>
 
-<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal"
-    data-bs-target="#exampleModal">+</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModalProvider" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,25 +35,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" class="modal-body__form" (ngSubmit)="onSubmit()" [formGroup]="form">
+                <form action="" class="modal-body__form" (ngSubmit)="onsubmit()" [formGroup]="form">
                     <div class="modal-body__form-input">
                         <label for="inputName" class="form-label">Nombre</label>
                         <input class="modal-body__form-input form-control" id="inputName" type="text"
-                            placeholder="Nombre completo" formControlName='name'>
+                            placeholder="Nombre completo" formControlName="name">
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputLocation" class="form-label">Dirección</label>
                         <input class="modal-body__form-input form-control" id="inputLocation" type="text"
-                            placeholder="Dirección" formControlName='location'>
+                            placeholder="Dirección" formControlName="location">
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputPhone" class="form-label">Teléfono</label>
                         <input class="modal-body__form-input form-control" id="inputPhone" type="number"
-                            placeholder="Tel" formControlName='phone'>
+                            placeholder="Tel" formControlName="phone">
                     </div>
                     <div class="modal-body__form-select">
                         <label for="SelectType" class="form-label">Tipo:</label>
-                        <select name="type" id="SelectType" class="form-control" formControlName='type'>
+                        <select name="type" id="SelectType" class="form-control" formControlName="type">
                             <option value="client">Cliente</option>
                             <option value="provider">Proveedor</option>
                         </select>
@@ -46,11 +64,9 @@
                             type="number" formControlName='calification'>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-<app-footer></app-footer>
