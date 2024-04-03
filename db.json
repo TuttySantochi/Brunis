@@ -141,18 +141,18 @@
   ],
   "stock": [
     {
-      "id": "732e",
       "category": "Madera",
       "name": "prueba 2",
-      "quantity": 3,
-      "dimensions": "Algunas medidas con texto largo para probar propiedades"
+      "quantity": 12,
+      "dimensions": "Algunas medidas con texto largo para probar propiedades",
+      "id": "732e"
     },
     {
-      "id": "fe9e",
       "category": "Herraje",
       "name": "tornillo",
-      "quantity": 321,
-      "dimensions": "Nadie necesita dimensiones de tornillos pero la pongo para probar las propiedades del texto"
+      "quantity": 50,
+      "dimensions": "Nadie necesita dimensiones de tornillos pero la pongo para probar las propiedades del texto",
+      "id": "fe9e"
     },
     {
       "id": "35b5",

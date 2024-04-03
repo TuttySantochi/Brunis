@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 import { StockService } from '../../services/stock.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './stock.component.html',
   styleUrls: ['./stock.component.scss']
 })
-export class StockComponent implements OnInit {
+export class StockComponent {
 
   woodList: Stock[] | undefined = [];
   ironWorkList: Stock[] | undefined = [];
@@ -42,10 +42,6 @@ export class StockComponent implements OnInit {
       quantity: new FormControl(0),
       dimensions: new FormControl(''),
     })
-  }
-
-  ngOnInit(): void {
-    // this.getStock()
   }
 
   onSelect(type: any) {
@@ -81,7 +77,6 @@ export class StockComponent implements OnInit {
   }
 
   clearForm() {
-    this.form.reset();
     this.form.setValue({category: "0", name: "0", quantity: 0, dimensions: 0})
     this.resetSelect();
     (<HTMLDivElement>document.getElementById("itemType")).style.display = "none";
