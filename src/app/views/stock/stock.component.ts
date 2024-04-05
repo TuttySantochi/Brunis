@@ -45,7 +45,7 @@ export class StockComponent {
   }
 
   onSelect(type: any) {
-    (<HTMLDivElement>document.getElementById("itemType")).style.display = "block"
+    (<HTMLDivElement>document.getElementById("divItemType")).style.display = "block"
     if (type.value === 'Madera') {
       for (let i = 0; i < this.woodType.length; i++) {
         this.selectedOptions.push(this.woodType[i]);
@@ -60,8 +60,8 @@ export class StockComponent {
   }
 
   showDisplay() {
-    (<HTMLDivElement>document.getElementById("itemQuantity")).style.display = "block";
-    (<HTMLDivElement>document.getElementById("itemDimensions")).style.display = "block"
+    (<HTMLDivElement>document.getElementById("divItemQuantity")).style.display = "block";
+    (<HTMLDivElement>document.getElementById("divItemDimensions")).style.display = "block"
   }
 
   onSubmit() {
@@ -79,9 +79,9 @@ export class StockComponent {
   clearForm() {
     this.form.setValue({category: "0", name: "0", quantity: 0, dimensions: 0})
     this.resetSelect();
-    (<HTMLDivElement>document.getElementById("itemType")).style.display = "none";
-    (<HTMLDivElement>document.getElementById("itemQuantity")).style.display = "none";
-    (<HTMLDivElement>document.getElementById("itemDimensions")).style.display = "none"
+    (<HTMLDivElement>document.getElementById("divItemType")).style.display = "none";
+    (<HTMLDivElement>document.getElementById("divItemQuantity")).style.display = "none";
+    (<HTMLDivElement>document.getElementById("divItemDimensions")).style.display = "none"
   }
 
 }

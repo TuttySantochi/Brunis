@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 import { StockService } from '../../services/stock.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,10 +32,6 @@ export class WoodStockComponent implements OnInit {
     })
   }
   ngOnInit(): void {
-    this.getStock()
-  }
-
-  getStock(): void {
     this.stockServices.getStocks().subscribe({
       next: response => {
         for (let i = 0; i < response.length; i++) {
@@ -44,7 +41,20 @@ export class WoodStockComponent implements OnInit {
         }
       }
     })
+    // this.getStock()
   }
+
+  // getStock(): void {
+  //   this.stockServices.getStocks().subscribe({
+  //     next: response => {
+  //       for (let i = 0; i < response.length; i++) {
+  //         if (response[i].category === "Madera") {
+  //           this.woodList?.push(response[i])
+  //         }
+  //       }
+  //     }
+  //   })
+  // }
 
   setvalues(id: string){
     this.stockServices.getStock(id).subscribe({
@@ -63,8 +73,51 @@ export class WoodStockComponent implements OnInit {
   onSubmit(){
     let item = this.form.value
     this.stockServices.updateStock(this.idValue, item).subscribe()
-    window.location.reload()    
+    Swal.fire({
+      icon: 'success',
+      title: 'Item Editado!!',
+      timer: 1500,
+      showConfirmButton: false
+    })
+    setTimeout(() => {
+      window.location.reload()    
+    }, 1500);  }
+
+  selectItem(id: string){
+    Swal.fire({
+      icon: 'warning',
+      title: 'Desea eliminar este Item?',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      confirmButtonColor: 'red'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteItem(id);
+      } else if (result.isDismissed) {
+        Swal.fire({
+          title: 'No se elimino el Item',
+          icon: 'error',
+          timer: 1500,
+          showConfirmButton: false
+        });
+      }
+    });
   }
 
+  deleteItem(id: string) {
+    this.stockServices.deleteStock(id).subscribe({
+      next: () => {
+        Swal.fire({
+          title:'Eliminado con exito', 
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false
+        });
+        setTimeout(() => {
+          window.location.reload()
+        }, 1500);
+      }
+    });
+  }
 
 }

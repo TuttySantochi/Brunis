@@ -155,11 +155,11 @@
       "id": "fe9e"
     },
     {
-      "id": "35b5",
       "category": "Herraje",
       "name": "bisagra",
       "quantity": 32,
-      "dimensions": "Dimension de prueba 2"
+      "dimensions": "Dimension de prueba 2",
+      "id": "35b5"
     },
     {
       "id": "24e2",
@@ -169,18 +169,18 @@
       "dimensions": "20cm"
     },
     {
-      "id": "30d5",
       "category": "Madera",
-      "name": "prueba 2",
-      "quantity": 3,
-      "dimensions": "sldjfbaskldbfaisdfb"
+      "name": "prueba 1",
+      "quantity": 55,
+      "dimensions": "sldjfbaskldbfaisdfb",
+      "id": "30d5"
     },
     {
-      "id": "7f9d",
-      "category": "Herraje",
-      "name": "tornillo",
-      "quantity": 230,
-      "dimensions": "ñkasjdnfasdf"
+      "id": "06fa",
+      "category": "Madera",
+      "name": "prueba 3",
+      "quantity": 12,
+      "dimensions": ""
     }
   ]
 }

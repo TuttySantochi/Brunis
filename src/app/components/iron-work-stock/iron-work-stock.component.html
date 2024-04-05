@@ -14,7 +14,7 @@
             <td class="stockTable__table-list-item">
                 <button class="stockTable__table-list-item-editButton btn" data-bs-toggle="modal"
                     data-bs-target="#ironEditModal" (click)="setvalues(item.id)">Editar</button>
-                <button class="stockTable__table-list-item-deleteButton btn">Eliminar</button>
+                <button class="stockTable__table-list-item-deleteButton btn" (click)="selectItem(item.id)">Eliminar</button>
             </td>
         </tr>
     </table>
