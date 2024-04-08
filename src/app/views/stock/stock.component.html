@@ -1,6 +1,6 @@
 <div class="stockContainer">
     <button type="button" class="modal-button btn btn-primary m-5" data-bs-toggle="modal"
-        data-bs-target="#exampleModal">+</button>
+        data-bs-target="#addItemModal">+</button>
     
     <div class="tableContainer container">
         <div class="row">
@@ -10,7 +10,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -28,7 +28,7 @@
                                 <option *ngFor="let item of stockType" [value]="item.name">{{item.name}}</option>
                             </select>
                         </div>
-                        <div id="itemType" style="display: none;">
+                        <div id="divItemType" style="display: none;">
                             <label for="itemType" class="form-label">Nombre del item:</label>
                             <select id="itemType" class="form-control mb-3" formControlName="name"
                                 (change)="showDisplay()">
@@ -36,12 +36,12 @@
                                 <option *ngFor="let item of selectedOptions" [value]="item.name">{{item.name}}</option>
                             </select>
                         </div>
-                        <div id="itemQuantity" style="display: none;">
+                        <div id="divItemQuantity" style="display: none;">
                             <label for="quantityInput" class="form-label">Cantidad</label>
                             <input class="form-control mb-3" type="number" id="quantityInput"
                                 placeholder="Ingrese la cantidad" formControlName="quantity">
                         </div>
-                        <div id="itemDimensions" style="display: none;">
+                        <div id="divItemDimensions" style="display: none;">
                             <label for="dimensionsInput" class="form-label">Dimensiones</label>
                             <input class="form-control mb-3" type="text" id="dimensionsInput"
                                 placeholder="Ingrese las dimensiones" formControlName="dimensions">

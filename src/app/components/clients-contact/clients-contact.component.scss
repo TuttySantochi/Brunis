@@ -1,5 +1,5 @@
 .stockTable{
-    width: 30rem;
+    width: 40rem;
     &__table{
         width: 100%;
         text-align: left;
@@ -18,26 +18,14 @@
         }
         &-list{
             height: 2rem;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
             &-item{
                 max-width: 10rem;
                 padding-left: 0.3rem;
                 text-overflow: ellipsis;
                 white-space: nowrap;
-                &-deleteButton{
-                    font-size: medium;
-                    padding: 0.13rem;
-                    margin: 0.2rem;
-                    background-color: rgb(226, 0, 0);
-                    border: 1px solid rgba(0, 0, 0, 0.466);
-                }
-                &-editButton{
-                    font-size: medium;
-                    padding: 0.13rem;
-                    margin: 0.2rem;
-                    background-color: green;
-                    border: 1px solid rgba(0, 0, 0, 0.466);
-                }
             }
         }
     }

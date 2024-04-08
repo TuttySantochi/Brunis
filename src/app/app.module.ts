@@ -11,16 +11,16 @@ import { ClientComponent } from './views/client/client.component';
 import { ContactComponent } from './views/contact/contact.component';
 import { StockComponent } from './views/stock/stock.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ContactSectionComponent } from './components/contact-section/contact-section.component';
 import { PhotosComponent } from './views/photos/photos.component';
 import { NotesComponent } from './views/notes/notes.component';
 import { FormsModule } from '@angular/forms';
 import { AddNotesComponent } from './components/add-notes/add-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ClientCardComponent } from './components/client-card/client-card.component';
 import { WoodStockComponent } from './components/wood-stock/wood-stock.component';
 import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-stock.component';
+import { ClientsContactComponent } from './components/clients-contact/clients-contact.component';
+import { ProviderContactComponent } from './components/provider-contact/provider-contact.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +32,13 @@ import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-s
     ClientComponent,
     ContactComponent,
     StockComponent,
-    ContactSectionComponent,
     PhotosComponent,
     NotesComponent,
     AddNotesComponent,
-    ClientCardComponent,
     WoodStockComponent,
-    IronWorkStockComponent
+    IronWorkStockComponent,
+    ClientsContactComponent,
+    ProviderContactComponent
   ],
   imports: [
     BrowserModule,
