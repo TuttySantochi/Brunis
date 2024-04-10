@@ -1,3 +1,16 @@
 <ul>
     <li *ngFor="let photo of galery"><img src="{{photo}}" alt=""></li>
 </ul>
+
+<form [formGroup]="fotoForm" class="m-5">
+    <label for="fileInput">Carga tus fotos</label>
+    <input type="file" id="fileInput" (change)="getFotos($event)" formControlName="foto">
+</form>
+
+
+<div *ngFor="let foto of fotos" class="galery">
+    <div id="{{foto.id}}" class="fotoContainer">
+        <img src="{{foto.foto}}" alt="" style="width: 200px;">
+        <button (click)="deleteFoto(foto.id)">Borrar Foto</button>
+    </div>
+</div>

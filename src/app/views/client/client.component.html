@@ -1,17 +1,9 @@
 <div class="work mt-1 mb-3">
     <div class="work__carousel">
         <div id="carouselExample" class="carousel slide work__carousel-content">
-            <div class="carousel-inner work__carousel-content-pics">
+            <div class="carousel-inner work__carousel-content-pics" *ngFor="let foto of workFotos">
                 <div class="work__carousel-content-pics-item carousel-item active">
-                    <img src="{{workInfo.picture}}"
-                        class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
-                </div>
-                <div class="work__carousel-content-pics-item carousel-item">
-                    <img src="{{workInfo.picture}}"
-                        class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
-                </div>
-                <div class="work__carousel-content-pics-item carousel-item">
-                    <img src="{{workInfo.picture}}"
+                    <img src="{{foto}}"
                         class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
                 </div>
             </div>
@@ -160,7 +152,7 @@
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputPicture" class="form-label">Fotos</label>
-                        <input formControlName="picture" class="modal-body__form-input form-control" id="inputPicture"
+                        <input formControlName="pictures" class="modal-body__form-input form-control" id="inputPicture"
                             type="text" placeholder="Fotos" />
                     </div>
                     <div class="modal-body__form-input">

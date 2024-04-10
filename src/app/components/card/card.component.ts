@@ -28,7 +28,7 @@ export class CardComponent {
     bench: false,
     plugs: false,
     corbel: false,
-    picture: '',
+    pictures: [],
     notes: '',
   };
 
@@ -37,7 +37,7 @@ export class CardComponent {
   @Input() entradaNombre: string = '';
   @Input() entradaTipo: string = '';
   @Input() entradaColor: string = '';
-  @Input() entradaImagen: string = '';
+  @Input() entradaImagen: [] = [];
   @Input() entradaId: string = '';
 
   selectWork(id: string){

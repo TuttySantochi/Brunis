@@ -10,6 +10,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+
+  workFotos: any[] = [];
   worksList: Work[] | undefined = [];
   form: FormGroup;
 
@@ -32,7 +34,7 @@ export class HomeComponent implements OnInit {
       bench: new FormControl(false),
       plugs: new FormControl(false),
       corbel: new FormControl(false),
-      picture: new FormControl(''),
+      pictures: new FormControl([]),
       notes: new FormControl(''),
     });
   }
@@ -48,19 +50,42 @@ export class HomeComponent implements OnInit {
   clear(){
     this.form.reset()
   }
-
-  // getWorks(): void {
-  //   this.WorksServices.getWorks().subscribe({
-  //     next: (data: Work[]) =>{
-  //       this.worksList = data
-  //     }
-  //   })
-  // }
   
   onSubmit (){
-    const work = this.form.value;    
+    console.log(this.workFotos);
+    const work = this.form.value;
+    work.pictures = this.workFotos
+    console.log(work);
     this.WorksServices.addWork(work).subscribe()
     window.location.reload()
   }
+
+  generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
+
+  getFotos(event: any){
+    if(event.target.files){
+      let fileList = event.target.files.length
+      for (let i = 0; i < fileList; i++) {
+        let reader = new FileReader();
+        reader.readAsDataURL(event.target.files[i]);
+        reader.onload = (events:any)=>{
+          let foto = events.target.result
+          let id = this.generateId()
+          let objFoto = {id, foto}
+          console.log(objFoto);
+          this.workFotos.push(objFoto);
+        }
+      }
+    }
+  }
+
+  deleteFoto(id: any){
+    console.log(id);
+    let index = this.workFotos.findIndex(item => item.id === id)
+    if (index !== -1) {
+      this.workFotos.splice(index,1)
+    }
+  }
+
 
 }

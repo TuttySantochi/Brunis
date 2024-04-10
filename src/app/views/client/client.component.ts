@@ -12,8 +12,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ClientComponent implements OnInit {
   @Input() id?: string;
 
+  workFotos: [] = [];
   workInfo: Work;
-  form: FormGroup
+  form: FormGroup;
 
   constructor(private worksService: WorksService) {
     this.form = new FormGroup({
@@ -34,7 +35,7 @@ export class ClientComponent implements OnInit {
       bench: new FormControl(false),
       plugs: new FormControl(false),
       corbel: new FormControl(false),
-      picture: new FormControl(''),
+      pictures: new FormControl([]),
       notes: new FormControl('')
     });
   }
@@ -43,7 +44,8 @@ export class ClientComponent implements OnInit {
     if (this.id) {
       this.worksService.getWork(this.id).subscribe({
         next: (response) => {
-          this.workInfo = response;          
+          this.workInfo = response;
+          this.workFotos = response.pictures;
         },
         error(err) {
           if (err.status === 404) {
@@ -83,7 +85,7 @@ export class ClientComponent implements OnInit {
       bench: this.workInfo.bench,
       plugs: this.workInfo.plugs,
       corbel: this.workInfo.corbel,
-      picture: this.workInfo.picture,
+      pictures: this.workInfo.pictures,
       notes: this.workInfo.notes
     })
   }

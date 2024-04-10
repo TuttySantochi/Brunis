@@ -2,7 +2,7 @@
     <div class="home__row row">
         <app-card *ngFor="let work of worksList" class="home__row-card col-lg-4 col-md-4 col-sm-12"
             [entradaNombre]="work.clientName" [entradaColor]="work.furnitureColor" [entradaTipo]="work.furnitureType"
-            [entradaImagen]="work.picture" [entradaId]="work.id">
+            [entradaImagen]="work.pictures" [entradaId]="work.id">
         </app-card>
     </div>
 </div>
@@ -14,7 +14,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clear()"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="form" class="modal-body__form" (ngSubmit)="onSubmit()">
@@ -109,8 +109,13 @@
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputPicture" class="form-label">Fotos</label>
-                        <input formControlName="picture" class="modal-body__form-input form-control" id="inputPicture"
-                            type="text" placeholder="Fotos" />
+                        <input type="file" id="inputPicture" (change)="getFotos($event)" formControlName="pictures" class="modal-body__form-input form-control">
+                    </div>
+                    <div *ngFor="let foto of workFotos" class="galery">
+                        <div id="{{foto.id}}" class="fotoContainer">
+                            <img src="{{foto.foto}}" alt="" style="width: 200px;">
+                            <button (click)="deleteFoto(foto.id)">Borrar Foto</button>
+                        </div>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputNotes" class="form-label">Notas</label>
