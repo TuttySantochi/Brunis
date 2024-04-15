@@ -17,6 +17,6 @@ export interface Work {
     bench:  boolean,
     plugs: boolean,
     corbel: boolean,
-    pictures: [],
+    pictures: any[],
     notes: string
 }
