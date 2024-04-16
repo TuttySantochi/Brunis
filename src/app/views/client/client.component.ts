@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { WorksService } from '../../services/works.service';
 import { Work } from '../../models/work';
-import Swal from 'sweetalert2';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,9 +9,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./client.component.scss'],
 })
 export class ClientComponent implements OnInit {
+  
   @Input() id?: string;
 
-  workFotos: [] = [];
+  workFotos: any[] = [];
   workInfo: Work;
   form: FormGroup;
 
@@ -43,24 +43,12 @@ export class ClientComponent implements OnInit {
   ngOnInit(): void {
     if (this.id) {
       this.worksService.getWork(this.id).subscribe({
-        next: (response) => {
+        next: (response: Work) => {
           this.workInfo = response;
-          this.workFotos = response.pictures;
-        },
-        error(err) {
-          if (err.status === 404) {
-            Swal.fire({
-              title: 'No se encontro el trabajo',
-              icon: 'error',
-              timer: 3000,
-              showConfirmButton: false,
-            });
-            setTimeout(() => {
-              window.location.href = '/';
-            }, 3000);
-          }
-        },
-      });
+          this.workFotos = response.pictures;          
+          console.log(response);
+          console.log(this.workFotos);
+        }});
     } else {
       window.location.href = '/';
     }
@@ -94,6 +82,5 @@ export class ClientComponent implements OnInit {
     this.worksService.updateWork(this.workInfo.id, this.form.value).subscribe()
     window.location.reload()
   }
-
 
 }

@@ -48,6 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   clear(){
+    this.workFotos = []
     this.form.reset()
   }
   
@@ -57,7 +58,7 @@ export class HomeComponent implements OnInit {
     work.pictures = this.workFotos
     console.log(work);
     this.WorksServices.addWork(work).subscribe()
-    window.location.reload()
+    // window.location.reload()
   }
 
   generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
@@ -71,7 +72,8 @@ export class HomeComponent implements OnInit {
         reader.onload = (events:any)=>{
           let foto = events.target.result
           let id = this.generateId()
-          let objFoto = {id, foto}
+          let mainFoto = false;
+          let objFoto = {id, foto, mainFoto}
           console.log(objFoto);
           this.workFotos.push(objFoto);
         }
@@ -84,6 +86,17 @@ export class HomeComponent implements OnInit {
     let index = this.workFotos.findIndex(item => item.id === id)
     if (index !== -1) {
       this.workFotos.splice(index,1)
+    }
+  }
+
+  checkMain (id: string){
+    let index = this.workFotos.findIndex(item => item.id === id)
+    if (this.workFotos[index].mainFoto) {
+      this.workFotos.forEach((image, i) => {
+        if (i!== index) {
+          image.mainFoto = false;
+        }
+      });
     }
   }
 

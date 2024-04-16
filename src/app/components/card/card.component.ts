@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WorksService } from '../../services/works.service';
 import { Work } from '../../models/work';
 import Swal from 'sweetalert2';
@@ -8,7 +8,18 @@ import Swal from 'sweetalert2';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss'],
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
+
+  mainFoto: any;
+
+
+  @Input() entradaNombre: string = '';
+  @Input() entradaTipo: string = '';
+  @Input() entradaColor: string = '';
+  @Input() entradaImagen: any[] = [];
+  @Input() entradaId: string = '';
+
+
   work: Work = {
     id: '',
     clientName: '',
@@ -34,11 +45,14 @@ export class CardComponent {
 
   constructor(private WorksServices: WorksService) {}
 
-  @Input() entradaNombre: string = '';
-  @Input() entradaTipo: string = '';
-  @Input() entradaColor: string = '';
-  @Input() entradaImagen: [] = [];
-  @Input() entradaId: string = '';
+  ngOnInit(): void {
+    // console.log(this.entradaImagen);
+    for (let i = 0; i < this.entradaImagen.length; i++) {
+      if (this.entradaImagen[i].mainFoto === true) {
+        this.mainFoto = this.entradaImagen[i].foto;
+      }      
+    }
+  }
 
   selectWork(id: string){
     Swal.fire({
