@@ -7,7 +7,20 @@
     font-size: x-large;
     border-radius: 100px;
 }
-
+.title{
+    align-items: center;
+    text-align: center;
+}
 .contact{
     min-height: 600px;
+    display: flex;
+    &__list{
+        width: 50%;
+        &-title{
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+    }
+
 }
