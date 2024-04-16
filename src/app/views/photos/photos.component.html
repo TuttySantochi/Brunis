@@ -1,7 +1,7 @@
-<ul class="container">
-    <li *ngFor="let photo of galery"> 
+<ul class="container" *ngFor="let fotos of galery">
+    <li *ngFor="let photo of fotos"> 
         <div class="box">
-            <img src="{{photo}}" alt="" />
+            <img src="{{photo.foto}}" alt="" />
         </div>
     </li>
 </ul>

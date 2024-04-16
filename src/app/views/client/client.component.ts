@@ -38,6 +38,29 @@ export class ClientComponent implements OnInit {
       pictures: new FormControl([]),
       notes: new FormControl('')
     });
+
+    this.workInfo = {
+      id: '',
+      clientName: '',
+      furnitureType: '',
+      furnitureColor: '',
+      woodType: '',
+      price: 0,
+      deadline: '',
+      location: '',
+      type: '',
+      elevator: '',
+      doors: '',
+      walls: '',
+      pipes: '',
+      wiring: '',
+      plinth: false,
+      bench: false,
+      plugs: false,
+      corbel: false,
+      pictures: [],
+      notes: ''
+    };
   }
 
   ngOnInit(): void {
