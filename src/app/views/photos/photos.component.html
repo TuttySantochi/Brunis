@@ -1,7 +1,10 @@
-<ul class="container" *ngFor="let fotos of galery">
-    <li *ngFor="let photo of fotos"> 
+<ul class="container" *ngFor="let item of worksList">
+    <li *ngFor="let photo of item.pictures"> 
         <div class="box">
             <img src="{{photo.foto}}" alt="" />
+            <span style="display: none;">{{item.furnitureColor}}</span>
+            <span style="display: none;">{{item.furnitureType}}</span>
+            <span style="display: none;">{{item.clientName}}</span>
         </div>
     </li>
 </ul>

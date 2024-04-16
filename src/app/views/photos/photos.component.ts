@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {WorksService} from '../../services/works.service'
 import { FormGroup, FormControl } from '@angular/forms';
+import {Work} from '../../models/work'
 
 @Component({
   selector: 'app-photos',
@@ -10,6 +11,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class PhotosComponent implements OnInit {
 
   galery: any[] = []
+  worksList: Work[] | undefined = [];
 
   fotoForm: FormGroup;
 
@@ -21,7 +23,8 @@ export class PhotosComponent implements OnInit {
 
   ngOnInit(): void {
     this.worksService.getWorks().subscribe({
-      next: (data) => {
+      next: (data: Work[]) => {
+        this.worksList = data
         for (let i = 0; i < data.length; i++) {
           this.galery.push(data[i].pictures);
         }
