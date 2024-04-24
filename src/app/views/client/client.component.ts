@@ -68,7 +68,9 @@ export class ClientComponent implements OnInit {
       this.worksService.getWork(this.id).subscribe({
         next: (response: Work) => {
           this.workInfo = response;
-          this.workFotos = response.pictures;          
+          for (let i = 0; i < response.pictures.length; i++) {
+            this.workFotos.push(response.pictures[i].imageURL);                     
+          }
           console.log(response);
           console.log(this.workFotos);
         }});
@@ -96,7 +98,7 @@ export class ClientComponent implements OnInit {
       bench: this.workInfo.bench,
       plugs: this.workInfo.plugs,
       corbel: this.workInfo.corbel,
-      pictures: this.workInfo.pictures,
+      pictures: this.workFotos,
       notes: this.workInfo.notes
     })
   }

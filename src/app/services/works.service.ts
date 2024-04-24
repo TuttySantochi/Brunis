@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
+import {Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc} from '@angular/fire/firestore'
 import {Work} from '../models/work'
 import {Observable} from 'rxjs'
 
@@ -11,7 +12,9 @@ export class WorksService {
   
   private url: string = "http://localhost:5000/works"
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, 
+    // private firestore: Firestore
+  ) {}
   
 
   getWorks () : Observable<Work[]>{

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Work } from 'src/app/models/work';
 import { WorksService } from '../../services/works.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import {AngularFireStorage} from '@angular/fire/compat/storage'
+import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
 
 
 @Component({
@@ -11,12 +13,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
+  selectedFile: File;
   workFotos: any[] = [];
   worksList: Work[] | undefined = [];
   form: FormGroup;
 
-  constructor(private WorksServices: WorksService) {
-    this.form = new FormGroup({
+  constructor(
+    private WorksServices: WorksService,
+    private storage: AngularFireStorage
+  ) {
+      this.form = new FormGroup({
       clientName: new FormControl(''),
       furnitureType: new FormControl(''),
       furnitureColor: new FormControl(''),
@@ -58,27 +64,34 @@ export class HomeComponent implements OnInit {
     work.pictures = this.workFotos
     console.log(work);
     this.WorksServices.addWork(work).subscribe()
-    // window.location.reload()
+    this.workFotos = []
+    setTimeout(() => {
+      window.location.reload()
+    }, 2500);
   }
 
   generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
 
-  getFotos(event: any){
-    if(event.target.files){
-      let fileList = event.target.files.length
-      for (let i = 0; i < fileList; i++) {
-        let reader = new FileReader();
-        reader.readAsDataURL(event.target.files[i]);
-        reader.onload = (events:any)=>{
-          let foto = events.target.result
-          let id = this.generateId()
-          let mainFoto = false;
-          let objFoto = {id, foto, mainFoto}
-          console.log(objFoto);
-          this.workFotos.push(objFoto);
-        }
-      }
-    }
+  async getFotos(event: any){
+    // if(event.target.files){
+    //   let fileList = event.target.files.length
+    //   for (let i = 0; i < fileList; i++) {
+    //     let reader = new FileReader();
+    //     reader.readAsDataURL(event.target.files[i]);
+    //     reader.onload = (events:any)=>{
+    //     }
+        let file = event.target.files[0]
+        let storage = getStorage()
+        let storageRef = ref(storage, `images/${file.name}`)
+        let uploadTask = await uploadBytes(storageRef, file)
+        let imageURL = await getDownloadURL(uploadTask.ref)
+        let id = this.generateId()
+        let mainFoto = false;
+        let objFoto = {id, imageURL, mainFoto}
+        console.log(objFoto);
+        this.workFotos.push(objFoto);
+    //   }
+    // }
   }
 
   deleteFoto(id: any){

@@ -21,6 +21,9 @@ import { WoodStockComponent } from './components/wood-stock/wood-stock.component
 import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-stock.component';
 import { ClientsContactComponent } from './components/clients-contact/clients-contact.component';
 import { ProviderContactComponent } from './components/provider-contact/provider-contact.component';
+import {AngularFireModule} from '@angular/fire/compat'
+import {AngularFireStorageModule}  from '@angular/fire/compat/storage'
+import {environment} from '../environments/environment'
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import { ProviderContactComponent } from './components/provider-contact/provider
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -113,7 +113,7 @@
                     </div>
                     <div *ngFor="let foto of workFotos" class="galery">
                         <div id="{{foto.id}}" class="fotoContainer">
-                            <img src="{{foto.foto}}" alt="" style="width: 200px;">
+                            <img src="{{foto.imageURL}}" alt="" style="width: 200px;">
                             <label for="mainFoto">Foto de Portada</label>
                             <input id="mainFoto" type="checkbox" [(ngModel)]="foto.mainFoto" [ngModelOptions]="{standalone: true}" (change)="checkMain(foto.id)">
                             <button (click)="deleteFoto(foto.id)">Borrar Foto</button>
