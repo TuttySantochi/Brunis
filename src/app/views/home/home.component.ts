@@ -73,13 +73,6 @@ export class HomeComponent implements OnInit {
   generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
 
   async getFotos(event: any){
-    // if(event.target.files){
-    //   let fileList = event.target.files.length
-    //   for (let i = 0; i < fileList; i++) {
-    //     let reader = new FileReader();
-    //     reader.readAsDataURL(event.target.files[i]);
-    //     reader.onload = (events:any)=>{
-    //     }
         let file = event.target.files[0]
         let storage = getStorage()
         let storageRef = ref(storage, `images/${file.name}`)
@@ -90,15 +83,17 @@ export class HomeComponent implements OnInit {
         let objFoto = {id, imageURL, mainFoto}
         console.log(objFoto);
         this.workFotos.push(objFoto);
-    //   }
-    // }
   }
 
   deleteFoto(id: any){
-    console.log(id);
     let index = this.workFotos.findIndex(item => item.id === id)
     if (index !== -1) {
       this.workFotos.splice(index,1)
+    }
+    let picToDelete = this.workFotos[index]
+    if (picToDelete !== undefined) {
+      let storageRef = this.storage.ref(picToDelete.imageURL)
+      storageRef.delete()
     }
   }
 

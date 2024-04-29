@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { WorksService } from '../../services/works.service';
 import { Work } from '../../models/work';
 import { FormGroup, FormControl } from '@angular/forms';
+import {AngularFireStorage} from '@angular/fire/compat/storage'
+import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
+
 
 @Component({
   selector: 'app-client',
@@ -16,7 +19,9 @@ export class ClientComponent implements OnInit {
   workInfo: Work;
   form: FormGroup;
 
-  constructor(private worksService: WorksService) {
+  constructor(private worksService: WorksService,
+    private storage: AngularFireStorage
+  ) {
     this.form = new FormGroup({
       clientName: new FormControl(''),
       furnitureType: new FormControl(''),
@@ -69,9 +74,8 @@ export class ClientComponent implements OnInit {
         next: (response: Work) => {
           this.workInfo = response;
           for (let i = 0; i < response.pictures.length; i++) {
-            this.workFotos.push(response.pictures[i].imageURL);                     
+            this.workFotos.push(response.pictures[i]);                     
           }
-          console.log(response);
           console.log(this.workFotos);
         }});
     } else {
@@ -98,12 +102,51 @@ export class ClientComponent implements OnInit {
       bench: this.workInfo.bench,
       plugs: this.workInfo.plugs,
       corbel: this.workInfo.corbel,
-      pictures: this.workFotos,
+      pictures: [],
       notes: this.workInfo.notes
     })
   }
 
+  generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
+
+
+  async getFotos(event: any){
+    let file = event.target.files[0]
+    let storage = getStorage()
+    let storageRef = ref(storage, `images/${file.name}`)
+    let uploadTask = await uploadBytes(storageRef, file)
+    let imageURL = await getDownloadURL(uploadTask.ref)
+    let id = this.generateId()
+    let mainFoto = false;
+    let objFoto = {id, imageURL, mainFoto}
+    this.workFotos.push(objFoto);
+}
+
+deleteFoto(id: string){
+  let index = this.workFotos.findIndex(item => item.id === id)
+  if (index !== -1) {
+    this.workFotos.splice(index,1)
+  }
+  let picToDelete = this.workFotos[index]
+  if (picToDelete !== undefined) {
+    let storageRef = this.storage.ref(picToDelete.imageURL)
+    storageRef.delete()
+  }
+}
+
+checkMain (id: string){
+  let index = this.workFotos.findIndex(item => item.id === id)
+  if (this.workFotos[index].mainFoto) {
+    this.workFotos.forEach((image, i) => {
+      if (i!== index) {
+        image.mainFoto = false;
+      }
+    });
+  }
+}
+
   updateWork(){
+    this.form.value.pictures = this.workFotos
     this.worksService.updateWork(this.workInfo.id, this.form.value).subscribe()
     window.location.reload()
   }

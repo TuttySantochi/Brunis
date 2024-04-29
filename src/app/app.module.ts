@@ -24,6 +24,7 @@ import { ProviderContactComponent } from './components/provider-contact/provider
 import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFireStorageModule}  from '@angular/fire/compat/storage'
 import {environment} from '../environments/environment'
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {environment} from '../environments/environment'
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

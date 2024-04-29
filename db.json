@@ -1,75 +1,47 @@
 {
   "works": [
     {
-      "id": "9f1d",
-      "clientName": "",
-      "furnitureType": "",
-      "furnitureColor": "",
-      "woodType": "",
-      "price": 0,
-      "deadline": "",
-      "location": "",
-      "type": "",
-      "elevator": "",
-      "doors": "",
-      "walls": "",
-      "pipes": "",
-      "wiring": "",
-      "plinth": false,
-      "bench": false,
-      "plugs": false,
-      "corbel": false,
-      "pictures": [
-        {
-          "id": "qmcg4k2bam5l4rq551",
-          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-tsps.appspot.com/o/images%2F.trashed-1713735231-IMG_20240322_180847.jpg?alt=media&token=ba037fdf-949b-4915-abf4-42cecc6d0d97",
-          "mainFoto": false
-        },
-        {
-          "id": "qmcg572gq3dvt3lq7ja",
-          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-tsps.appspot.com/o/images%2F.trashed-1713734921-IMG_20240322_180434.jpg?alt=media&token=e95f6bf7-71bd-45e9-8a42-570961bd29b6",
-          "mainFoto": true
-        }
-      ],
-      "notes": ""
-    },
-    {
-      "id": "7560",
       "clientName": "Tutty",
       "furnitureType": "Bajo Mesada",
-      "furnitureColor": "Gris",
+      "furnitureColor": "Grafito",
       "woodType": "Algun tipo de madera",
-      "price": 230000,
-      "deadline": "2024-03-13",
+      "price": 4500000,
+      "deadline": "2024-03-08",
       "location": "Alguna Dirección",
       "type": "Casa",
       "elevator": "No",
-      "doors": "sdkfh",
-      "walls": "sldfh",
-      "pipes": "sodjafn",
-      "wiring": "ñoasdhf",
+      "doors": "240 - 90",
+      "walls": "Ladrillo",
+      "pipes": "120",
+      "wiring": "200",
       "plinth": false,
-      "bench": false,
+      "bench": true,
       "plugs": true,
       "corbel": false,
       "pictures": [
         {
-          "id": "qme1l611gjr6ktukpk9",
-          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-tsps.appspot.com/o/images%2FIMG_20220904_182415.jpg?alt=media&token=cc7f3962-9340-4d21-bc22-ad25da1d5e84",
-          "mainFoto": false
-        },
-        {
-          "id": "qme1lnkh7zetlvleylb",
-          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-tsps.appspot.com/o/images%2F.trashed-1713734893-IMG_20240322_175921.jpg?alt=media&token=fa742576-b9a5-4d9a-bf5e-92f83a8e86e3",
+          "id": "qmgnvhicfz2uxq1wl5q",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FIMG_20230310_213618.jpg?alt=media&token=0225922a-d0db-4eda-8cd4-a2e5a19bf0ab",
           "mainFoto": true
         },
         {
-          "id": "qme1m2e7yk934dqf94k",
-          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-tsps.appspot.com/o/images%2FIMG_20221104_142457.jpg?alt=media&token=d9f99c74-1b37-4aac-bba6-bc2c40c792c6",
+          "id": "qmgooq024o35vr4yq2k",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FIMG_20221011_085851.jpg?alt=media&token=77fcff5d-9364-4d31-b88a-503fd6d907ec",
+          "mainFoto": false
+        },
+        {
+          "id": "qmgou2kj1p8wbf0ive",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FIMG_20221210_212933.jpg?alt=media&token=7880cd58-9364-4cb0-a5f5-90a3835fc7a0",
+          "mainFoto": false
+        },
+        {
+          "id": "qmhbkacrx6hedrw4x7k",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FIMG_20221218_154349_BURST19.jpg?alt=media&token=973d88c2-e8ce-4976-977d-3de1c1dffef2",
           "mainFoto": false
         }
       ],
-      "notes": "Nota de prueba"
+      "notes": "Otra nota",
+      "id": "8e35"
     }
   ],
   "contacts": [
