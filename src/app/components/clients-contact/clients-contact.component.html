@@ -1,4 +1,7 @@
-<div class="container" *ngFor="let item of clientList">
+<div class="form-outline mt-3">
+    <input type="search" [(ngModel)]="searchtext" id="form1" class="form-control" placeholder="Filtrar" aria-label="Search" />
+</div>
+<div class="container" *ngFor="let item of clientList | filter:searchtext">
     <div class="container__card">
         <div class="container__card-header">
             <h2>{{item.name}}</h2>
