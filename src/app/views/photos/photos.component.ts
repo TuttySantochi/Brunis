@@ -22,7 +22,7 @@ export class PhotosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.worksService.getWorks().subscribe({
+    this.worksService.getWorks().valueChanges().subscribe({
       next: (data: Work[]) => {
         this.worksList = data
         for (let i = 0; i < data.length; i++) {

@@ -6,6 +6,6 @@ export const environment = {
         projectId: "brunis-62f04",
         storageBucket: "brunis-62f04.appspot.com",
         messagingSenderId: "579203409061",
-        appId: "1:579203409061:web:e9fbda12a053f30e1a594c"
+        appId: "1:579203409061:web:5ce44bc2716e06471a594c"
     }
 };

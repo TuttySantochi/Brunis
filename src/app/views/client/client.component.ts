@@ -4,6 +4,7 @@ import { Work } from '../../models/work';
 import { FormGroup, FormControl } from '@angular/forms';
 import {AngularFireStorage} from '@angular/fire/compat/storage'
 import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -13,10 +14,10 @@ import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
 })
 export class ClientComponent implements OnInit {
   
-  @Input() id?: string;
+  @Input() id: string;
 
   workFotos: any[] = [];
-  workInfo: Work;
+  workInfo?: Work;
   form: FormGroup;
 
   constructor(private worksService: WorksService,
@@ -70,14 +71,24 @@ export class ClientComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.id) {
-      this.worksService.getWork(this.id).subscribe({
-        next: (response: Work) => {
+      this.worksService.getWork(this.id).valueChanges().subscribe(response => {
+        if (response !== undefined) {
           this.workInfo = response;
           for (let i = 0; i < response.pictures.length; i++) {
-            this.workFotos.push(response.pictures[i]);                     
+              this.workFotos.push(response?.pictures[i]);                     
+            }
+          } else {
+            Swal.fire({
+              title: 'Los datos no se cargaron correctamente, intenta de nuevo',
+              icon: 'error',
+              timer: 2000,
+              showConfirmButton: false,
+            })
+            setTimeout(() => {
+              window.location.href = '/'
+            }, 2000);
           }
-          console.log(this.workFotos);
-        }});
+        });
     } else {
       window.location.href = '/';
     }
@@ -85,25 +96,25 @@ export class ClientComponent implements OnInit {
 
   setValues(){
     this.form.setValue({
-      clientName: this.workInfo.clientName,
-      furnitureType: this.workInfo.furnitureType,
-      furnitureColor: this.workInfo.furnitureColor,
-      woodType: this.workInfo.woodType,
-      price: this.workInfo.price,
-      deadline: this.workInfo.deadline,
-      location: this.workInfo.location,
-      type: this.workInfo.type,
-      elevator: this.workInfo.elevator,
-      doors: this.workInfo.doors,
-      walls: this.workInfo.walls,
-      pipes: this.workInfo.pipes,
-      wiring: this.workInfo.wiring,
-      plinth: this.workInfo.plinth,
-      bench: this.workInfo.bench,
-      plugs: this.workInfo.plugs,
-      corbel: this.workInfo.corbel,
+      clientName: this.workInfo?.clientName,
+      furnitureType: this.workInfo?.furnitureType,
+      furnitureColor: this.workInfo?.furnitureColor,
+      woodType: this.workInfo?.woodType,
+      price: this.workInfo?.price,
+      deadline: this.workInfo?.deadline,
+      location: this.workInfo?.location,
+      type: this.workInfo?.type,
+      elevator: this.workInfo?.elevator,
+      doors: this.workInfo?.doors,
+      walls: this.workInfo?.walls,
+      pipes: this.workInfo?.pipes,
+      wiring: this.workInfo?.wiring,
+      plinth: this.workInfo?.plinth,
+      bench: this.workInfo?.bench,
+      plugs: this.workInfo?.plugs,
+      corbel: this.workInfo?.corbel,
       pictures: [],
-      notes: this.workInfo.notes
+      notes: this.workInfo?.notes
     })
   }
 
@@ -145,9 +156,9 @@ checkMain (id: string){
   }
 }
 
-  updateWork(){
+  updateWork(): void{
     this.form.value.pictures = this.workFotos
-    this.worksService.updateWork(this.workInfo.id, this.form.value).subscribe()
+    this.worksService.updateWork(this.id, this.form.value)
     window.location.reload()
   }
 

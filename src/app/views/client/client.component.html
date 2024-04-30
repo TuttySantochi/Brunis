@@ -20,31 +20,31 @@
     </div>
     <div class="work__detail mt-3">
         <div class="work__detail-client">
-            <h1 class="work__detail-client-name">Cliente: {{workInfo.clientName}}</h1>
-            <p class="work__detail-client-direction">Dirección: {{workInfo.location}}</p>
-            <p class="work__detail-client-cost">Precio: ${{workInfo.price}}</p>
-            <p class="work__detail-client-deadline">Fecha de entrega: {{workInfo.deadline}}</p>
+            <h1 class="work__detail-client-name">Cliente: {{workInfo?.clientName}}</h1>
+            <p class="work__detail-client-direction">Dirección: {{workInfo?.location}}</p>
+            <p class="work__detail-client-cost">Precio: ${{workInfo?.price}}</p>
+            <p class="work__detail-client-deadline">Fecha de entrega: {{workInfo?.deadline}}</p>
         </div>
         <div class="work__detail-info container mt-3">
             <div class="row">
                 <div class="work__detail-info-specifications col-lg-6 col-md-6 col-sm-12">
-                    <p class="work__detail-info-specifications-item">Tipo de mueble: {{workInfo.furnitureType}}</p>
+                    <p class="work__detail-info-specifications-item">Tipo de mueble: {{workInfo?.furnitureType}}</p>
                     <p class="work__detail-info-specifications-item">Medidias: ""</p>
-                    <p class="work__detail-info-specifications-item">Colores: {{workInfo.furnitureColor}}</p>
+                    <p class="work__detail-info-specifications-item">Colores: {{workInfo?.furnitureColor}}</p>
                     <p class="work__detail-info-specifications-item">Madera: ""</p>
                 </div>
                 <div class="work__detail-info-building col-lg-6 col-md-6 col-sm-12">
-                    <p class="work__detail-info-building-item">Tipo de edificio: {{workInfo.type}}</p>
-                    <p class="work__detail-info-building-item">Ascensor: {{workInfo.elevator}}</p>
-                    <p class="work__detail-info-building-item">Puertas: {{workInfo.doors}}</p>
-                    <p class="work__detail-info-building-item">Paredes: {{workInfo.walls}}</p>
-                    <p class="work__detail-info-building-item">Cañerias: {{workInfo.pipes}}</p>
-                    <p class="work__detail-info-building-item">Cableado: {{workInfo.wiring}}</p>
+                    <p class="work__detail-info-building-item">Tipo de edificio: {{workInfo?.type}}</p>
+                    <p class="work__detail-info-building-item">Ascensor: {{workInfo?.elevator}}</p>
+                    <p class="work__detail-info-building-item">Puertas: {{workInfo?.doors}}</p>
+                    <p class="work__detail-info-building-item">Paredes: {{workInfo?.walls}}</p>
+                    <p class="work__detail-info-building-item">Cañerias: {{workInfo?.pipes}}</p>
+                    <p class="work__detail-info-building-item">Cableado: {{workInfo?.wiring}}</p>
                 </div>
             </div>
         </div>
         <div class="work__detail-info-notes mt-3 mb-3 text-center">
-            <p>{{workInfo.notes}}</p>
+            <p>{{workInfo?.notes}}</p>
         </div>
     </div>
 </div>

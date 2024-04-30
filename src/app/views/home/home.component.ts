@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.WorksServices.getWorks().subscribe({
+    this.WorksServices.getWorks().valueChanges().subscribe({
       next: (data: Work[]) =>{
         this.worksList = data
       }
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
     const work = this.form.value;
     work.pictures = this.workFotos
     console.log(work);
-    this.WorksServices.addWork(work).subscribe()
+    this.WorksServices.addWork(work)
     this.workFotos = []
     setTimeout(() => {
       window.location.reload()
