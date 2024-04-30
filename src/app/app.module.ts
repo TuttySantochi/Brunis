@@ -25,6 +25,7 @@ import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFireStorageModule}  from '@angular/fire/compat/storage'
 import {environment} from '../environments/environment'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     WoodStockComponent,
     IronWorkStockComponent,
     ClientsContactComponent,
-    ProviderContactComponent
+    ProviderContactComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

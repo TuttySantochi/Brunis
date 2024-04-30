@@ -17,6 +17,8 @@ export class ClientsContactComponent {
   clientList?: Contact[] = []
 
   form: FormGroup;
+  searchtext:any;
+
 
   constructor(private contactServices: ContactService){
     this.form = new FormGroup({

@@ -42,6 +42,39 @@
       ],
       "notes": "Otra nota",
       "id": "8e35"
+    },
+    {
+      "clientName": "bnmbnm",
+      "furnitureType": "Rack TV",
+      "furnitureColor": "blanco",
+      "woodType": "Melamina",
+      "price": 1000000,
+      "deadline": "2024-05-10",
+      "location": "Mate de Luna",
+      "type": "Comercio",
+      "elevator": "bnmbnmbnmmnnm",
+      "doors": "bnmmbn",
+      "walls": "Ladrillo",
+      "pipes": "222",
+      "wiring": "1300",
+      "plinth": true,
+      "bench": true,
+      "plugs": false,
+      "corbel": true,
+      "pictures": [
+        {
+          "id": "qmn6kaj5umcvh2raor",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FWhatsApp%20Image%202024-01-26%20at%2011.59.32.jpeg?alt=media&token=d52af24b-15cc-4bd2-820b-6090d7ecc665",
+          "mainFoto": true
+        },
+        {
+          "id": "qmn6krm1t8uxnpqv6k8",
+          "imageURL": "https://firebasestorage.googleapis.com/v0/b/brunis-62f04.appspot.com/o/images%2FWhatsApp%20Image%202022-12-02%20at%2012.41.07.jpeg?alt=media&token=cda009cd-3737-4cb2-9d4f-729dc2790ca0",
+          "mainFoto": false
+        }
+      ],
+      "notes": "fgfgdfgdgdg",
+      "id": "cfd5"
     }
   ],
   "contacts": [
