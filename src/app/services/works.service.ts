@@ -13,9 +13,8 @@ export class WorksService {
   private dbPath = '/works'
   workRef: AngularFirestoreCollection<Work>
   
-  constructor(private http: HttpClient, 
-    private fireStore: AngularFirestore
-  ) {this.workRef = fireStore.collection(this.dbPath)}
+  constructor(private fireStore: AngularFirestore) 
+  {this.workRef = fireStore.collection(this.dbPath)}
 
 
   getWorks () : AngularFirestoreCollection<Work>{
@@ -26,16 +25,20 @@ export class WorksService {
     return this.fireStore.doc(`${this.dbPath}/${id}`)
   }
 
-  addWork(work: Work) {
-    return this.workRef.add(work);
+  addWork(work: Work): any {
+    console.log(work);
+    
+    return this.workRef.add({...work});
   }
 
   updateWork(id: any, work: Work): Promise<void>{
     return this.fireStore.doc(id).update(work);
   }
 
-  deleteWork(id: string): Promise<void> {
-    return this.fireStore.doc(id).delete();
+  deleteWork(id: string): any {
+    console.log(id);
+    
+    return this.workRef.doc(id).delete();
   }
   
 

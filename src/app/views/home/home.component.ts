@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   selectedFile: File;
   workFotos: any[] = [];
-  worksList: Work[] | undefined = [];
+  worksList: Work[] = [];
   form: FormGroup;
 
   constructor(
@@ -46,11 +46,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.WorksServices.getWorks().valueChanges().subscribe({
-      next: (data: Work[]) =>{
-        this.worksList = data
+    this.WorksServices.getWorks().snapshotChanges().subscribe(
+        data=>{
+        console.log(data);
+        data.forEach(item =>{
+          let work = item.payload.doc.data() as Work
+          work.id = item.payload.doc.id
+          this.worksList.push(work)
+        })
+        
       }
-    })  
+    )  
   }
 
   clear(){
@@ -65,9 +71,9 @@ export class HomeComponent implements OnInit {
     console.log(work);
     this.WorksServices.addWork(work)
     this.workFotos = []
-    setTimeout(() => {
-      window.location.reload()
-    }, 2500);
+    // setTimeout(() => {
+    //   window.location.reload()
+    // }, 2500);
   }
 
   generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)

@@ -46,15 +46,17 @@ export class CardComponent implements OnInit {
   constructor(private WorksServices: WorksService) {}
 
   ngOnInit(): void {
-    for (let i = 0; i < this.entradaImagen.length; i++) {
-      if (this.entradaImagen[i].mainFoto === true) {
-        this.mainFoto = this.entradaImagen[i].imageURL;
-      }      
+    if (this.entradaImagen !== undefined) {
+      for (let i = 0; i < this.entradaImagen.length; i++) {
+        if (this.entradaImagen[i].mainFoto === true) {
+          this.mainFoto = this.entradaImagen[i].imageURL;
+        } 
+    }
     }
   }
 
   selectWork(id: string){
-    Swal.fire({
+      Swal.fire({
       icon: 'warning',
       title: 'Desea eliminar este trabajo?',
       showCancelButton: true,
@@ -75,7 +77,8 @@ export class CardComponent implements OnInit {
   }
 
   deleteWork(id: string) {
-    this.WorksServices.deleteWork(id).then(
+    this.WorksServices.deleteWork(id)
+    .then(
       () => {
         Swal.fire({
           title:'Eliminado con exito', 
