@@ -17,6 +17,8 @@ export class ClientComponent implements OnInit {
   @Input() id: string;
 
   workFotos: any[] = [];
+  workFotosToEdit: any[] = [];
+  fotosToDelete: any[] = [];
   workInfo?: Work;
   form: FormGroup;
 
@@ -95,6 +97,13 @@ export class ClientComponent implements OnInit {
   }
 
   setValues(){
+    this.worksService.getWork(this.id).valueChanges().subscribe(response => {
+      if (response) {
+        for (let i = 0; i < response.pictures.length; i++) {
+            this.workFotosToEdit.push(response?.pictures[i]);                     
+          }
+      }
+      });
     this.form.setValue({
       clientName: this.workInfo?.clientName,
       furnitureType: this.workInfo?.furnitureType,
@@ -130,25 +139,26 @@ export class ClientComponent implements OnInit {
     let id = this.generateId()
     let mainFoto = false;
     let objFoto = {id, imageURL, mainFoto}
-    this.workFotos.push(objFoto);
+    this.workFotosToEdit.push(objFoto);
+    this.fotosToDelete.push(objFoto);
 }
 
 deleteFoto(id: string){
-  let index = this.workFotos.findIndex(item => item.id === id)
+  let index = this.workFotosToEdit.findIndex(item => item.id === id)
   if (index !== -1) {
-    this.workFotos.splice(index,1)
+    this.workFotosToEdit.splice(index,1)
   }
-  let picToDelete = this.workFotos[index]
+  let picToDelete = this.workFotosToEdit[index]
   if (picToDelete !== undefined) {
-    let storageRef = this.storage.ref(picToDelete.imageURL)
+    let storageRef = this.storage.refFromURL(picToDelete.imageURL)
     storageRef.delete()
   }
 }
 
 checkMain (id: string){
-  let index = this.workFotos.findIndex(item => item.id === id)
-  if (this.workFotos[index].mainFoto) {
-    this.workFotos.forEach((image, i) => {
+  let index = this.workFotosToEdit.findIndex(item => item.id === id)
+  if (this.workFotosToEdit[index].mainFoto) {
+    this.workFotosToEdit.forEach((image, i) => {
       if (i!== index) {
         image.mainFoto = false;
       }
@@ -157,9 +167,23 @@ checkMain (id: string){
 }
 
   updateWork(): void{
-    this.form.value.pictures = this.workFotos
-    this.worksService.updateWork(this.id, this.form.value)
-    window.location.reload()
+    this.form.value.pictures = this.workFotosToEdit
+    console.log(this.form.value);
+    
+    // this.worksService.updateWork(this.id, this.form.value)
+    // window.location.reload()
+  }
+
+  clear(){
+    if (this.fotosToDelete) {
+      this.fotosToDelete.forEach(image=>{
+        let storageRef = this.storage.refFromURL(image.imageURL)
+        storageRef.delete();
+      })
+    }
+    this.workFotosToEdit = [];
+    this.fotosToDelete = [];
+    this.form.reset()
   }
 
 }

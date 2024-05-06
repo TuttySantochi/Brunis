@@ -2,9 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Work } from 'src/app/models/work';
 import { WorksService } from '../../services/works.service';
 import { FormControl, FormGroup } from '@angular/forms';
-import {AngularFireStorage} from '@angular/fire/compat/storage'
-import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage'
-
+import { AngularFireStorage } from '@angular/fire/compat/storage'
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 @Component({
   selector: 'app-home',
@@ -17,12 +16,13 @@ export class HomeComponent implements OnInit {
   workFotos: any[] = [];
   worksList: Work[] = [];
   form: FormGroup;
+  isLoading: boolean = false
 
   constructor(
     private WorksServices: WorksService,
     private storage: AngularFireStorage
   ) {
-      this.form = new FormGroup({
+    this.form = new FormGroup({
       clientName: new FormControl(''),
       furnitureType: new FormControl(''),
       furnitureColor: new FormControl(''),
@@ -47,72 +47,75 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.WorksServices.getWorks().snapshotChanges().subscribe(
-        data=>{
-        console.log(data);
-        data.forEach(item =>{
-          let work = item.payload.doc.data() as Work
-          work.id = item.payload.doc.id
-          this.worksList.push(work)
-        })
-        
-      }
-    )  
+        data => {
+          data.forEach(item => {
+            let works = item.payload.doc.data() as Work
+            works.id = item.payload.doc.id
+            this.worksList.push(works)
+          })
+        }
+      )
   }
 
-  clear(){
+  clear() {
+    for (let i = 0; i < this.workFotos.length; i++) {
+      let storageRef = this.storage.refFromURL(this.workFotos[i].imageURL)
+      storageRef.delete()
+    }
     this.workFotos = []
     this.form.reset()
   }
-  
-  onSubmit (){
-    console.log(this.workFotos);
+
+  onSubmit() {
+    this.isLoading = true
     const work = this.form.value;
     work.pictures = this.workFotos
-    console.log(work);
     this.WorksServices.addWork(work)
-    this.workFotos = []
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 2500);
+    setTimeout(() => {
+      window.location.reload()
+    }, 1500);
   }
 
   generateId = () => Date.now().toString(35) + Math.random().toString(36).slice(2)
 
-  async getFotos(event: any){
-        let file = event.target.files[0]
-        let storage = getStorage()
-        let storageRef = ref(storage, `images/${file.name}`)
-        let uploadTask = await uploadBytes(storageRef, file)
-        let imageURL = await getDownloadURL(uploadTask.ref)
-        let id = this.generateId()
-        let mainFoto = false;
-        let objFoto = {id, imageURL, mainFoto}
-        console.log(objFoto);
-        this.workFotos.push(objFoto);
+  async getFotos(event: any) {
+    let file = event.target.files[0]
+    let storage = getStorage()
+    let storageRef = ref(storage, `images/${file.name}`)
+    let uploadTask = await uploadBytes(storageRef, file)
+    let imageURL = await getDownloadURL(uploadTask.ref)
+    let id = this.generateId()
+    let mainFoto = false;
+    let objFoto = { id, imageURL, mainFoto }
+    console.log(objFoto);
+    this.workFotos.push(objFoto);
   }
 
-  deleteFoto(id: any){
+  deleteFoto(id: any) {
     let index = this.workFotos.findIndex(item => item.id === id)
-    if (index !== -1) {
-      this.workFotos.splice(index,1)
-    }
     let picToDelete = this.workFotos[index]
+    if (index !== -1) {
+      this.workFotos.splice(index, 1)
+    }
     if (picToDelete !== undefined) {
-      let storageRef = this.storage.ref(picToDelete.imageURL)
+      let storageRef = this.storage.refFromURL(picToDelete.imageURL)
       storageRef.delete()
     }
   }
 
-  checkMain (id: string){
+  checkMain(id: string) {
     let index = this.workFotos.findIndex(item => item.id === id)
     if (this.workFotos[index].mainFoto) {
       this.workFotos.forEach((image, i) => {
-        if (i!== index) {
+        if (i !== index) {
           image.mainFoto = false;
         }
       });
     }
   }
 
+  startSpinner(){
+      this.isLoading = true
+  }
 
 }

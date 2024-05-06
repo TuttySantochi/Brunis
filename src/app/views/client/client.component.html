@@ -59,7 +59,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button (click)="clear()" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="form" class="modal-body__form">
@@ -157,7 +157,7 @@
                         <input type="file" id="inputPicture" (change)="getFotos($event)" formControlName="pictures"
                             class="modal-body__form-input form-control">
                     </div>
-                    <div *ngFor="let foto of workFotos" class="galery">
+                    <div *ngFor="let foto of workFotosToEdit" class="galery">
                         <div id="{{foto.id}}" class="fotoContainer">
                             <img src="{{foto.imageURL}}" alt="" style="width: 200px;">
                             <label for="mainFoto">Foto de Portada</label>
@@ -172,7 +172,7 @@
                             placeholder="Notas" rows="3"></textarea>
                     </div>
                     <div class="modal-buttons mt-2 text-center">
-                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">
+                        <button (click)="clear()" type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">
                             Cancelar
                         </button>
                         <button (click)="updateWork()" type="submit" class="btn btn-primary m-2"

@@ -1,20 +1,25 @@
-<div class="home container">
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
+<div class="home container" *ngIf="!isLoading">
     <div class="home__row row">
-        <app-card *ngFor="let work of worksList" class="home__row-card col-lg-4 col-md-4 col-sm-12"
+        <app-card (startSpinner)="startSpinner()" *ngFor="let work of worksList" class="home__row-card col-lg-4 col-md-4 col-sm-12"
             [entradaNombre]="work.clientName" [entradaColor]="work.furnitureColor" [entradaTipo]="work.furnitureType"
             [entradaImagen]="work.pictures" [entradaId]="work.id">
         </app-card>
     </div>
 </div>
 
-<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+<button type="button" class="modal-button btn btn-primary" data-bs-toggle="modal"
+    data-bs-target="#exampleModal">+</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Proyecto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clear()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="clear()"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="form" class="modal-body__form" (ngSubmit)="onSubmit()">
@@ -109,13 +114,15 @@
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputPicture" class="form-label">Fotos</label>
-                        <input type="file" id="inputPicture" (change)="getFotos($event)" formControlName="pictures" class="modal-body__form-input form-control">
+                        <input type="file" id="inputPicture" (change)="getFotos($event)" formControlName="pictures"
+                            class="modal-body__form-input form-control">
                     </div>
                     <div *ngFor="let foto of workFotos" class="galery">
                         <div id="{{foto.id}}" class="fotoContainer">
                             <img src="{{foto.imageURL}}" alt="" style="width: 200px;">
                             <label for="mainFoto">Foto de Portada</label>
-                            <input id="mainFoto" type="checkbox" [(ngModel)]="foto.mainFoto" [ngModelOptions]="{standalone: true}" (change)="checkMain(foto.id)">
+                            <input id="mainFoto" type="checkbox" [(ngModel)]="foto.mainFoto"
+                                [ngModelOptions]="{standalone: true}" (change)="checkMain(foto.id)">
                             <button (click)="deleteFoto(foto.id)">Borrar Foto</button>
                         </div>
                     </div>

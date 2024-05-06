@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { WorksService } from '../../services/works.service';
 import { Work } from '../../models/work';
 import Swal from 'sweetalert2';
+import { AngularFireStorage } from '@angular/fire/compat/storage'
+
 
 @Component({
   selector: 'app-card',
@@ -19,6 +21,7 @@ export class CardComponent implements OnInit {
   @Input() entradaImagen: any[] = [];
   @Input() entradaId: string = '';
 
+  @Output() startSpinner  = new EventEmitter();
 
   work: Work = {
     id: '',
@@ -43,7 +46,7 @@ export class CardComponent implements OnInit {
     notes: '',
   };
 
-  constructor(private WorksServices: WorksService) {}
+  constructor(private WorksServices: WorksService, private storage: AngularFireStorage){}
 
   ngOnInit(): void {
     if (this.entradaImagen !== undefined) {
@@ -64,6 +67,7 @@ export class CardComponent implements OnInit {
       confirmButtonColor: 'red'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.startSpinner.emit()
         this.deleteWork(id);
       } else if (result.isDismissed) {
         Swal.fire({
@@ -77,6 +81,10 @@ export class CardComponent implements OnInit {
   }
 
   deleteWork(id: string) {
+    for (let i = 0; i < this.entradaImagen.length; i++) {
+      let storageRef = this.storage.refFromURL(this.entradaImagen[i].imageURL)
+      storageRef.delete()
+    }
     this.WorksServices.deleteWork(id)
     .then(
       () => {

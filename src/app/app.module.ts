@@ -22,6 +22,7 @@ import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-s
 import { ClientsContactComponent } from './components/clients-contact/clients-contact.component';
 import { ProviderContactComponent } from './components/provider-contact/provider-contact.component';
 import {AngularFireModule} from '@angular/fire/compat'
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore'
 import {AngularFireStorageModule}  from '@angular/fire/compat/storage'
 import {environment} from '../environments/environment'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
@@ -54,7 +55,7 @@ import { FilterPipe } from './filter.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
+    AngularFirestoreModule,
     SweetAlert2Module.forRoot()
   ],
   providers: [],

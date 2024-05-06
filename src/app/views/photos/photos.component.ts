@@ -16,9 +16,9 @@ export class PhotosComponent implements OnInit {
   fotoForm: FormGroup;
 
   constructor(private worksService: WorksService){
-    this.fotoForm = new FormGroup({
-      foto: new FormControl(null)
-    })
+    // this.fotoForm = new FormGroup({
+    //   foto: new FormControl(null)
+    // })
   }
 
   ngOnInit(): void {
