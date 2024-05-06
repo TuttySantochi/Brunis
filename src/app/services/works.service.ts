@@ -19,7 +19,8 @@ export class WorksService {
   }
 
   getWork(id: string): AngularFirestoreDocument<Work> {
-    return this.fireStore.doc(`${this.dbPath}/${id}`)
+    return this.workRef.doc(id)
+    // return this.fireStore.doc(`${this.dbPath}/${id}`)
   }
 
   addWork(work: Work): any {    
@@ -27,12 +28,10 @@ export class WorksService {
   }
 
   updateWork(id: any, work: Work): Promise<void>{
-    return this.fireStore.doc(id).update(work);
+    return this.workRef.doc(id).update(work)
   }
 
-  deleteWork(id: string): any {
-    console.log(id);
-    
+  deleteWork(id: string): any {   
     return this.workRef.doc(id).delete();
   }
 

@@ -1,4 +1,7 @@
-<div class="work mt-1 mb-3">
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
+<div class="work mt-1 mb-3" *ngIf="!isLoading">
     <div class="work__carousel">
         <div id="carouselExample" class="carousel slide work__carousel-content">
             <div class="carousel-inner work__carousel-content-pics" *ngFor="let foto of workFotos">
@@ -175,8 +178,8 @@
                         <button (click)="clear()" type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">
                             Cancelar
                         </button>
-                        <button (click)="updateWork()" type="submit" class="btn btn-primary m-2"
-                            data-bs-dismiss="modal">Agregar</button>
+                        <button (click)="updateWork()" type="button" class="btn btn-primary m-2"
+                            data-bs-dismiss="modal">Guardar</button>
                     </div>
                 </form>
             </div>

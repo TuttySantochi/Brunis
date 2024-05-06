@@ -16,6 +16,7 @@ export class ClientComponent implements OnInit {
   
   @Input() id: string;
 
+  isLoading: boolean = false
   workFotos: any[] = [];
   workFotosToEdit: any[] = [];
   fotosToDelete: any[] = [];
@@ -167,11 +168,12 @@ checkMain (id: string){
 }
 
   updateWork(): void{
+    this.isLoading = true
     this.form.value.pictures = this.workFotosToEdit
-    console.log(this.form.value);
-    
-    // this.worksService.updateWork(this.id, this.form.value)
-    // window.location.reload()
+    this.worksService.updateWork(this.id, this.form.value)
+    setTimeout(() => {
+      window.location.reload()
+    }, 1800);
   }
 
   clear(){

@@ -42,3 +42,31 @@
         }
     }
 }
+
+.loader{
+    width: 100vw;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #363636;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
