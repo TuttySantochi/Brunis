@@ -11,6 +11,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ContactComponent {
 
   form: FormGroup
+  isLoading: boolean = false
 
   constructor(private contactService: ContactService){
     this.form = new FormGroup({
@@ -23,9 +24,15 @@ export class ContactComponent {
   }
 
   onSubmit(){
-    const contact = this.form.value
-    this.contactService.addContact(contact).subscribe()
-    window.location.reload()
+    this.isLoading = true
+    this.contactService.addContact(this.form.value)
+    setTimeout(() => {
+      window.location.reload()
+    }, 1500);
+  }
+
+  startSpinner(){
+    this.isLoading = true
   }
 
 }

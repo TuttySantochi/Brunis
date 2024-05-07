@@ -1,14 +1,16 @@
-<h1 class="title m-5">Contactos</h1>
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
 
-
-<div class="contact">
+<!-- <h1 class="title m-5">Contactos</h1> -->
+<div class="contact" *ngIf="!isLoading">
     <div class="contact__list">
         <h2 class="contact__list-title">Clientes</h2>
-        <app-clients-contact/>
+        <app-clients-contact (startSpinn)="startSpinner()"/>
     </div>
     <div class="contact__list">
         <h2 class="contact__list-title">Proveedores</h2>
-        <app-provider-contact/>
+        <app-provider-contact (startSpinn)="startSpinner()"/>
     </div>
 </div>
 

@@ -1,36 +1,40 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
-import {Contact} from '../models/contact'
-import {Observable} from 'rxjs'
+import { Contact } from '../models/contact'
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+  AngularFirestoreCollection
+} from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  private url: string = "http://localhost:5000/contacts"
+  private dbPath = '/contacts'
+  contactRef: AngularFirestoreCollection<Contact>
 
+  constructor(private fireStore: AngularFirestore) 
+  { this.contactRef = fireStore.collection(this.dbPath) }
 
-  constructor(private http: HttpClient) {}
-
-  getContacts () : Observable<Contact[]>{
-    return this.http.get<Contact[]>(this.url)
+  getContacts(): AngularFirestoreCollection<Contact> {
+    return this.contactRef
   }
 
-  getContact(id: string): Observable<Contact> {
-    return this.http.get<Contact>(`${this.url}/${id}`);
+  getContact(id: string): AngularFirestoreDocument<Contact> {
+    return this.contactRef.doc(id);
   }
 
   addContact(contact: Contact) {
-    return this.http.post(this.url, contact);
+    return this.contactRef.add({...contact});
   }
 
   updateContact(id: string, contact: Contact) {
-    return this.http.put(`${this.url}/${id}`, contact);
+    return this.contactRef.doc(id).update(contact);
   }
 
   deleteContact(id: string) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.contactRef.doc(id).delete();
   }
 
 
