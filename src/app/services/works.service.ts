@@ -20,7 +20,6 @@ export class WorksService {
 
   getWork(id: string): AngularFirestoreDocument<Work> {
     return this.workRef.doc(id)
-    // return this.fireStore.doc(`${this.dbPath}/${id}`)
   }
 
   addWork(work: Work): any {    

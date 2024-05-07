@@ -13,6 +13,7 @@ export class StockComponent {
 
   woodList: Stock[] | undefined = [];
   ironWorkList: Stock[] | undefined = [];
+  isLoading: boolean = false
 
   stockType: any = [
     { id: 1, name: "Madera" },
@@ -65,11 +66,11 @@ export class StockComponent {
   }
 
   onSubmit() {
-    const item = this.form.value;
-    console.log(item);
-
-    this.stockServices.addStock(item).subscribe()
-    window.location.reload()
+    this.isLoading = true
+    this.stockServices.addStock(this.form.value)
+    setTimeout(() => {
+      window.location.reload()
+    }, 1500);
   }
 
   resetSelect() {
@@ -83,5 +84,9 @@ export class StockComponent {
     (<HTMLDivElement>document.getElementById("divItemQuantity")).style.display = "none";
     (<HTMLDivElement>document.getElementById("divItemDimensions")).style.display = "none"
   }
+
+  startSpinner(){
+    this.isLoading = true
+}
 
 }

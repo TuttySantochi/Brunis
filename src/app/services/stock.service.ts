@@ -1,37 +1,36 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
 import {Stock} from '../models/stock'
-import {Observable} from 'rxjs'
-
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StockService {
 
-  private url: string = "http://localhost:5000/stock"
+  private dbPath = '/stock'
+  stockRef: AngularFirestoreCollection<Stock>
 
+  constructor(private fireStore: AngularFirestore) 
+  {this.stockRef = fireStore.collection(this.dbPath)}
 
-  constructor(private http: HttpClient) { }
-
-  getStocks () : Observable<Stock[]>{
-    return this.http.get<Stock[]>(this.url)
+  getStocks () : AngularFirestoreCollection<Stock>{
+    return this.stockRef
   }
 
-  getStock(id: string): Observable<Stock> {
-    return this.http.get<Stock>(`${this.url}/${id}`);
+  getStock(id: string): AngularFirestoreDocument<Stock> {
+    return this.stockRef.doc(id)
   }
 
   addStock(stock: Stock) {
-    return this.http.post(this.url, stock);
+    return this.stockRef.add({...stock})
   }
 
   updateStock(id: string, stock: Stock) {
-    return this.http.put(`${this.url}/${id}`, stock);
+    return this.stockRef.doc(id).update(stock)
   }
 
   deleteStock(id: string) {
-    return this.http.delete(`${this.url}/${id}`);
+    return this.stockRef.doc(id).delete()
   }
 
 }

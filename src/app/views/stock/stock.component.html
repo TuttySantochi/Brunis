@@ -1,11 +1,14 @@
-<div class="stockContainer">
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
+<div class="stockContainer" *ngIf="!isLoading">
     <button type="button" class="modal-button btn btn-primary m-5" data-bs-toggle="modal"
         data-bs-target="#addItemModal">+</button>
     
     <div class="tableContainer container">
         <div class="row">
-            <app-iron-work-stock class="col-lg-6 col-md-6 col-sm-12"/>
-            <app-wood-stock class="col-lg-6 col-md-6 col-sm-12"/>
+            <app-iron-work-stock (startSpinn)="startSpinner()" class="col-lg-6 col-md-6 col-sm-12"/>
+            <app-wood-stock (startSpinn)="startSpinner()" class="col-lg-6 col-md-6 col-sm-12"/>
         </div>
     </div>
 </div>

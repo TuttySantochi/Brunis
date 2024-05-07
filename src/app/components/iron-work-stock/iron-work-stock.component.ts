@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 import { StockService } from '../../services/stock.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -13,7 +13,10 @@ import Swal from 'sweetalert2';
 export class IronWorkStockComponent implements OnInit {
 
   idValue: string;
-  ironWorkList?: Stock[] = [];
+  ironWorkList: Stock[] = [];
+  allStock: Stock[] = [];
+
+  @Output() startSpinn = new EventEmitter();
 
   ironWorkType: any = [
     { id: 1, name: "bisagra" },
@@ -34,46 +37,41 @@ export class IronWorkStockComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.stockServices.getStocks().subscribe({
-      next: response => {
-        for (let i = 0; i < response.length; i++) {
-          if (response[i].category === "Herraje") {
-            this.ironWorkList?.push(response[i])
+    this.stockServices.getStocks().snapshotChanges().subscribe(
+      response => {
+        if (response) {
+          response.forEach(element => {
+            let item = element.payload.doc.data() as Stock
+            item.id = element.payload.doc.id;
+            this.allStock.push(item);
+          });
+          for (let i = 0; i < this.allStock.length; i++) {
+            if (this.allStock[i].category === "Herraje") {
+              this.ironWorkList.push(this.allStock[i])
+            }
           }
         }
-      }
-    })
+    }
+  )
   }
 
-  // getStock(): void {
-  //   this.stockServices.getStocks().subscribe({
-  //     next: response => {
-  //       for (let i = 0; i < response.length; i++) {
-  //         if (response[i].category === "Herraje") {
-  //           this.ironWorkList?.push(response[i])
-  //         }
-  //       }
-  //     }
-  //   })
-  // }
-
   setvalues(id: string){    
-    this.stockServices.getStock(id).subscribe({
-      next: response => {        
-        this.idValue = response.id
-        this.form.setValue({
-          name: response.name,
-          category: response.category,
-          quantity: response.quantity,
-          dimensions: response.dimensions
-        });
-      }
+    this.stockServices.getStock(id).valueChanges().subscribe(response => {        
+      if (response) {
+        this.idValue = id
+          this.form.setValue({
+            name: response.name,
+            category: response.category,
+            quantity: response.quantity,
+            dimensions: response.dimensions
+          })
+      }  
     })
   }
 
   onSubmit(){
-    let item = this.form.value
-    this.stockServices.updateStock(this.idValue, item).subscribe()
+    this.startSpinn.emit()
+    this.stockServices.updateStock(this.idValue, this.form.value)
     Swal.fire({
       icon: 'success',
       title: 'Item Editado!!',
@@ -94,6 +92,7 @@ export class IronWorkStockComponent implements OnInit {
       confirmButtonColor: 'red'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.startSpinn.emit()
         this.deleteItem(id);
       } else if (result.isDismissed) {
         Swal.fire({
@@ -107,8 +106,9 @@ export class IronWorkStockComponent implements OnInit {
   }
 
   deleteItem(id: string) {
-    this.stockServices.deleteStock(id).subscribe({
-      next: () => {
+    this.stockServices.deleteStock(id)
+    .then(
+      () => {
         Swal.fire({
           title:'Eliminado con exito', 
           icon: 'success',
@@ -118,8 +118,12 @@ export class IronWorkStockComponent implements OnInit {
         setTimeout(() => {
           window.location.reload()
         }, 1500);
-      }
     });
+  }
+
+  clear(){
+    this.form.reset()
+    this.idValue = ''
   }
 
 }

@@ -24,7 +24,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Item</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clear()"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="form" (ngSubmit)="onSubmit()" class="modal-body__form">
@@ -42,7 +42,7 @@
                             placeholder="Ingrese las dimensiones" formControlName="dimensions">
                     </div>
                     <div class="modal-buttons mt-2 text-center">
-                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal" (click)="clear()">Cancelar</button>
                         <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Editar</button>
                     </div>
                 </form>
