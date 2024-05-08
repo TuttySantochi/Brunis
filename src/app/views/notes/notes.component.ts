@@ -11,22 +11,20 @@ import Swal from 'sweetalert2'
 export class NotesComponent implements OnInit {
 
   noteList: Note[] | undefined = [];
+  isLoading: boolean = false
 
   constructor(private notesService: NotesService) { }
 
   ngOnInit(): void {
-    this.getNotes();
-  }
+    this.notesService.getNotes().snapshotChanges().subscribe(
+      data => {
+        data.forEach(element => {
+          let note = element.payload.doc.data() as Note
+          note.id = element.payload.doc.id;
+          this.noteList?.push(note);
+        });
+    })  }
 
-  getNotes(): void {
-    this.notesService.getNotes().subscribe({
-      next: (data: Note[]) => {
-        this.noteList = data
-        console.log(data);
-
-      }
-    })
-  }
 
   selectWork(id: string): void {
     Swal.fire({
@@ -37,12 +35,13 @@ export class NotesComponent implements OnInit {
       confirmButtonColor: 'red'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.isLoading = true
         this.deleteNote(id);
       } else if (result.isDismissed) {
         Swal.fire({
           title: 'No se elimino la note',
           icon: 'error',
-          timer: 2000,
+          timer: 1500,
           showConfirmButton: false
         });
       }
@@ -50,37 +49,55 @@ export class NotesComponent implements OnInit {
   }
 
   deleteNote(id: string) {
-    this.notesService.deleteNotes(id).subscribe({
-      next: () => {
-        Swal.fire({
-          title: 'Eliminado con exito',
-          icon: 'success',
-          timer: 2000,
-          showConfirmButton: false
-        });
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
-      }
-    });
+    this.notesService.deleteNotes(id)
+    .then(()=>{
+      Swal.fire({
+        title: 'Eliminado con exito',
+        icon: 'success',
+        timer: 1800,
+        showConfirmButton: false
+      });
+      window.location.reload();
+    })
   }
 
-  isDone(id: string) {
-    this.notesService.getNote(id).subscribe({
-      next: response => {
-        if (!response.completed) {
-          response.completed = true
-          return this.notesService.updateNote(id, response).subscribe({
-            next: () => { window.location.reload() }
-          })
+  async isDone(id: string) {
+    this.notesService.getNote(id).valueChanges().subscribe(
+      response => {
+        if (response) {
+          if (!response.completed) {
+            response.completed = true
+            this.isLoading = true
+            return this.notesService.updateNote(id, response)
+            .then(()=>{
+              setTimeout(() => {
+                window.location.reload()
+              }, 1000);
+            })
+          } else {
+            response.completed = false
+            this.isLoading = true
+            return this.notesService.updateNote(id, response)
+            .then(()=>{
+              setTimeout(() => {
+                window.location.reload()
+              }, 1000);
+            })
+          }
         } else {
-          response.completed = false
-          return this.notesService.updateNote(id, response).subscribe({
-            next: () => { window.location.reload() }
+          return Swal.fire({
+            title: 'Problema para acceder, intente de nuevo',
+          icon: 'error',
+          timer: 1800,
+          showConfirmButton: false
           })
         }
       }
-    })
+    )
+  }
+
+  startSpinner(){
+    this.isLoading = true
   }
 
 }

@@ -1,4 +1,7 @@
-<div class="notes">
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
+<div class="notes" *ngIf="!isLoading">
     <h1 class="notes__tittle">Notas Sueltas</h1>
     <div class="notes__box">
         <ul class="notes__box-list">
@@ -7,4 +10,4 @@
     </div>
 </div>
 
-<app-footer></app-footer>
+<app-footer (startSpinn)="startSpinner()"></app-footer>

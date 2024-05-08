@@ -21,14 +21,14 @@ export class CardComponent implements OnInit {
   @Input() entradaImagen: any[] = [];
   @Input() entradaId: string = '';
 
-  @Output() startSpinner  = new EventEmitter();
+  @Output() startSpinner = new EventEmitter();
 
   work: Work = {
     id: '',
     clientName: '',
     furnitureType: '',
     furnitureColor: '',
-    woodType:'',
+    woodType: '',
     price: 0,
     deadline: '',
     location: '',
@@ -46,20 +46,20 @@ export class CardComponent implements OnInit {
     notes: '',
   };
 
-  constructor(private WorksServices: WorksService, private storage: AngularFireStorage){}
+  constructor(private WorksServices: WorksService, private storage: AngularFireStorage) { }
 
   ngOnInit(): void {
     if (this.entradaImagen !== undefined) {
       for (let i = 0; i < this.entradaImagen.length; i++) {
         if (this.entradaImagen[i].mainFoto === true) {
           this.mainFoto = this.entradaImagen[i].imageURL;
-        } 
-    }
+        }
+      }
     }
   }
 
-  selectWork(id: string){
-      Swal.fire({
+  selectWork(id: string) {
+    Swal.fire({
       icon: 'warning',
       title: 'Desea eliminar este trabajo?',
       showCancelButton: true,
@@ -86,19 +86,19 @@ export class CardComponent implements OnInit {
       storageRef.delete()
     }
     this.WorksServices.deleteWork(id)
-    .then(
-      () => {
-        Swal.fire({
-          title:'Eliminado con exito', 
-          icon: 'success',
-          timer: 1800,
-          showConfirmButton: false
-        });
-        setTimeout(() => {
-          window.location.reload();
-        }, 1800);
-      }
-    );
+      .then(
+        () => {
+          Swal.fire({
+            title: 'Eliminado con exito',
+            icon: 'success',
+            timer: 1800,
+            showConfirmButton: false
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1800);
+        }
+      );
   }
 
 

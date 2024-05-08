@@ -84,12 +84,12 @@ export class ClientComponent implements OnInit {
             Swal.fire({
               title: 'Los datos no se cargaron correctamente, intenta de nuevo',
               icon: 'error',
-              timer: 2000,
+              timer: 1800,
               showConfirmButton: false,
             })
             setTimeout(() => {
               window.location.href = '/'
-            }, 2000);
+            }, 1800);
           }
         });
     } else {

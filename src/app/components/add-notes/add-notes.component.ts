@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { NotesService } from 'src/app/services/notes.service';
-import { Note } from '../../models/note';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -11,6 +10,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddNotesComponent {
 
+  @Output() startSpinn = new EventEmitter()
+
   form: FormGroup;
   constructor(private notesService: NotesService) {
     this.form = new FormGroup({
@@ -20,9 +21,11 @@ export class AddNotesComponent {
   }
   
   addNote() {
-    const note = this.form.value;
-    this.notesService.addNote(note).subscribe();
-    window.location.reload();
+    this.startSpinn.emit()
+    this.notesService.addNote(this.form.value);
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   }
 
 }

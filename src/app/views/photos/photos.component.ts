@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WorksService} from '../../services/works.service'
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 import {Work} from '../../models/work'
 
 @Component({
@@ -15,11 +15,7 @@ export class PhotosComponent implements OnInit {
 
   fotoForm: FormGroup;
 
-  constructor(private worksService: WorksService){
-    // this.fotoForm = new FormGroup({
-    //   foto: new FormControl(null)
-    // })
-  }
+  constructor(private worksService: WorksService){}
 
   ngOnInit(): void {
     this.worksService.getWorks().valueChanges().subscribe({

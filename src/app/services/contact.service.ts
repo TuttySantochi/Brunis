@@ -14,8 +14,7 @@ export class ContactService {
   private dbPath = '/contacts'
   contactRef: AngularFirestoreCollection<Contact>
 
-  constructor(private fireStore: AngularFirestore) 
-  { this.contactRef = fireStore.collection(this.dbPath) }
+  constructor(private fireStore: AngularFirestore) { this.contactRef = fireStore.collection(this.dbPath) }
 
   getContacts(): AngularFirestoreCollection<Contact> {
     return this.contactRef
@@ -26,7 +25,7 @@ export class ContactService {
   }
 
   addContact(contact: Contact) {
-    return this.contactRef.add({...contact});
+    return this.contactRef.add({ ...contact });
   }
 
   updateContact(id: string, contact: Contact) {

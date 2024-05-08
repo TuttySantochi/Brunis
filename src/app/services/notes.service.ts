@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Note } from '../models/note';
-
+import {
+  AngularFirestore,
+  AngularFirestoreDocument,
+  AngularFirestoreCollection
+} from '@angular/fire/compat/firestore';
 
 
 @Injectable({
@@ -10,32 +12,29 @@ import { Note } from '../models/note';
 })
 export class NotesService {
 
- private urlNotes= "http://localhost:5000/notes"
+  private dbPath = '/notes'
+  notesRef: AngularFirestoreCollection<Note>
 
-  constructor(private http:HttpClient) { }
-
-
-  notes: Note[] = [];
+  constructor(private fireStore: AngularFirestore) { this.notesRef = fireStore.collection(this.dbPath) }
 
   addNote(note: Note) {
-    return this.http.post(this.urlNotes, note);
+    return this.notesRef.add({...note});
   }
 
-  getNotes () : Observable<Note[]>{
-    return this.http.get<Note[]>(this.urlNotes)
+  getNotes(): AngularFirestoreCollection<Note> {
+    return this.notesRef;
   }
 
-  getNote (id: string) : Observable<Note>{
-    return this.http.get<Note>(`${this.urlNotes}/${id}`)
+  getNote(id: string): AngularFirestoreDocument<Note> {
+    return this.notesRef.doc(id)
   }
 
   deleteNotes(id: string) {
-    return this.http.delete(`${this.urlNotes}/${id}`);
+    return this.notesRef.doc(id).delete();
   }
 
   updateNote(id: string, note: Note) {
-    return this.http.put(`${this.urlNotes}/${id}`, note);
+    return this.notesRef.doc(id).update(note);
   }
-  
-  
+
 }
