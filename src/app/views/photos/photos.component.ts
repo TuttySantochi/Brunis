@@ -10,8 +10,7 @@ import {Work} from '../../models/work'
 })
 export class PhotosComponent implements OnInit {
 
-  galery: any[] = []
-  worksList: Work[] | undefined = [];
+  gallery: any[] = []
 
   fotoForm: FormGroup;
 
@@ -20,10 +19,16 @@ export class PhotosComponent implements OnInit {
   ngOnInit(): void {
     this.worksService.getWorks().valueChanges().subscribe({
       next: (data: Work[]) => {
-        this.worksList = data
-        for (let i = 0; i < data.length; i++) {
-          this.galery.push(data[i].pictures);
-        }
+        data.forEach(item=>{
+          item.pictures.forEach(image =>{
+            let picture = image.imageURL
+            let clientName = item.clientName
+            let furnitureColor = item.furnitureColor
+            let furnitureType = item.furnitureType
+            let object = {picture, clientName, furnitureColor, furnitureType}
+            this.gallery.push(object)
+          })
+        })
       }
     })
   }
