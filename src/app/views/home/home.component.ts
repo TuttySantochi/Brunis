@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   worksList: Work[] = [];
   form: FormGroup;
   isLoading: boolean = false
+  searchText: string
 
   constructor(
     private WorksServices: WorksService,

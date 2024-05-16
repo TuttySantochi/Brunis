@@ -1,4 +1,4 @@
-<div class="container" *ngFor="let item of providerList">
+<div class="container" *ngFor="let item of providerList | filter:searchText">
     <div class="container__card">
         <div class="container__card-header">
             <h2>{{item.name}}</h2>

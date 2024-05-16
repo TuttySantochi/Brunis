@@ -7,7 +7,7 @@
             <th class="stockTable__table-titles-item">Acciones</th>
 
         </tr>
-        <tr class="stockTable__table-list" *ngFor="let item of ironWorkList">
+        <tr class="stockTable__table-list" *ngFor="let item of ironWorkList | filter:searchText">
             <td class="stockTable__table-list-item" title="{{item.name}}">{{item.name}}</td>
             <td class="stockTable__table-list-item" title="{{item.quantity}}">{{item.quantity}}</td>
             <td class="stockTable__table-list-item" title="{{item.dimensions}}">{{item.dimensions}}</td>

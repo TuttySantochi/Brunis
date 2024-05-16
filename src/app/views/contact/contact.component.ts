@@ -12,6 +12,7 @@ export class ContactComponent {
 
   form: FormGroup
   isLoading: boolean = false
+  searchText:any;
 
   constructor(private contactService: ContactService){
     this.form = new FormGroup({

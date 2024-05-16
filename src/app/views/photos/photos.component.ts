@@ -12,6 +12,7 @@ export class PhotosComponent implements OnInit {
 
   gallery: any[] = []
   fotoForm: FormGroup;
+  searchText: any
 
   constructor(private worksService: WorksService) { }
 

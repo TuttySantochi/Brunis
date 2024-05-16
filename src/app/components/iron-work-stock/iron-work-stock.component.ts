@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 import { StockService } from '../../services/stock.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -16,6 +16,7 @@ export class IronWorkStockComponent implements OnInit {
   ironWorkList: Stock[] = [];
   allStock: Stock[] = [];
 
+  @Input() searchText: string
   @Output() startSpinn = new EventEmitter();
 
   ironWorkType: any = [

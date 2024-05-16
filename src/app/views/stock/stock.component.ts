@@ -14,6 +14,7 @@ export class StockComponent {
   woodList: Stock[] | undefined = [];
   ironWorkList: Stock[] | undefined = [];
   isLoading: boolean = false
+  searchText: string
 
   stockType: any = [
     { id: 1, name: "Madera" },

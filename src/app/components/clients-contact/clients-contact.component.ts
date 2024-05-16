@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from 'src/app/models/contact';
 import { ContactService } from 'src/app/services/contact.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -16,9 +16,9 @@ export class ClientsContactComponent {
   clientList: Contact[] = []
   allStock: Contact[] = [];
 
+  @Input() searchText: string
 
   form: FormGroup;
-  searchtext:any;
 
   @Output() startSpinn = new EventEmitter()
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Stock } from 'src/app/models/stock';
 import { StockService } from '../../services/stock.service';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -16,6 +16,7 @@ export class WoodStockComponent implements OnInit {
   woodList: Stock[] = [];
   allStock: Stock[] = [];
 
+  @Input() searchText: string
   @Output() startSpinn = new EventEmitter()
 
   woodType: any = [
