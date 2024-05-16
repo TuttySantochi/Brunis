@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 import { NotesService } from 'src/app/services/notes.service';
 import { Note } from '../../models/note';
 import Swal from 'sweetalert2'
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-notes',
@@ -10,10 +12,11 @@ import Swal from 'sweetalert2'
 })
 export class NotesComponent implements OnInit {
 
-  noteList: Note[] | undefined = [];
+  noteToEdit: any;
+  noteList: Note[] = [];
   isLoading: boolean = false
 
-  constructor(private notesService: NotesService) { }
+  constructor(private notesService: NotesService, private router: Router) { }
 
   ngOnInit(): void {
     this.notesService.getNotes().snapshotChanges().subscribe(
@@ -61,40 +64,29 @@ export class NotesComponent implements OnInit {
     })
   }
 
-  async isDone(id: string) {
-    this.notesService.getNote(id).valueChanges().subscribe(
-      response => {
-        if (response) {
-          if (!response.completed) {
-            response.completed = true
-            this.isLoading = true
-            return this.notesService.updateNote(id, response)
-            .then(()=>{
-              setTimeout(() => {
-                window.location.reload()
-              }, 1000);
-            })
-          } else {
-            response.completed = false
-            this.isLoading = true
-            return this.notesService.updateNote(id, response)
-            .then(()=>{
-              setTimeout(() => {
-                window.location.reload()
-              }, 1000);
-            })
-          }
-        } else {
-          return Swal.fire({
-            title: 'Problema para acceder, intente de nuevo',
-          icon: 'error',
-          timer: 1800,
-          showConfirmButton: false
-          })
-        }
+async isDone(id: string){
+  try {
+    this.noteToEdit = await this.notesService.getNote(id).valueChanges().pipe(take(1)).toPromise()
+    if (this.noteToEdit) {
+      if (this.noteToEdit.completed) {
+        this.noteToEdit.completed = false
+        this.isLoading = true
+        this.notesService.updateNote(id, this.noteToEdit).finally(()=>{
+          window.location.reload()
+        })
+      } else {
+        this.noteToEdit.completed = true
+        this.isLoading = true
+        this.notesService.updateNote(id, this.noteToEdit).finally(()=>{
+          window.location.reload()
+        })
       }
-    )
+    }
+  } catch (error) {
+    console.log(error);
+    
   }
+}
 
   startSpinner(){
     this.isLoading = true
