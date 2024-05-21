@@ -1,48 +1,63 @@
 .navbar {
+    position: fixed;
     width: 100vw;
-    height: 80px;
+    min-height: 4rem;
     justify-content: start;
-    background-color: rgb(95, 95, 95);
-
-    &__links {
-        display: flex;
-        align-items: center;
-        width: 50vw;
-        &-img {
-            &-picture{
-                width: 50px;
-                height: 50px;
-                margin: 0 30px;
+    background-color: rgba(95, 95, 95, 0.651);
+    z-index: 1030;
+    &_container{
+        &-logo{
+            &-img{
+                width: 3.2rem;
+                height: 3.2rem;
+                margin: 0 0 0 2.2rem;
                 border-radius: 25px;
             }
-        }
-
-        &-acces {
-            &-item{
-                margin: 10px;
-                list-style: none;
-                text-decoration: none;
-                color: rgba(106, 169, 241, 0.74);
-            }
-        }
-    }
-    &__search {
-        width: 50vw;
-        display: flex;
-        justify-content: flex-end;
-        &-input{
-                margin-right: 10px;
-                border-radius: 5px;
-            }
-            &-button{
-                margin-right: 30px;
-                border: none;
-                background-color: unset;
-                &-img{
-                    width: 25px;
-                    height: 25px;
-
+        } &-button{
+    
+        } &-menu{
+            &-links{
+                &-item{
+    
                 }
             }
         }
+    }
 }
+
+.nav{
+    margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 575px) {
+    .navbar {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+
+
+
+// &__links {
+//     display: flex;
+//     align-items: center;
+//     width: 50vw;
+//     &-img {
+//         &-picture{
+//             width: 50px;
+//             height: 50px;
+//             margin: 0 30px;
+//             border-radius: 25px;
+//         }
+//     }
+
+//     &-acces {
+//         &-item{
+//             margin: 10px;
+//             list-style: none;
+//             text-decoration: none;
+//             color: rgba(106, 169, 241, 0.74);
+//         }
+//     }
+// }
