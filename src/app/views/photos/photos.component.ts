@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorksService } from '../../services/works.service'
+import { SearchService } from '../../services/search.service';
 import { FormGroup } from '@angular/forms';
 import { Work } from '../../models/work'
 
@@ -14,7 +15,7 @@ export class PhotosComponent implements OnInit {
   fotoForm: FormGroup;
   searchText: any
 
-  constructor(private worksService: WorksService) { }
+  constructor(private worksService: WorksService, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.worksService.getWorks().valueChanges().subscribe({
@@ -30,6 +31,9 @@ export class PhotosComponent implements OnInit {
           })
         })
       }
+    })
+    this.searchService.currentData.subscribe(data=>{
+      this.searchText = data
     })
   }
 

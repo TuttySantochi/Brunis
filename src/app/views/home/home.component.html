@@ -2,11 +2,6 @@
     <span class="spinner"></span>
 </div>
 <div class="home container-fluid" *ngIf="!isLoading">
-    <!-- <div class="form-outline mt-3">
-        <input type="search" [(ngModel)]="searchText"
-        (keyup)="searchInfo()"
-        id="form1" class="form-control" placeholder="Filtrar" aria-label="Search" />
-    </div> -->
     <div class="home__row row">
         <app-card (startSpinner)="startSpinner()" *ngFor="let work of worksList | filter:searchText" class="home__row-card col-lg-4 col-md-4 col-sm-12"
             [entradaNombre]="work.clientName" [entradaColor]="work.furnitureColor" [entradaTipo]="work.furnitureType"

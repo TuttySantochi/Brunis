@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router'
 import { NotesService } from 'src/app/services/notes.service';
+import { SearchService } from '../../services/search.service';
 import { Note } from '../../models/note';
 import Swal from 'sweetalert2'
 import { take } from 'rxjs';
@@ -15,8 +15,9 @@ export class NotesComponent implements OnInit {
   noteToEdit: any;
   noteList: Note[] = [];
   isLoading: boolean = false
+  searchText:any;
 
-  constructor(private notesService: NotesService, private router: Router) { }
+  constructor(private notesService: NotesService, private searchService: SearchService) { }
 
   ngOnInit(): void {
     this.notesService.getNotes().snapshotChanges().subscribe(
@@ -26,7 +27,11 @@ export class NotesComponent implements OnInit {
           note.id = element.payload.doc.id;
           this.noteList?.push(note);
         });
-    })  }
+    })
+    this.searchService.currentData.subscribe(data=>{
+      this.searchText = data
+    })  
+  }
 
 
   selectWork(id: string): void {
@@ -84,7 +89,6 @@ async isDone(id: string){
     }
   } catch (error) {
     console.log(error);
-    
   }
 }
 

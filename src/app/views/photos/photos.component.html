@@ -1,6 +1,3 @@
-<div class="form-outline mt-3">
-    <input type="search" [(ngModel)]="searchText" id="form1" class="form-control" placeholder="Filtrar" aria-label="Search" />
-</div>
 <div class="gallery">
     <div class="gallery_item" *ngFor="let item of gallery | filter:searchText">
         <img class="gallery_item-image" src="{{item.picture}}" alt="" />

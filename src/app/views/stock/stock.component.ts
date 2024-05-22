@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { Stock } from 'src/app/models/stock';
+import { Component, OnInit } from '@angular/core';
 import { StockService } from '../../services/stock.service';
+import { SearchService } from '../../services/search.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -9,10 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './stock.component.html',
   styleUrls: ['./stock.component.scss']
 })
-export class StockComponent {
+export class StockComponent implements OnInit {
 
-  woodList: Stock[] | undefined = [];
-  ironWorkList: Stock[] | undefined = [];
   isLoading: boolean = false
   searchText: string
 
@@ -37,12 +35,18 @@ export class StockComponent {
 
   form: FormGroup;
 
-  constructor(private stockServices: StockService) {
+  constructor(private stockServices: StockService, private searchService: SearchService) {
     this.form = new FormGroup({
       category: new FormControl("0"),
       name: new FormControl("0"),
       quantity: new FormControl(0),
       dimensions: new FormControl(''),
+    })
+  }
+
+  ngOnInit(): void {
+    this.searchService.currentData.subscribe(data=>{
+      this.searchText = data
     })
   }
 
