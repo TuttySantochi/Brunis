@@ -3,9 +3,6 @@
 </div>
 
 <div class="contact" *ngIf="!isLoading">
-    <div class="form-outline mt-3">
-        <input type="search" [(ngModel)]="searchText" id="form1" class="form-control" placeholder="Filtrar" aria-label="Search" />
-    </div>
     <div class="contact__list">
         <h2 class="contact__list-title">Clientes</h2>
         <app-clients-contact [searchText]="searchText" (startSpinn)="startSpinner()"/>

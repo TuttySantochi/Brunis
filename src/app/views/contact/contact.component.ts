@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
+import { SearchService } from '../../services/search.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -8,19 +9,26 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
 
   form: FormGroup
   isLoading: boolean = false
   searchText:any;
 
-  constructor(private contactService: ContactService){
+  constructor(private contactService: ContactService,
+    private searchService: SearchService) {
     this.form = new FormGroup({
       name: new FormControl(''),
       location: new FormControl(''),
       phone: new FormControl(0),
       type: new FormControl(''),
       calification:  new FormControl(0)
+    })
+  }
+
+  ngOnInit(): void {
+    this.searchService.currentData.subscribe(data=>{
+      this.searchText = data
     })
   }
 

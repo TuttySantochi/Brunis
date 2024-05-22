@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Work } from 'src/app/models/work';
 import { WorksService } from '../../services/works.service';
+import { SearchService } from '../../services/search.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private WorksServices: WorksService,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private searchService: SearchService
   ) {
     this.form = new FormGroup({
       clientName: new FormControl(''),
@@ -56,6 +58,9 @@ export class HomeComponent implements OnInit {
           })
         }
       )
+      this.searchService.currentData.subscribe(data =>{
+        this.searchText = data
+      })
   }
 
   clear() {
@@ -118,5 +123,9 @@ export class HomeComponent implements OnInit {
   startSpinner(){
       this.isLoading = true
   }
+
+  // searchInfo(){
+  //   this.searchService.changeData(this.searchText)
+  // }
 
 }

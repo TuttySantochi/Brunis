@@ -24,6 +24,11 @@
                     </li>
                 </ul>
             </div>
+            <div class="form-outline mt-3">
+                <input type="search" [(ngModel)]="searchText"
+                (keyup)="searchInfo()"
+                id="form1" class="form-control" placeholder="Filtrar" aria-label="Search" />
+            </div>
         </div>
     </nav>
 </div>
