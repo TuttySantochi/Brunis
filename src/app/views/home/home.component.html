@@ -1,9 +1,10 @@
+<app-navbar/>
 <div class="loader" *ngIf="isLoading">
     <span class="spinner"></span>
 </div>
-<div class="home container-fluid" *ngIf="!isLoading">
+<div class="home container" *ngIf="!isLoading">
     <div class="home__row row">
-        <app-card (startSpinner)="startSpinner()" *ngFor="let work of worksList | filter:searchText" class="home__row-card col-lg-4 col-md-4 col-sm-12"
+        <app-card (startSpinner)="startSpinner()" *ngFor="let work of worksList | filter:searchText" class="home__row-card col-lg-4 col-md-6 col-sm-12"
             [entradaNombre]="work.clientName" [entradaColor]="work.furnitureColor" [entradaTipo]="work.furnitureType"
             [entradaImagen]="work.pictures" [entradaId]="work.id">
         </app-card>

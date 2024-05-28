@@ -16,17 +16,18 @@ import { NotesComponent } from './views/notes/notes.component';
 import { FormsModule } from '@angular/forms';
 import { AddNotesComponent } from './components/add-notes/add-notes.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { WoodStockComponent } from './components/wood-stock/wood-stock.component';
 import { IronWorkStockComponent } from './components/iron-work-stock/iron-work-stock.component';
 import { ClientsContactComponent } from './components/clients-contact/clients-contact.component';
 import { ProviderContactComponent } from './components/provider-contact/provider-contact.component';
 import {AngularFireModule} from '@angular/fire/compat'
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore'
-import {AngularFireStorageModule}  from '@angular/fire/compat/storage'
 import {environment} from '../environments/environment'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FilterPipe } from './filter.pipe';
+import { LoginComponent } from './views/login/login.component';
+import {getAuth, provideAuth} from '@angular/fire/auth';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 
 @NgModule({
   declarations: [
@@ -45,17 +46,19 @@ import { FilterPipe } from './filter.pipe';
     IronWorkStockComponent,
     ClientsContactComponent,
     ProviderContactComponent,
-    FilterPipe
-  ],
+    FilterPipe,
+    LoginComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    provideFirebaseApp(()=>initializeApp(environment.firebaseConfig)),
+    provideAuth(()=> getAuth()),
     SweetAlert2Module.forRoot()
   ],
   providers: [],

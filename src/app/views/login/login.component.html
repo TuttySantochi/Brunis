@@ -1,0 +1,19 @@
+<div class="loader" *ngIf="isLoading">
+    <span class="spinner"></span>
+</div>
+
+<div class="login" *ngIf="!isLoading">
+        <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="login__form-item">
+                <label for="email" class="form-label">Correo Electronico</label>
+                <input id="email" class="form-control" type="text" name="email" formControlName="email" placeholder="Correo">
+            </div>
+            <div class="login__form-item">
+                <label for="password" class="form-label">Contraseña</label>
+                <input id="password" class="form-control" type="password" name="password" formControlName="password" placeholder="Contraseña">
+            </div>
+            <div class="login__form-button">
+                <button type="submit" class="btn btn-dark">Iniciar Sesión</button>
+            </div>
+        </form>
+</div>

@@ -1,5 +1,4 @@
 .card{
-    width: 20rem;
     height: 26rem;
     &__img{
         margin: 0 auto;
@@ -13,21 +12,22 @@
             height: 100%;
             object-fit: cover;
         }
-    }
-    &__list{
+    } &__list{
+        margin-top: 0.55rem;
+        min-height: 5.06rem;
         list-style: none;
         &-item{
             font-size: large;
+            font-weight: 500;
         }
     }
     &__footer{
-        // width: 50%;
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 0.45rem;
         &-button{
             width: 25%;
-            margin: 1em;
+            margin: 1rem;
             overflow-y: hidden;
             color: rgba(106, 169, 241, 0.74);
             font-size: 0.9rem;
@@ -35,6 +35,19 @@
                 font-size: 0.9rem;
                 text-decoration: none;
                 color: rgba(106, 169, 241, 0.74);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1200px){
+    .card{
+        &__footer{
+            &-button{
+                font-size: 0.8rem;
+                &-link{
+                    font-size: 0.8rem;
+                }
             }
         }
     }

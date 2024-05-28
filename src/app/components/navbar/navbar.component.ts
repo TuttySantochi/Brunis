@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { SearchService } from '../../services/search.service';
+import {LoginService} from '../../services/login.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +10,10 @@ import { SearchService } from '../../services/search.service';
 })
 export class NavbarComponent {
 
-  constructor(private searchService: SearchService){}
+  constructor(private searchService: SearchService,
+              private loginService: LoginService,
+              private router: Router
+  ){}
 
   isMenuCollapsed: boolean = true
   searchText: any
@@ -17,5 +22,11 @@ export class NavbarComponent {
     this.searchService.changeData(this.searchText)
   }
 
-
+  logout(){
+    this.loginService.logout()
+    .then(()=>{
+      this.router.navigate(['/login'])
+    })
+    .catch(error => console.log(error))
+  }
 }
