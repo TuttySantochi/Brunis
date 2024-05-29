@@ -1,38 +1,40 @@
 <div class="nav">
     <nav class="navbar navbar-expand-md bg-body-dark">
-        <div class="container-fluid navbar_container">
-            <a class="navbar-brand navbar_container-logo" href="">
-                <img class="navbar_container-logo-img" src="assets/brunis.jpg" alt="Brunis">
+        <div class="container-fluid navbar__container">
+            <a class="navbar-brand navbar__container-logo" href="">
+                <img class="navbar__container-logo-img" src="assets/brunis.jpg" alt="Brunis">
             </a>
-            <div class="navbar_container-searchMiddle">
-                <input type="search" [(ngModel)]="searchText"
-                (keyup)="searchInfo()"
-                id="form1" class="form-control navbar_container-search-input" placeholder="Buscar" aria-label="Search" />
+            <div class="navbar__container-searchMiddle">
+                <div class="navbar__container-searchMiddle-input">
+                    <input class="navbar__container-searchMiddle-input" type="search" [(ngModel)]="searchText"
+                    (keyup)="searchInfo()"
+                    id="form1" class="form-control navbar__container-search-input" placeholder="Buscar" aria-label="Search" />
+                </div>
             </div>
-            <button class="navbar-toggler navbar_container-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            <button class="navbar-toggler navbar__container-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse navbar_container-menu" id="navbarText">
-                <ul class="navbar-nav navbar_container-menu-links">
-                    <li class="nav-item navbar_container-menu-links-item">
+            <div class="collapse navbar-collapse navbar__container-menu" id="navbarText">
+                <ul class="navbar-nav navbar__container-menu-links">
+                    <li class="nav-item navbar__container-menu-links-item">
                         <a class="nav-link" href="photos">Galeria</a>
                     </li>
-                    <li class="nav-item navbar_container-menu-links-item">
+                    <li class="nav-item navbar__container-menu-links-item">
                         <a class="nav-link" href="contact">Contacto</a>
                     </li>
-                    <li class="nav-item navbar_container-menu-links-item">
+                    <li class="nav-item navbar__container-menu-links-item">
                         <a class="nav-link" href="stock">Stock</a>
                     </li>
-                    <li class="nav-item navbar_container-menu-links-item">
+                    <li class="nav-item navbar__container-menu-links-item">
                         <a class="nav-link" href="notes">Notas</a>
                     </li>
-                    <li class="nav-item navbar_container-menu-links-item">
-                        <button (click)="logout()" type="button">Logout</button>
+                    <li class="nav-item navbar__container-menu-links-item">
+                        <button class="nav-item navbar__container-menu-links-item-logout" (click)="logout()" type="button">Logout</button>
                     </li>
                 </ul>
             </div>
-            <div class="navbar_container-searchEnd">
+            <div class="navbar__container-searchEnd">
                 <input type="search" [(ngModel)]="searchText"
                 (keyup)="searchInfo()"
                 id="form1" class="form-control navbar_container-search-input" placeholder="Buscar" aria-label="Search" />
