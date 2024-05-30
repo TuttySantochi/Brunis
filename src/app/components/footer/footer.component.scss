@@ -1,16 +1,22 @@
 .footer{
-    height: 120px;
+    min-height: 7.5em;
     width: 100vw;
     background-color: brown;
     &__content{
         height: 100%;
+        margin-top: 1em;
+        &-redes{
+            text-align: center;
+            & p{
+                margin: 0;
+            }
+        }
         &-logo{
             display: block;
             &-image{
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                margin-top: 10px;
                 &-photo{
                     width: 50px;
                     border-radius: 100px;
@@ -29,15 +35,52 @@
         &-utilidad{
             display: flex;
             justify-content: center;
-            align-items: center;
-            &-button{
+            text-align: center;            
+        &-button{
                 border: none;
                 border-radius: 10px;
+                width: 30px;
+                height: 30px;
                 &-image{
-                    width: 30px;
-                    height: 30px;
+                    width: 100%;
                 }
             }
         }
     }
 }
+
+@media screen and (max-width: 992px){
+    .footer{
+        &__content{
+            &-redes{
+                order: 1;
+                margin-bottom: 1.7em;
+            }
+            &-logo{
+                order: 3;
+            }
+            &-utilidad{
+                order: 2;
+                margin-bottom: 1.7em;
+            }
+        }
+    }
+}
+
+// @media screen and (max-width: 576px){
+//     .footer{
+//         &__content{
+//             &-redes{
+//                 order: 1;
+//                 margin-bottom: 2em;
+//             }
+//             &-logo{
+//                 order: 3;
+//             }
+//             &-utilidad{
+//                 order: 2;
+//                 margin-bottom: 2em;
+//             }
+//         }
+//     }
+// }
