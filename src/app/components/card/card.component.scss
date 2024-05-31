@@ -54,3 +54,10 @@
         }
     }
 }
+
+@media screen and (max-width: 575px){
+    .card{
+        width: 70vw;
+        margin: 0 auto;
+    }
+}
