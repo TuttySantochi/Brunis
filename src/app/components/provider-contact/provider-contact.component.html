@@ -1,38 +1,40 @@
-<div class="container" *ngFor="let item of providerList | filter:searchText">
-    <div class="container__card">
-        <div class="container__card-header">
-            <h2>{{item.name}}</h2>
-        </div>
-        <div class="container__card-body">
-            <div class="container__card-body-item">
-                <span>{{item.phone}}</span>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6" *ngFor="let item of providerList | filter:searchText">
+            <div class="card">
+                <div class="card__header">
+                    <h2 class="card__header-title" title="{{item.name}}">{{item.name}}</h2>
+                </div>
+                <div class="card__body">
+                    <div class="card__body-item">
+                        <span style="font-size: 1.1em;" title="{{item.phone}}"><span style="font-weight: 600;">Teléfono:
+                            </span>{{item.phone}}</span>
+                    </div>
+                    <div class="card__body-item">
+                        <span style="font-size: 1.1em;" title="{{item.location}}"><span
+                                style="font-weight: 600;">Dirección: </span>{{item.location}}</span>
+                    </div>
+                    <div class="card__body-item">
+                        <span style="font-size: 1.1em;">{{item.calification}}</span>
+                    </div>
+                </div>
+                <div class="card__footer">
+                    <button class="card__footer-button btn btn-primary" (click)="setValue(item.id)"
+                        data-bs-toggle="modal" data-bs-target="#editModal2">Editar</button>
+                    <button class="card__footer-button btn btn-danger" (click)="selectWork(item.id)">Eliminar</button>
+                </div>
             </div>
-            <div class="container__card-body-item">
-                <span>{{item.location}}</span>
-            </div>
-            <div class="container__card-body-item">
-                <span>{{item.calification}}</span>
-            </div>
-        </div>
-        <div class="container__card-footer">
-            <button 
-            class="container__card-footer-button btn btn-primary" 
-            (click)="setValue(item.id)"
-            data-bs-toggle="modal"
-            data-bs-target="#editModalProvider">Editar</button>
-            <button 
-            class="container__card-footer-button btn btn-danger"
-            (click)="selectWork(item.id)">Eliminar</button>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="editModalProvider" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Contacto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Contacto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="clearForm()"></button>
             </div>
             <div class="modal-body">
                 <form action="" class="modal-body__form" (ngSubmit)="onSubmit()" [formGroup]="form">
@@ -63,7 +65,8 @@
                         <input class="modal-body__form-input form-control" id="inputCalification" placeholder="Castores"
                             type="number" formControlName='calification'>
                     </div>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="clearForm()">Cancelar</button>
                     <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Editar</button>
                 </form>
             </div>

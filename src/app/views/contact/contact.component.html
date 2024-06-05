@@ -1,15 +1,17 @@
-<app-navbar/>
+<app-navbar />
 <div class="loader" *ngIf="isLoading">
     <span class="spinner"></span>
 </div>
-<div class="contact" *ngIf="!isLoading">
-    <div class="contact__list">
-        <h2 class="contact__list-title">Clientes</h2>
-        <app-clients-contact [searchText]="searchText" (startSpinn)="startSpinner()"/>
-    </div>
-    <div class="contact__list">
-        <h2 class="contact__list-title">Proveedores</h2>
-        <app-provider-contact [searchText]="searchText" (startSpinn)="startSpinner()"/>
+<div class="contact container" *ngIf="!isLoading">
+    <div class="contac__row row">
+        <div class="contact__list col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            <h2 class="contact__list-title">Clientes</h2>
+            <app-clients-contact [searchText]="searchText" (startSpinn)="startSpinner()" />
+        </div>
+        <div class="contact__list col-xl-6 col-lg-12 col-md-12 col-sm-12">
+            <h2 class="contact__list-title">Proveedores</h2>
+            <app-provider-contact [searchText]="searchText" (startSpinn)="startSpinner()" />
+        </div>
     </div>
 </div>
 

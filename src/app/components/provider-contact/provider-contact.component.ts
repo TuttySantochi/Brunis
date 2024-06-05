@@ -14,22 +14,19 @@ export class ProviderContactComponent {
 
   idValue: string;
   providerList: Contact[] = []
-  
   form: FormGroup;
   allStock: Contact[] = []
 
   @Input() searchText: string;
-
   @Output() startSpinn = new EventEmitter()
 
-
-  constructor(private contactServices: ContactService){
+  constructor(private contactServices: ContactService) {
     this.form = new FormGroup({
       name: new FormControl(''),
       location: new FormControl(''),
       phone: new FormControl(0),
       type: new FormControl(''),
-      calification:  new FormControl(0)
+      calification: new FormControl(0)
     })
   }
 
@@ -48,12 +45,13 @@ export class ProviderContactComponent {
             }
           }
         }
-    })  
+      })
+    this.clearForm()
   }
 
-  setValue(id: string){
-    this.contactServices.getContact(id).valueChanges().subscribe(response =>{
-      if(response){
+  setValue(id: string) {
+    this.contactServices.getContact(id).valueChanges().subscribe(response => {
+      if (response) {
         this.idValue = id
         this.form.setValue({
           name: response.name,
@@ -66,7 +64,7 @@ export class ProviderContactComponent {
     })
   }
 
-  onSubmit(){
+  onSubmit() {
     this.startSpinn.emit()
     this.contactServices.updateContact(this.idValue, this.form.value)
     Swal.fire({
@@ -76,11 +74,11 @@ export class ProviderContactComponent {
       showConfirmButton: false
     })
     setTimeout(() => {
-      window.location.reload()    
-    }, 1500);  
+      window.location.reload()
+    }, 1500);
   }
 
-  selectWork(id: string){
+  selectWork(id: string) {
     Swal.fire({
       icon: 'warning',
       title: 'Desea eliminar este contacto?',
@@ -104,18 +102,22 @@ export class ProviderContactComponent {
 
   deleteWork(id: string) {
     this.contactServices.deleteContact(id)
-    .then(
-      () => {
-        Swal.fire({
-          title:'Eliminado con exito', 
-          icon: 'success',
-          timer: 1800,
-          showConfirmButton: false
+      .then(
+        () => {
+          Swal.fire({
+            title: 'Eliminado con exito',
+            icon: 'success',
+            timer: 1800,
+            showConfirmButton: false
+          });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1800);
         });
-        setTimeout(() => {
-          window.location.reload();
-        }, 1800);
-    });
+  }
+
+  clearForm() {
+    this.form.reset()
   }
 
 }
