@@ -8,19 +8,21 @@
     }
 
     &__box {
-        display: flex;
-        justify-content: center;
-        margin-top: 25px;
         border: 3px black solid;
         width: fit-content;
-        padding: 20px;
-        font-size: x-large;
-        margin: auto;
-        margin-bottom: 10px;
-
+        padding: .6em;
+        font-size: large;
+        margin: 1.2em auto;
         &-list {
+            list-style-type: circle;
             &-isDone {
+                display: flex;
+                justify-content: center;
                 text-decoration: line-through;
+            }
+            &-isNotDone{
+                display: flex;
+                justify-content: center;
             }
         }
     }

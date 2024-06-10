@@ -5,58 +5,63 @@
     text-align: left;
     border: solid 1px rgba(0, 0, 0, 0.199);
     border-collapse: collapse;
-        &__titles {
-            height: 2.5rem;
+
+    &__titles {
+        height: 2.5rem;
+        font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+        font-size: larger;
+        background-color: rgba(255, 0, 0, 0.479);
+        border-bottom: solid 3px rgba(92, 0, 0, 0.747);
+
+        &-item {
+            min-width: 3em;
+            max-width: 10rem;
+            padding-left: 0.3rem;
+        }
+    }
+
+    &__body {
+        &-list {
+            align-items: center;
             font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            font-size: larger;
-            background-color: rgba(255, 0, 0, 0.479);
-            border-bottom: solid 3px rgba(92, 0, 0, 0.747);
+            overflow-x: scroll;
 
             &-item {
-                width: 10rem;
-                padding-left: 0.3rem;
+                overflow-x: hidden;
+                align-content: center;
+                min-width: 3em;
+                max-width: 10rem;
+                padding: 0 0 0 0.3rem;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
             }
-        }
 
-        &__body {
-            &-list {
-                align-items: center;
-                font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-                overflow-x: scroll;
-                
-                &-item {
-                    overflow-x: hidden;
-                    align-content: center;
-                    max-width: 10rem;
-                    padding: 0 0 0 0.3rem;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
+            &-buttons {
+                display: flex;
+                justify-content: center;
+                text-align: center;
 
-                    }
-                    &-buttons{
-                        display: flex;
-                        justify-content: center;
-                        text-align: center;
-                    &-deleteButton {
-                        font-size: medium;
-                        padding: 0.13rem;
-                        margin: 0.2rem;
-                        background-color: rgb(226, 0, 0);
-                        border: 1px solid rgba(0, 0, 0, 0.466);
-                    }
-
-                    &-editButton {
-                        font-size: medium;
-                        padding: 0.13rem;
-                        margin: 0.2rem;
-                        background-color: green;
-                        border: 1px solid rgba(0, 0, 0, 0.466);
-                    }
-
+                &-deleteButton {
+                    font-size: medium;
+                    padding: 0.13rem;
+                    margin: 0.35rem;
+                    background-color: rgb(226, 0, 0);
+                    border: 1px solid rgba(0, 0, 0, 0.466);
                 }
+
+                &-editButton {
+                    font-size: medium;
+                    padding: 0.13rem;
+                    margin: 0.35rem;
+                    background-color: green;
+                    border: 1px solid rgba(0, 0, 0, 0.466);
+                }
+
             }
         }
     }
+}
 
 tr:nth-child(even) td {
     background-color: rgba(128, 128, 128, 0.521);
@@ -66,36 +71,36 @@ tr:hover td {
     background-color: rgba(255, 44, 44, 0.288);
 }
 
-@media screen and (max-width: 500px){
-    .stockTable{
+@media screen and (max-width: 500px) {
+    .stockTable {
         width: 90vw;
         margin: 1em auto;
     }
 
-    .stockTable thead{
+    .stockTable thead {
         display: none;
     }
 
     .stockTable,
     .stockTable tbody,
     .stockTable tr,
-    .stockTable td{
+    .stockTable td {
         display: block;
         overflow-x: hidden;
-    }    
+    }
 
-    .stockTable tr{
+    .stockTable tr {
         margin-bottom: 1em;
-        }
-        
-    .stockTable td{
+    }
+
+    .stockTable td {
         max-width: 100%;
         word-wrap: break-word;
         text-align: right;
         position: relative;
     }
 
-    .stockTable td::before{
+    .stockTable td::before {
         color: rgb(92, 0, 0, 0.747);
         content: attr(data-label);
         position: static;
@@ -108,7 +113,7 @@ tr:hover td {
     }
 
     .stockTable td,
-    .stockTable th{
+    .stockTable th {
         padding: .3em .7em;
         border: 1px solid rgba(209, 207, 207, 0.24);
     }
