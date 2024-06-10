@@ -1,3 +1,17 @@
 .stockContainer{
     min-height: 28rem;
+    overflow-x: hidden;
+    &__button{
+        margin: 0 0 0 2rem ;
+    }
+    &__tableContainer{
+        &-list{
+            &-item{
+                &-title{
+                    margin: 1em 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }

@@ -1,52 +1,115 @@
-.stockTable{
-    width: 30rem;
-    &__table{
-        width: 100%;
-        text-align: left;
-        border: solid 1px rgba(0, 0, 0, 0.199);
-        border-collapse: collapse;
-        &-titles{
+.stockTable {
+    text-align: left;
+    overflow-x: auto;
+    width: 100%;
+    text-align: left;
+    border: solid 1px rgba(0, 0, 0, 0.199);
+    border-collapse: collapse;
+        &__titles {
             height: 2.5rem;
-            font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+            font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
             font-size: larger;
             background-color: rgba(255, 0, 0, 0.479);
             border-bottom: solid 3px rgba(92, 0, 0, 0.747);
-            &-item{
+
+            &-item {
                 width: 10rem;
                 padding-left: 0.3rem;
             }
         }
-        &-list{
-            height: 2rem;
-            font-family: Calibri,'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-            &-item{
-                max-width: 10rem;
-                padding-left: 0.3rem;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                &-deleteButton{
-                    font-size: medium;
-                    padding: 0.13rem;
-                    margin: 0.2rem;
-                    background-color: rgb(226, 0, 0);
-                    border: 1px solid rgba(0, 0, 0, 0.466);
-                }
-                &-editButton{
-                    font-size: medium;
-                    padding: 0.13rem;
-                    margin: 0.2rem;
-                    background-color: green;
-                    border: 1px solid rgba(0, 0, 0, 0.466);
+
+        &__body {
+            &-list {
+                align-items: center;
+                font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+                overflow-x: scroll;
+                
+                &-item {
+                    overflow-x: hidden;
+                    align-content: center;
+                    max-width: 10rem;
+                    padding: 0 0 0 0.3rem;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+
+                    }
+                    &-buttons{
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                    &-deleteButton {
+                        font-size: medium;
+                        padding: 0.13rem;
+                        margin: 0.2rem;
+                        background-color: rgb(226, 0, 0);
+                        border: 1px solid rgba(0, 0, 0, 0.466);
+                    }
+
+                    &-editButton {
+                        font-size: medium;
+                        padding: 0.13rem;
+                        margin: 0.2rem;
+                        background-color: green;
+                        border: 1px solid rgba(0, 0, 0, 0.466);
+                    }
+
                 }
             }
         }
     }
-}
 
-tr:nth-child(even){
+tr:nth-child(even) td {
     background-color: rgba(128, 128, 128, 0.521);
 }
 
-tr:hover td{
-    background-color:  rgba(255, 44, 44, 0.288);
+tr:hover td {
+    background-color: rgba(255, 44, 44, 0.288);
+}
+
+@media screen and (max-width: 500px){
+    .stockTable{
+        width: 90vw;
+        margin: 1em auto;
+    }
+
+    .stockTable thead{
+        display: none;
+    }
+
+    .stockTable,
+    .stockTable tbody,
+    .stockTable tr,
+    .stockTable td{
+        display: block;
+        overflow-x: hidden;
+    }    
+
+    .stockTable tr{
+        margin-bottom: 1em;
+        }
+        
+    .stockTable td{
+        max-width: 100%;
+        word-wrap: break-word;
+        text-align: right;
+        position: relative;
+    }
+
+    .stockTable td::before{
+        color: rgb(92, 0, 0, 0.747);
+        content: attr(data-label);
+        position: static;
+        display: flex;
+        justify-content: start;
+        margin-right: 15%;
+        margin-left: 5px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .stockTable td,
+    .stockTable th{
+        padding: .3em .7em;
+        border: 1px solid rgba(209, 207, 207, 0.24);
+    }
 }

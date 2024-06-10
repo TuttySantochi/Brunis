@@ -52,8 +52,7 @@ export class IronWorkStockComponent implements OnInit {
             }
           }
         }
-    }
-  )
+    })
   }
 
   setvalues(id: string){    

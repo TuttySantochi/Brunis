@@ -1,7 +1,8 @@
 .footer{
     min-height: 7.5em;
-    width: 100vw;
+    width: 100%;
     background-color: brown;
+    overflow-x: hidden;
     &__content{
         height: 100%;
         margin-top: 1em;

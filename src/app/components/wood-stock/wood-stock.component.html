@@ -1,23 +1,23 @@
-<div class="stockTable">
-    <table class="stockTable__table table">
-        <tr class="stockTable__table-titles">
-            <th class="stockTable__table-titles-item">Nombre</th>
-            <th class="stockTable__table-titles-item">Cantidad</th>
-            <th class="stockTable__table-titles-item">Dimensiones</th>
-            <th class="stockTable__table-titles-item">Acciones</th>
-        </tr>
-        <tr class="stockTable__table-list" *ngFor="let item of woodList | filter:searchText">
-            <td class="stockTable__table-list-item" title="{{item.name}}">{{item.name}}</td>
-            <td class="stockTable__table-list-item" title="{{item.quantity}}">{{item.quantity}}</td>
-            <td class="stockTable__table-list-item" title="{{item.dimensions}}">{{item.dimensions}}</td>
-            <td class="stockTable__table-list-item">
-                <button class="stockTable__table-list-item-editButton btn" data-bs-toggle="modal"
-                    data-bs-target="#woodEditModal" (click)="setvalues(item.id)">Editar</button>
-                <button class="stockTable__table-list-item-deleteButton btn" (click)="selectItem(item.id)">Eliminar</button>
-            </td>
-        </tr>
+    <table class="stockTable table">
+        <thead class="stockTable__titles">
+            <th class="stockTable__titles-item">Nombre</th>
+            <th class="stockTable__titles-item">Cantidad</th>
+            <th class="stockTable__titles-item">Dimensiones</th>
+            <th class="stockTable__titles-item">Acciones</th>
+        </thead>
+        <tbody class="stockTable__body">
+            <tr class="stockTable__body-list" *ngFor="let item of woodList | filter:searchText">
+                <td data-label="Nombre" class="stockTable__body-list-item" title="{{item.name}}">{{item.name}}</td>
+                <td data-label="Cantidad" class="stockTable__body-list-item" title="{{item.quantity}}">{{item.quantity}}</td>
+                <td data-label="Dimensiones" class="stockTable__body-list-item" title="{{item.dimensions}}">{{item.dimensions}}</td>
+                <td data-label="Acciones" class="stockTable__body-list-buttons">
+                    <button class="stockTable__body-list-buttons-editButton btn" data-bs-toggle="modal"
+                        data-bs-target="#woodEditModal" (click)="setvalues(item.id)">Editar</button>
+                    <button class="stockTable__body-list-buttons-deleteButton btn" (click)="selectItem(item.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
     </table>
-</div>
 
 <div class="modal fade" id="woodEditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
