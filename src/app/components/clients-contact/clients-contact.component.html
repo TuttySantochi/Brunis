@@ -7,20 +7,20 @@
                 </div>
                 <div class="card__body">
                     <div class="card__body-item">
-                        <span style="font-size: 1.1em;" title="{{item.phone}}"><span style="font-weight: 600;">Teléfono:
-                            </span>{{item.phone}}</span>
+                        <span class="card__body-item-title" style="font-weight: 600;">Telefono:</span>
+                        <span class="card__body-item-text" title="{{item.phone}}">{{item.phone}}</span>   
                     </div>
                     <div class="card__body-item">
-                        <span style="font-size: 1.1em;" title="{{item.location}}"><span
-                                style="font-weight: 600;">Dirección: </span>{{item.location}}</span>
+                        <span class="card__body-item-title" style="font-weight: 600;">Dirección:</span>
+                        <span class="card__body-item-text" title="{{item.location}}">{{item.location}}</span>   
                     </div>
                     <div class="card__body-item">
-                        <span style="font-size: 1.1em;">{{item.calification}}</span>
+                        <span style="font-size: 1.1em;"> {{item.calification}}</span>
                     </div>
                 </div>
                 <div class="card__footer">
                     <button class="card__footer-button btn btn-primary" (click)="setValue(item.id)"
-                        data-bs-toggle="modal" data-bs-target="#editModal">Editar</button>
+                        data-bs-toggle="modal" data-bs-target="#editModal2">Editar</button>
                     <button class="card__footer-button btn btn-danger" (click)="selectWork(item.id)">Eliminar</button>
                 </div>
             </div>
@@ -28,7 +28,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

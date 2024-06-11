@@ -1,0 +1,36 @@
+.container{
+    max-width: 20em;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    &__login{
+        background-color: rgba(129, 0, 0, 0.733);
+        height: fit-content;
+        padding: 2em;
+        width: 100%;
+        text-align: center;
+        border-radius: 15px;
+        &-logo{
+            margin: .5em auto;
+            width: 100%;
+            text-align: center;
+            &-img{
+                margin: 0 auto;
+                display: block;
+                width: 5em;
+                border-radius: 100px;
+            }
+        }
+        &-form{
+            margin-top: 2em;
+            &-item{
+                margin: 1em auto;
+            }
+            &-button{
+                margin-top: 2.5em;
+            }
+        }
+    }
+
+}
