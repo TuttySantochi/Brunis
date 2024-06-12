@@ -31,16 +31,22 @@
                         <label for="inputName" class="form-label">Nombre</label>
                         <input class="modal-body__form-input form-control" id="inputName" type="text"
                             placeholder="Nombre completo" formControlName='name'>
+                        <div class="alert alert-danger mt-2" [hidden]="form.get('name')?.valid || form.get('name')?.pristine">   
+                                Pone el nombrecito
+                        </div>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputLocation" class="form-label">Dirección</label>
                         <input class="modal-body__form-input form-control" id="inputLocation" type="text"
                             placeholder="Dirección" formControlName='location'>
-                    </div>
+                        </div>
                     <div class="modal-body__form-input">
                         <label for="inputPhone" class="form-label">Teléfono</label>
                         <input class="modal-body__form-input form-control" id="inputPhone" type="number"
                             placeholder="Tel" formControlName='phone'>
+                        <div class="alert alert-danger mt-2" [hidden]="form.get('phone')?.valid || form.get('phone')?.pristine">   
+                                Guardá el numerito...
+                        </div>
                     </div>
                     <div class="modal-body__form-select">
                         <label for="SelectType" class="form-label">Tipo:</label>
@@ -55,7 +61,7 @@
                             type="number" formControlName='calification'>
                     </div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="form.invalid">Agregar</button>
                 </form>
             </div>
         </div>

@@ -27,12 +27,18 @@
                     <div class="modal-body__form-input">
                         <label for="inputClientName" class="form-label">Nombre del cliente</label>
                         <input class="modal-body__form-input form-control" id="inputClientName" type="text"
-                            placeholder="Nombre del cliente" formControlName="clientName" />
+                            placeholder="Nombre del cliente" formControlName="clientName"/>
+                        <div class="alert alert-danger" [hidden]="form.get('clientName')?.valid || form.get('clientName')?.pristine">   
+                            Una sola cosa tenes que hacer
+                        </div>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputLocation" class="form-label">Dirección</label>
                         <input class="modal-body__form-input form-control" id="inputLocation" type="text"
                             placeholder="Dirección" formControlName="location" />
+                            <div class="alert alert-danger" [hidden]="form.get('location')?.valid || form.get('location')?.pristine">   
+                                Una sola cosa tenes que hacer
+                            </div>
                     </div>
                     <div class="modal-body__form-input">
                         <label for="SelectType" class="form-label">Tipo de vivienda:</label>
@@ -47,6 +53,9 @@
                         <label for="inputFurnitureType" class="form-label">Tipo de mueble</label>
                         <input class="modal-body__form-input form-control" id="inputFurnitureType" type="text"
                             placeholder="Tipo de mueble" formControlName="furnitureType" />
+                        <div class="alert alert-danger" [hidden]="form.get('furnitureType')?.valid || form.get('furnitureType')?.pristine">   
+                                Una sola cosa tenes que hacer
+                        </div>   
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputFurnitureColor" class="form-label">Color del mueble</label>
@@ -136,7 +145,7 @@
                         <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal" (click)="clear()">
                             Cancelar
                         </button>
-                        <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal">Agregar</button>
+                        <button type="submit" class="btn btn-primary m-2" data-bs-dismiss="modal" [disabled]="form.invalid" >Agregar</button>
                     </div>
                 </form>
             </div>

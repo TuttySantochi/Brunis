@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Work } from 'src/app/models/work';
 import { WorksService } from '../../services/works.service';
 import { SearchService } from '../../services/search.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
@@ -20,19 +20,20 @@ export class HomeComponent implements OnInit {
   isLoading: boolean = false
   searchText: string
 
+
   constructor(
     private WorksServices: WorksService,
     private storage: AngularFireStorage,
     private searchService: SearchService
   ) {
     this.form = new FormGroup({
-      clientName: new FormControl(''),
-      furnitureType: new FormControl(''),
+      clientName: new FormControl('', Validators.required),
+      furnitureType: new FormControl('', Validators.required),
       furnitureColor: new FormControl(''),
       woodType: new FormControl(''),
       price: new FormControl(0),
       deadline: new FormControl(''),
-      location: new FormControl(''),
+      location: new FormControl('', Validators.required),
       type: new FormControl(''),
       elevator: new FormControl(''),
       doors: new FormControl(''),

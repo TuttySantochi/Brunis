@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactService } from 'src/app/services/contact.service';
 import { SearchService } from '../../services/search.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -18,9 +18,9 @@ export class ContactComponent implements OnInit {
   constructor(private contactService: ContactService,
     private searchService: SearchService) {
     this.form = new FormGroup({
-      name: new FormControl(''),
+      name: new FormControl('', Validators.required),
       location: new FormControl(''),
-      phone: new FormControl(0),
+      phone: new FormControl(0, Validators.required),
       type: new FormControl(''),
       calification:  new FormControl(0)
     })
