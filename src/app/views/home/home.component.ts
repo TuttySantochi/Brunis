@@ -125,8 +125,4 @@ export class HomeComponent implements OnInit {
       this.isLoading = true
   }
 
-  // searchInfo(){
-  //   this.searchService.changeData(this.searchText)
-  // }
-
 }
