@@ -94,7 +94,6 @@ export class HomeComponent implements OnInit {
     let id = this.generateId()
     let mainFoto = false;
     let objFoto = { id, imageURL, mainFoto }
-    console.log(objFoto);
     this.workFotos.push(objFoto);
   }
 
