@@ -1,39 +1,48 @@
-.card{
+.card {
     height: 24em;
-    &__img{
+
+    &__img {
         margin: 0 auto;
         margin-top: 15px;
         width: 85%;
         height: 50%;
         overflow-y: hidden;
-        &-picture{
+
+        &-picture {
             border-radius: 5px;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-    } &__list{
+    }
+
+    &__list {
         padding: 0 2rem;
         margin: 0.55rem 0 0 0;
         min-height: 5.06rem;
         list-style: none;
-        &-item{
-            font-size: 1em;
+
+        &-item {
+            overflow: hidden;
+            font-size: .9em;
             font-weight: 500;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
     }
-    &__footer{
+
+    &__footer {
         display: flex;
         justify-content: center;
-        &-button{
+
+        &-button {
             width: 30%;
             margin: 1rem;
             overflow-y: hidden;
             color: rgba(106, 169, 241, 0.74);
             font-size: 0.72em;
-            &-link{
+
+            &-link {
                 font-size: 0.72rem;
                 text-decoration: none;
                 color: rgba(106, 169, 241, 0.74);
@@ -42,12 +51,13 @@
     }
 }
 
-@media screen and (min-width: 991px) and (max-width: 1200px){
-    .card{
-        &__footer{
-            &-button{
+@media screen and (min-width: 991px) and (max-width: 1200px) {
+    .card {
+        &__footer {
+            &-button {
                 font-size: 0.8rem;
-                &-link{
+
+                &-link {
                     font-size: 0.8rem;
                 }
             }
@@ -55,9 +65,14 @@
     }
 }
 
-@media screen and (max-width: 575px){
-    .card{
+@media screen and (max-width: 575px) {
+    .card {
         width: 70vw;
         margin: 0 auto;
     }
 }
+
+// li {
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+// }
