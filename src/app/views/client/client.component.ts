@@ -18,6 +18,7 @@ export class ClientComponent implements OnInit {
 
   isLoading: boolean = false
   workFotos: any[] = [];
+  workNotes: any[] = [];
   workFotosToEdit: any[] = [];
   fotosToDelete: any[] = [];
   workInfo?: Work;
@@ -45,7 +46,7 @@ export class ClientComponent implements OnInit {
       plugs: new FormControl(false),
       corbel: new FormControl(false),
       pictures: new FormControl([]),
-      notes: new FormControl('')
+      notes: new FormControl([])
     });
 
     this.workInfo = {
@@ -68,7 +69,7 @@ export class ClientComponent implements OnInit {
       plugs: false,
       corbel: false,
       pictures: [],
-      notes: ''
+      notes: []
     };
   }
 
@@ -79,6 +80,9 @@ export class ClientComponent implements OnInit {
           this.workInfo = response;
           for (let i = 0; i < response.pictures.length; i++) {
               this.workFotos.push(response?.pictures[i]);                     
+            }
+            for (let i = 0; i < response.notes.length; i++) {
+              this.workNotes.push(response?.notes[i]);
             }
           } else {
             Swal.fire({

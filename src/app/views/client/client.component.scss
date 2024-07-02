@@ -1,5 +1,5 @@
 .work{
-    width: 85vw;
+    width: 100%;
     min-height: 70vh;
     margin: 0 auto;
     &__carousel{
@@ -40,5 +40,15 @@
                 margin-left: 5px;
             }
         }
+    }
+}
+
+
+@media screen and (max-width: 767px){
+    .notes{
+        order: 2;
+    }
+    .info{
+        order: 1;
     }
 }

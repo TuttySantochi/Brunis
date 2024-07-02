@@ -43,7 +43,7 @@ export class CardComponent implements OnInit {
     plugs: false,
     corbel: false,
     pictures: [],
-    notes: '',
+    notes: [],
   };
 
   constructor(private WorksServices: WorksService, private storage: AngularFireStorage) { }

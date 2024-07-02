@@ -5,6 +5,8 @@ import { SearchService } from '../../services/search.service';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/compat/storage'
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-home',
@@ -15,10 +17,14 @@ export class HomeComponent implements OnInit {
 
   selectedFile: File;
   workFotos: any[] = [];
+  workNotes: any[] = [];
   worksList: Work[] = [];
   form: FormGroup;
-  isLoading: boolean = false
-  searchText: string
+  isLoading: boolean = false;
+  searchText: string;
+  newNote: string = '';
+
+  
 
 
   constructor(
@@ -45,7 +51,7 @@ export class HomeComponent implements OnInit {
       plugs: new FormControl(false),
       corbel: new FormControl(false),
       pictures: new FormControl([]),
-      notes: new FormControl(''),
+      notes: new FormControl([]),
     });
   }
 
@@ -117,6 +123,31 @@ export class HomeComponent implements OnInit {
           image.mainFoto = false;
         }
       });
+    }
+  }
+
+  addNote(){
+    if(this.newNote.trim() !== ''){
+      let note = this.newNote
+      let id = this.generateId()
+      let objNota = { id, note }
+      console.log(objNota);      
+      this.workNotes.push(objNota)
+      this.newNote = ''; 
+    } else{
+      Swal.fire({
+        title: 'No se pudo agregar la nota',
+        icon: 'error',
+        timer: 1500,
+        showConfirmButton: false
+      })
+    }
+  }
+
+  deleteNote(id: string){
+    let index = this.workNotes.findIndex(item => item.id === id)
+    if (index !== -1) {
+      this.workNotes.splice(index, 1)
     }
   }
 

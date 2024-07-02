@@ -18,5 +18,5 @@ export interface Work {
     plugs: boolean,
     corbel: boolean,
     pictures: any[],
-    notes: string
+    notes: any[]
 }
