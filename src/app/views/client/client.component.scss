@@ -1,17 +1,21 @@
-.work{
+.work {
     width: 100%;
     min-height: 70vh;
     margin: 0 auto;
-    &__carousel{
+
+    &__carousel {
         margin: 0 auto;
         width: 65%;
         overflow-y: hidden;
-        &-content{
+
+        &-content {
             height: 100%;
-            &-pics{
-                &-item{
+
+            &-pics {
+                &-item {
                     height: 60vh;
-                    &-photo{
+
+                    &-photo {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
@@ -21,13 +25,34 @@
             }
         }
     }
-    &__detail{
+
+    &__detail {
         width: 70%;
         margin: 0 auto;
+
+        &-client {
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+        }
+
+        &-notes {
+            list-style-type: none;
+        }
     }
 }
 
-.modal-button{
+.notes {
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+}
+
+.info{
+    padding-right: 0px !important;
+}
+
+.modal-button {
     width: 50px;
     position: fixed;
     bottom: 130px;
@@ -36,11 +61,12 @@
     border-radius: 100px;
 }
 
-.modal-body{
-    &__form{
-        &-input{
+.modal-body {
+    &__form {
+        &-input {
             margin-bottom: 5px;
-            &-checkbox{
+
+            &-checkbox {
                 margin-left: 5px;
             }
         }
@@ -48,25 +74,42 @@
 }
 
 
-@media screen and (max-width: 767px){
-    .notes{
+@media screen and (max-width: 767px) {
+    .notes {
         order: 2;
     }
-    .info{
+
+    .info {
         order: 1;
+        padding: 0px;
+        margin-bottom: 1em;
     }
-    .work{
-        &__carousel{
+
+    .work {
+        &__carousel {
             width: 90%;
-            &-content{
-                &-pics{
-                    &-item{
+
+            &-content {
+                &-pics {
+                    &-item {
                         height: 40vh;
                     }
                 }
             }
         }
+        &__detail{
+            width: 90%;
+        }
 
     }
-    
 }
+
+// @media screen and (max-width: 570px){
+//     .work{
+//         &__detail{
+//             &-client{
+//                 display: block;
+//             }
+//         }
+//     }
+// }
