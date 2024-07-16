@@ -4,14 +4,18 @@
     margin: 0 auto;
     &__carousel{
         margin: 0 auto;
-        width: 70%;
-        height: 400px;
+        width: 65%;
         overflow-y: hidden;
         &-content{
+            height: 100%;
             &-pics{
                 &-item{
+                    height: 60vh;
                     &-photo{
+                        width: 100%;
+                        height: 100%;
                         object-fit: cover;
+                        object-position: center;
                     }
                 }
             }
@@ -51,4 +55,18 @@
     .info{
         order: 1;
     }
+    .work{
+        &__carousel{
+            width: 90%;
+            &-content{
+                &-pics{
+                    &-item{
+                        height: 40vh;
+                    }
+                }
+            }
+        }
+
+    }
+    
 }

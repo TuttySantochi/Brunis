@@ -3,10 +3,10 @@
     <span class="spinner"></span>
 </div>
 <div class="work mt-1 mb-3" *ngIf="!isLoading">
-    <div class="work__carousel">
-        <div id="carouselExample" class="carousel slide work__carousel-content">
-            <div class="carousel-inner work__carousel-content-pics" *ngFor="let foto of workFotos">
-                <div class="work__carousel-content-pics-item carousel-item active">
+    <div class="work__carousel text-center">
+        <div id="carouselExample" class="carousel slide carousel-fade work__carousel-content">
+            <div class="carousel-inner work__carousel-content-pics">
+                <div class="work__carousel-content-pics-item carousel-item active text-center" *ngFor="let foto of workFotos">
                     <img src="{{foto.imageURL}}" class="work__carousel-content-pics-item-photo d-block w-100" alt="...">
                 </div>
             </div>
@@ -26,23 +26,23 @@
         <div class="work__detail-client container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="work__detail-client-name d-flex justify-content-center"><h4 style="margin-right: .8em;">Cliente: </h4> <span style="font-weight: 400; font-size: x-large; margin-top: -5px;">{{workInfo?.clientName}}</span></div>
-                    <div class="work__detail-client-direction d-flex justify-content-center"><h5 style="margin-right: .8em;">Dirección: </h5> <span style="font-weight: 400; font-size: large;">{{workInfo?.location}}</span></div>
+                    <div class="work__detail-client-name d-flex justify-content-center"><h4 style="margin-right: .8em;">Cliente: </h4> <span style="font-weight: 400; font-size: large; margin-top: 3px;">{{workInfo?.clientName}}</span></div>
+                    <div class="work__detail-client-direction d-flex justify-content-center"><h5 style="margin-right: .8em;">Dirección: </h5> <span style="font-weight: 400; font-size: medium;">{{workInfo?.location}}</span></div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="work__detail-client-cost d-flex justify-content-center"><h5 style="margin-right: .8em;">Precio: </h5><span style="font-weight: 400; font-size: large;">${{workInfo?.price}}</span></div>
-                    <div class="work__detail-client-deadline d-flex justify-content-center"><h5 style="margin-right: .8em;">Fecha de entrega: </h5> <span style="font-weight: 400; font-size: large;">{{workInfo?.deadline}}</span></div>
+                    <div class="work__detail-client-cost d-flex justify-content-center"><h5 style="margin-right: .8em;">Precio: </h5><span style="font-weight: 400; font-size: medium;">${{workInfo?.price}}</span></div>
+                    <div class="work__detail-client-deadline d-flex justify-content-center"><h5 style="margin-right: .8em;">Fecha de entrega: </h5> <span style="font-weight: 400; font-size: medium;">{{workInfo?.deadline}}</span></div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 notes">
-                    <ul class="work__detail-notes mt-3 mb-3" *ngFor="let note of workNotes">
-                        <li>{{note}}</li>
+                <div class="col-lg-4 col-md-4 col-sm-12 notes">
+                    <ul class="work__detail-notes mt-3 mb-3" *ngFor="let item of workNotes">
+                        <li>{{item.note}}</li>
                     </ul>
                 </div>
-                <div class="col-lg-9 col-md-9 col-sm-12 info">
+                <div class="col-lg-8 col-md-8 col-sm-12 info">
                     <div class="work__detail-info container mt-3">
                         <div class="row">
                             <div class="work__detail-info-specifications col-lg-6 col-md-6 col-sm-12">

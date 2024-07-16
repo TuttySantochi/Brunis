@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
 
-  selectedFile: File;
   workFotos: any[] = [];
   workNotes: any[] = [];
   worksList: Work[] = [];
@@ -83,6 +82,7 @@ export class HomeComponent implements OnInit {
     this.isLoading = true
     const work = this.form.value;
     work.pictures = this.workFotos
+    work.notes = this.workNotes
     this.WorksServices.addWork(work)
     setTimeout(() => {
       window.location.reload()
@@ -130,9 +130,9 @@ export class HomeComponent implements OnInit {
     if(this.newNote.trim() !== ''){
       let note = this.newNote
       let id = this.generateId()
-      let objNota = { id, note }
-      console.log(objNota);      
-      this.workNotes.push(objNota)
+      let objNote = { id, note }
+      console.log(objNote);      
+      this.workNotes.push(objNote)
       this.newNote = ''; 
     } else{
       Swal.fire({
