@@ -191,8 +191,19 @@
                     </div>
                     <div class="modal-body__form-input">
                         <label for="inputNotes" class="form-label">Notas</label>
-                        <textarea formControlName="notes" class="modal-body__form-input form-control" id="inputNotes"
-                            placeholder="Notas" rows="2"></textarea>
+                        <div class="inputAndButton d-flex justify-content-center">
+                            <input type="text" [(ngModel)]="newNote" [ngModelOptions]="{standalone: true}"
+                                class="modal-body__form-input form-control" id="inputNotes" placeholder="Notas">
+                            <button type="button" class="btn btn-dark addNoteButton" (click)="addNote()">Agregar</button>
+                        </div>
+                    </div>
+                    <div class="newNotes">
+                        <div class="noteContainer">
+                            <div class="d-flex justify-content-between p-3" *ngFor="let item of workNotes">
+                                <span class="modalNote" title="{{item.note}}">{{item.note}}</span>
+                                <span (click)="deleteNote(item.id)">x</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-buttons mt-2 text-center">
                         <button (click)="clear()" type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">

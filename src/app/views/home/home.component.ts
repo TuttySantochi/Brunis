@@ -131,7 +131,6 @@ export class HomeComponent implements OnInit {
       let note = this.newNote
       let id = this.generateId()
       let objNote = { id, note }
-      console.log(objNote);      
       this.workNotes.push(objNote)
       this.newNote = ''; 
     } else{

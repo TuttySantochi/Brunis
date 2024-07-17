@@ -19,8 +19,10 @@ export class ClientComponent implements OnInit {
   isLoading: boolean = false
   workFotos: any[] = [];
   workNotes: any[] = [];
+  // newWorkNotes: any[] = [];
   workFotosToEdit: any[] = [];
   fotosToDelete: any[] = [];
+  newNote: string = '';
   workInfo?: Work;
   form: FormGroup;
 
@@ -128,7 +130,7 @@ export class ClientComponent implements OnInit {
       plugs: this.workInfo?.plugs,
       corbel: this.workInfo?.corbel,
       pictures: [],
-      notes: this.workInfo?.notes
+      notes: []
     })
   }
 
@@ -174,10 +176,11 @@ checkMain (id: string){
   updateWork(): void{
     this.isLoading = true
     this.form.value.pictures = this.workFotosToEdit
+    this.form.value.notes = this.workNotes
     this.worksService.updateWork(this.id, this.form.value)
     setTimeout(() => {
       window.location.reload()
-    }, 1800);
+    }, 1500);
   }
 
   clear(){
@@ -190,6 +193,30 @@ checkMain (id: string){
     this.workFotosToEdit = [];
     this.fotosToDelete = [];
     this.form.reset()
+  }
+
+  addNote(){
+    if(this.newNote.trim() !== ''){
+      let note = this.newNote
+      let id = this.generateId()
+      let objNote = { id, note }
+      this.workNotes.push(objNote)
+      this.newNote = ''; 
+    } else{
+      Swal.fire({
+        title: 'No se pudo agregar la nota',
+        icon: 'error',
+        timer: 1500,
+        showConfirmButton: false
+      })
+    }
+  }
+
+  deleteNote(id: string){
+    let index = this.workNotes.findIndex(item => item.id === id)
+    if (index !== -1) {
+      this.workNotes.splice(index, 1)
+    }
   }
 
 }
