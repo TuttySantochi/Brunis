@@ -2,10 +2,10 @@
     width: 100%;
     min-height: 70vh;
     margin: 0 auto;
-
+    margin-top: -2.2em;
     &__carousel {
         margin: 0 auto;
-        width: 65%;
+        width: 100%;
         overflow-y: hidden;
 
         &-content {
@@ -13,7 +13,7 @@
 
             &-pics {
                 &-item {
-                    height: 60vh;
+                    height: 75vh;
 
                     &-photo {
                         width: 100%;
@@ -27,7 +27,7 @@
     }
 
     &__detail {
-        width: 70%;
+        width: 95%;
         margin: 0 auto;
 
         &-client {
@@ -39,6 +39,14 @@
         &-notes {
             list-style-type: none;
         }
+        &-info{
+            &-specifications{
+                padding-left: 2em;
+            }
+            &-building{
+                padding-left: 2em;
+            }
+        }
     }
 }
 
@@ -46,18 +54,21 @@
     border: 1px solid #ddd;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 2px;
+    padding: 0px;
 }
 
 .info{
-    padding-right: 0px !important;
+    padding-right: 0px;
 }
 
 .modal-button {
+    z-index: 100;
     width: 50px;
+    height: 50px;
     position: fixed;
     bottom: 130px;
     left: 20px;
-    font-size: x-large;
+    font-size: large;
     border-radius: 100px;
 }
 
@@ -87,8 +98,6 @@
 
     .work {
         &__carousel {
-            width: 90%;
-
             &-content {
                 &-pics {
                     &-item {
@@ -97,19 +106,5 @@
                 }
             }
         }
-        &__detail{
-            width: 90%;
-        }
-
     }
 }
-
-// @media screen and (max-width: 570px){
-//     .work{
-//         &__detail{
-//             &-client{
-//                 display: block;
-//             }
-//         }
-//     }
-// }
