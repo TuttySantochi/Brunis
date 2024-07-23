@@ -24,7 +24,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Item</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="clearForm()"></button>
             </div>
             <div class="modal-body">
                 <form [formGroup]="form" class="modal-body__form" (ngSubmit)="onSubmit()">
@@ -33,18 +33,30 @@
                             <label for="SelectType" class="form-label">Tipo de Item:</label>
                             <select id="SelectType" class="form-control mb-3" (change)="resetSelect()"
                                 (change)="onSelect($event.target)" formControlName="category">
-                                <option value="0" disabled selected>-- Seleciona una categoria --</option>
+                                <option value="0" disabled selected>-- Selecciona una categoria --</option>
                                 <option *ngFor="let item of stockType" [value]="item.name">{{item.name}}</option>
                             </select>
+                        </div>
+                        <div class="newItemDiv mb-3" id="newItemDiv" style="display: none;">
+                            <label class="form-label" for="newItem">Nuevo item</label>
+                            <div style="display: flex;justify-content: center;">
+                                <input [(ngModel)]="newItemType" [ngModelOptions]="{standalone: true}" 
+                                class="form-control" type="text" id="newItem" placeholder="Agrega item">
+                                <button type="button" class="btn btn-dark" (click)="sendNewItem()">Agregar</button>
+                            </div>
                         </div>
                         <div id="divItemType" style="display: none;">
                             <label for="itemType" class="form-label">Nombre del item:</label>
                             <select id="itemType" class="form-control mb-3" formControlName="name"
-                                (change)="showDisplay()">
-                                <option value="0" disabled selected>-- Seleciona un item --</option>
-                                <option *ngFor="let item of selectedOptions" [value]="item.name">{{item.name}}</option>
-                            </select>
-                        </div>
+                            (change)="showDisplay()">
+                            <option value="0" disabled selected>-- Seleciona un item --</option>
+                            <option *ngFor="let item of selectedOptions" [value]="item.name">{{item.name}}</option>
+                        </select>
+                    </div>
+                    <div class="addItemsButtons" id="addItemsButtons">
+                        <button class="btn btn-dark" id="newItemButton" type="button" style="display: none; float: right;" (click)="showInput()">Nuevo</button>
+                        <button class="btn btn-dark" id="backButton" type="button" style="display: none; float: right;" (click)="backToSelect()">Volver</button>
+                    </div>
                         <div id="divItemQuantity" style="display: none;">
                             <label for="quantityInput" class="form-label">Cantidad</label>
                             <input class="form-control mb-3" type="number" id="quantityInput"
@@ -56,7 +68,7 @@
                                 placeholder="Ingrese las dimensiones" formControlName="dimensions">
                         </div>
                     </div>
-                    <div class="modal-buttons mt-2 text-center">
+                    <div class="modal-buttons mt-5 text-center">
                         <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal"
                             (click)="clearForm()">
                             Cancelar
